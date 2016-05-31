@@ -1,4 +1,4 @@
-package com.demo.java_design;
+package com.demo.javadesign;
 
 /**
  * Hello world!
