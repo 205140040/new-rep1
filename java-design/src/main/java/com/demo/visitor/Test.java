@@ -4,6 +4,11 @@ public class Test {
 
 	public static void main(String[] args) {
 		try {
+			/**
+			 * 访问者和接收者双重调度
+			 * 1.aceptor.accept(visitor);
+			 * 2.visitor.visit(accept);
+			 */
 			Directory root = new Directory("root");
 			Directory bin = new Directory("bin");
 			Directory tmp = new Directory("tmp");
