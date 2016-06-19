@@ -33,7 +33,6 @@
 	<context:property-placeholder
 		file-encoding="UTF-8" location="classpath:*.properties" />
 	<!-- 导入数据库配置 -->
-	<import resource="spring-mybatis.xml" />
-	<import resource="dubbo-consumer.xml" />
+	<import resource="dubbo-provider.xml" />
 
 </beans>
