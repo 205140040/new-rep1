@@ -7,9 +7,8 @@
 	                http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="hello-world-app" />
+	<dubbo:application name="dubbo-provider" />
 
-		
 	<!-- 使用zookeeper注册中心暴露服务地址,即zookeeper的所在服务器ip地址和端口号 -->
 	<dubbo:registry address="zookeeper://127.0.0.1:2181"  />
 
