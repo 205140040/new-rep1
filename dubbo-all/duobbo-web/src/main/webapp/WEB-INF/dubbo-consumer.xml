@@ -3,27 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
-	<dubbo:application name="dubbo-web" />
-
-	<!-- 使用zookeeper注册中心暴露服务地址，即zookeeper的所在服务器ip地址和端口号 -->
-	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
-
-	<!-- 多注册中心配置 <dubbo:registry id="chinaRegistry" address="10.20.141.150:9090" 
-		/> <dubbo:registry id="intlRegistry" address="10.20.154.177:9010" default="false" 
-		/> 引用中文站服务 <dubbo:reference id="chinaHelloService" interface="com.alibaba.hello.api.HelloService" 
-		version="1.0.0" registry="chinaRegistry" /> 引用国际站站服务 <dubbo:reference id="intlHelloService" 
-		interface="com.alibaba.hello.api.HelloService" version="1.0.0" registry="intlRegistry" 
-		/> -->
-
-	<!-- 生成远程服务代理，可以和本地bean一样使用demoService
-	结果缓存，用于加速热门数据的访问速度，Dubbo提供声明式缓存，以减少用户加缓存的工作量。
-	 -->
+	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
 	<dubbo:reference id="helloService"
-		interface="com.demo.hello.service.IHelloService" cache="lru"/>
+		interface="com.demo.hello.service.IHelloService"  />
 
-	<!-- 当一个接口有多种实现时，可以用group区分 -->
-	<!-- <dubbo:reference id="feedbackIndexService" group="feedback" interface="com.xxx.IndexService" 
-		/> <dubbo:reference id="memberIndexService" group="member" interface="com.xxx.IndexService" 
-		/> -->
 </beans>
