@@ -6,28 +6,12 @@
 	              http://code.alibabatech.com/schema/dubbo      
 	                http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<!-- 提供方应用信息，用于计算依赖关系 <dubbo:application name="dubbo-provider" /> -->
-	<!-- 使用zookeeper注册中心暴露服务地址,即zookeeper的所在服务器ip地址和端口号 <dubbo:registry address="zookeeper://127.0.0.1:2181" 
-		/> -->
-
-
-	<!-- 多注册中心配置 <dubbo:registry id="hangzhouRegistry" address="10.20.141.150:9090" 
-		/> <dubbo:registry id="qingdaoRegistry" address="10.20.141.151:9010" default="false" 
-		/> 向多个注册中心注册 <dubbo:service interface="com.alibaba.hello.api.HelloService" 
-		version="1.0.0" ref="helloService" registry="hangzhouRegistry,qingdaoRegistry" 
-		/> -->
-
-	<!-- 用dubbo协议在20880端口暴露服务 <dubbo:protocol name="dubbo" port="20880" /> -->
 
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.demo.hello.service.IHelloService"
-		ref="helloService" />
+		ref="helloService"  />
 
 	<!-- 和本地bean一样实现服务 -->
 	<bean id="helloService" class="com.demo.hello.service.impl.HelloServiceImpl" />
 
-	<!-- 当一个接口有多种实现时，可以用group区分。 -->
-	<!-- <dubbo:service group="feedback" interface="com.xxx.IndexService" ref="IndexService1"/>
-	<dubbo:service group="member" interface="com.xxx.IndexService" ref="IndexService2"/> -->
-	<!-- 看到泛华引用，章节 -->
 </beans>
