@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 public class ClassDemo {
 
 	public static void main(String[] args) throws IllegalAccessException, IllegalArgumentException,
-			InvocationTargetException, NoSuchMethodException, SecurityException {
+			InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, InstantiationException {
 		/*
 		 * List<Shape> shapes = Arrays.asList(new Circle(), new Square(), new
 		 * Juxing()); for (Shape shape : shapes) { if (shape instanceof Circle)
@@ -21,7 +21,7 @@ public class ClassDemo {
 		/**
 		 * 反射
 		 */
-		Class<?> c2 = Juxing.class;
+		Class<?> c2 = Class.forName("com.demo.deep.c14.Juxing");
 		// 获取所有的构造方法
 		Constructor<?>[] cons = c2.getConstructors();
 		for (Constructor<?> constructor : cons) {
@@ -41,7 +41,7 @@ public class ClassDemo {
 		// 调用私有方法,getDeclaredMethod，私有方法无法从所有的方法中获取
 		Method m2 = c2.getDeclaredMethod("myFun1");
 		m2.setAccessible(true); // 设置可访问私有方法
-		m2.invoke(new Juxing());
+		m2.invoke(c2.newInstance());
 
 		// 动态代理
 		// Juxing juxing = new Juxing();
