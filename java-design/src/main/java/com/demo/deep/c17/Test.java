@@ -44,7 +44,8 @@ public class Test {
 		 * 如果使用自己的类作为map的键，必须重写equals方法，和hashcode方法，
 		 * hasMap中的元素是无需的，linkedHashMap中的元素按添加的顺序排列
 		 */
-		
+		Integer[] is={1,2,3,4,5};
+		Arrays.sort(is);
 	}
 
 }
