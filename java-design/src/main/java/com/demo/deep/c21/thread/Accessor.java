@@ -6,13 +6,13 @@ import java.util.concurrent.Executors;
 public class Accessor implements Runnable {
 
 	public void run() {
-		synchronized (this) {
+//		synchronized (this) {
 			for (int i = 0; i < 10; i++) {
 				System.out.println(this);
 				ThreadLocalVarHolder.increment();
 			}
 			System.out.println("------------------------------");
-		}
+//		}
 	}
 
 	@Override
