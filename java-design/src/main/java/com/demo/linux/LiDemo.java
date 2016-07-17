@@ -14,6 +14,10 @@ public class LiDemo {
 		 * 4.2ctrl+c中断目前的程序，如输入 find / ，程序一直运行，ctrl+c后可以中断
 		 * 5.man page 查看命令说明，如 man date,
 		 * 此时可用用space键翻页，或输入/ 某个单词，查找相关信息
+		 * 6.文书编辑器:nano
+		 * 7.惯用的关机指令：shutdown 如：shutdown -r now(关机时需要指定时间),
+		 * shutdown -h +10 十分钟后关机,
+		 * shutdown -c 取消关机指令
 		 */
 	}
 
