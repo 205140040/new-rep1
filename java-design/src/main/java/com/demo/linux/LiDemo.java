@@ -87,7 +87,17 @@ public class LiDemo {
 		 * 可使用updatedb后，再用locate
 		 * find:查找文件，因为不是通过文档数据库查找，而是全盘查找，速度慢
 		 * 第八章：linux磁盘与文件系统管理
-		 * dao 250页
+		 * 1.df列出文件系统的磁盘使用量,df -h
+		 * 2.ln[sf] 来源文件 目标文件,制作link 快捷方式
+		 * -s:如果不加参数就是hard link，加了s就是symbolic link
+		 * -f:如果目标文件存在时，先移除目标文件在建立
+		 * fdisk:磁盘分区
+		 * mkfs:磁盘格式化
+		 * fsck:磁盘检验
+		 * 3.mount:磁盘挂载
+		 * umount [-fn]:将挂载的文件卸除
+		 * 第九章：档案与文件系统的打包与压缩
+		 * dao 301页
 		 */
 	}
 
