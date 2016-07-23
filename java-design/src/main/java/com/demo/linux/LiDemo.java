@@ -97,7 +97,38 @@ public class LiDemo {
 		 * 3.mount:磁盘挂载
 		 * umount [-fn]:将挂载的文件卸除
 		 * 第九章：档案与文件系统的打包与压缩
-		 * dao 301页
+		 * 1.compress：compress [rcv] 档案或目录 ==>压缩
+		 * uncompress *.z 解压缩
+		 * 2.gzip:可以解开compress，zip，gzip所压缩的文件
+		 * gzip [-cdtv#] 档名 ，-v可以显示出压缩比等信息，-#压缩等级
+		 * gzip -d 档案，将档案解压缩
+		 * cat可以读取纯文本，zcat可以读取压缩的文件
+		 * 3.bzip2比gzip更好，用法和gzip类似
+		 * bzcat:读取bzip2压缩的文件
+		 * 4.打包指令tar,上面的压缩指令只能针对单一文件
+		 * tar [-ctxjzvfC]
+		 * -c:建立打包档案，可配合-v显示打包的档名
+		 * -t:查看打包的档案含有哪些信息
+		 * -x:解打包或者解压缩
+		 * -j:通过bzip2进行压缩或者解压缩
+		 * -z:通过gzip进行压缩或者解压缩
+		 * -v:显示正在处理的文件名
+		 * -f:filename 要处理的文件名，建议写一个单独的-f
+		 * -C:用在解压缩指定解压到特定的目录
+		 * 用法:打包:tar -zcv -f test2.tar.gz test2.txt
+		 * 查看tar中的数据类容:tar -ztv -f test2.tar.gz
+		 * 解打包:tar -zxv -f test2.tar.gz
+		 * 5.dump备份文件
+		 * restore:还原dump备份的文件
+		 * dd: if:输入流,of:输出流,==>把文件从某处移到某处
+		 * 第十章：vim程序编辑器
+		 * 1.vi 文件名  编辑文档
+		 * vi使用方法，vi 文件名进入一般模式，
+		 * 输入i，进入更改模式，
+		 * 更改后按esc退出到一般模式,然后输入":wq"写入并退出
+		 * 操作:x删除,dd删除游标所在的一整列,yy复制游标所在的一整行
+		 * p:将复制的数据在光标的下一行粘贴
+		 * dao 339页
 		 */
 	}
 
