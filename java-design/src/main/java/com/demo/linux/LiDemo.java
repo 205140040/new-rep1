@@ -128,7 +128,60 @@ public class LiDemo {
 		 * 更改后按esc退出到一般模式,然后输入":wq"写入并退出
 		 * 操作:x删除,dd删除游标所在的一整列,yy复制游标所在的一整行
 		 * p:将复制的数据在光标的下一行粘贴
-		 * dao 339页
+		 * 2.vim:使用时会开启一个.swp的文件，用于在断电等未知异常后恢复文档
+		 * 目前一般用vim代替vi使用了
+		 * 3.iconv:编码转换:
+		 * iconv:--list 累出iconv支持的格式
+		 * -f :from 来源的编码
+		 * -t:to 转换后的编码
+		 * -o:转换后的文件
+		 * 如：icnov -f big5 to utf-8 test1.txt
+		 * 第十一章：认识与学习bash
+		 * 1.cat .bash_history 查看自己常用的shell命令，比如黑客可以根据此命令，进行操作
+		 * 2.命令与档案补全功能，连按两次tab键
+		 * 3.设置命令别名:如alias ll='ls -l'
+		 * 直接输入alias 查看有哪些别名
+		 * 4.程序化脚本shell scripts
+		 * 5.type查看指令是bash内键的还是外部的,type ls
+		 * 6.变量的取用与设定，echo
+		 * 如echo $varible或者echo ${varible}
+		 * 设定变量:varibleName=varibleValue即可,如myname=myvalue
+		 * 7.用env观察环境变量,environment的缩写，环境
+		 * 8.用set观察所有的变量
+		 * 9.export 将自定义变量转换成环境变量，子程序只能继承父程序的环境变量，
+		 * 所以通过转换使用自定义变量
+		 * 10.locale -a 显示支持的语言编码
+		 * 11.read读取键盘输入设为变量
+		 * read [-pt]
+		 * :p,后面可以接提示符
+		 * t:后面可以接等待的秒数
+		 * 12.declare声明变量的类型
+		 * -a:将变量声明为array
+		 * -i:将变量声明为int
+		 * -x:与export类似
+		 * -r:将变量设置为readonly
+		 * 如declare -i sum2=1+2+3,echo $sum2结果为，6
+		 * 13.ulimit限制档案开启的数量
+		 * 14.变量的类容取代与删除:
+		 * 15.alias 设置命令别名，unalias取消命令别名，
+		 * 如alias ll='ls -l' ,unalias ll
+		 * 历史命令:history
+		 * 直接输入history查看所有历史
+		 * history -c 清除历史，
+		 * history -w 立即把历史些人.histroy文件
+		 * 16.stty：设置系统按键功能
+		 * stty -a:将所有的按键列出来
+		 * 17.通配符的使用:
+		 * *0到多个，？至少有一个
+		 * 如:ls -l te*.txt 查找te开头的txt文件
+		 * 18。
+		 * 标准输入:stdin   standard in
+		 * 标准输出:stdout
+		 * 标准错误:stderr
+		 * 19.命令执行的判断
+		 * 一次执行多个命令，使用;分割命令即可，一次执行多个命令
+		 * 如:ls -l ;cat test2.txt
+		 * dao 399
 		 */
 	}
 
