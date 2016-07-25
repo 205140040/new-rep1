@@ -181,7 +181,25 @@ public class LiDemo {
 		 * 19.命令执行的判断
 		 * 一次执行多个命令，使用;分割命令即可，一次执行多个命令
 		 * 如:ls -l ;cat test2.txt
-		 * dao 399
+		 * 20.管线命令(pipe)
+		 * 管线命令使用"|" 操作,
+		 * 如:ls -l /etc | more  这样分页查看etc下的信息
+		 * 21.cut将信息的某一段切出来
+		 * 如:echo $PATH | cut -d ':' -f 5
+		 * 22.grep 从一行讯息中取出我们想要的
+		 * grep [-acinv]
+		 * 如:last | grep 'jiangzi'
+		 * -v:取相反的数据,类似非
+		 * 23.sort 排序
+		 * 如：cat /etc/passwd | sort
+		 * uniq:将重复的资料只显示一次
+		 * 如:cat /etc/passwd | sort | uniq
+		 * 24.wc 计算出文本有多少行，多少字,多少字符
+		 * 如:wc test2.txt
+		 * 25.tee 将数据流重导向到另外一个文件，考试时长考
+		 * 26.split分割命令
+		 * 第十二章：正规表示法与文件格式处理
+		 * 
 		 */
 	}
 
