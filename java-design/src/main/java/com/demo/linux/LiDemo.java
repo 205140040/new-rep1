@@ -199,7 +199,44 @@ public class LiDemo {
 		 * 25.tee 将数据流重导向到另外一个文件，考试时长考
 		 * 26.split分割命令
 		 * 第十二章：正规表示法与文件格式处理
+		 * 1.grep找出指定的的字符串
+		 * -A:after 的意思，出了列出改行，还列出改行的后面的行
+		 * -B：before,列出改行及之前的行
+		 * 如cat test2.txt | grep -A2 'ni'
+		 * 也可直接使用grep 关键词  文件
+		 * 如:grep 'me' test2.txt
+		 * grep -v 'me' test2.txt取不是me关键词的类容
+		 * -n:显示行号
+		 * -i:取类容，忽略大小写，如grep -i 'me' test2.txt
+		 * [a-z]一个方括号只代表一个字符，【a-z】代表a-z直接的一个字符
+		 * ^非 如：grep '[^g]oo' test2.txt
+		 * 取非小写,grep '[^a-z]' test2.txt
+		 * 取大小写，英文，数字
+		 * grep '[a-zA-Z0-9]' test2.txt
 		 * 
+		 * 取以某个单词开头的，^，如grep '^hell' test2.txt
+		 * ^在方括号类代表反向选择，在其外代表以某某开头
+		 * $表示以什么结尾的，如：grep '\.$' test2.txt取以.结尾的类容
+		 * .点，表示一定有一个任意字符
+		 * *代表重复前一个0到n次
+		 * 如：grep 'g..d' 取出包含g??d个单词，如good
+		 * 使用{}限定前一个字符的数量,如grep 'o{1}' 匹配1个o
+		 * ,{1,3}最低有一个，最多有3个
+		 * {2,}至少有几个
+		 * 增强的正则表示法:配合egrep使用
+		 * +:一个或一个以上的前一个字符
+		 * ?:0个或一个前一个字符
+		 * |:或
+		 * 2.格式化打印printf
+		 * 3.awk好用的数据处理工具
+		 * 5.档案比对工具:diff
+		 * diff
+		 * -from file 原始档案
+		 * -to file 新档案
+		 * 如diff test2old.txt test2.txt
+		 *6. 档案打印准备，pr
+		 *如pr test2.txt
+		 *第十三章：学习shell scripts
 		 */
 	}
 
