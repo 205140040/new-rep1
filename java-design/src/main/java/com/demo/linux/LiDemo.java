@@ -237,6 +237,23 @@ public class LiDemo {
 		 *6. 档案打印准备，pr
 		 *如pr test2.txt
 		 *第十三章：学习shell scripts
+		 *1.shell script（程序脚本)
+		 *.sh脚本执行的方式:
+		 *1.1通过绝对路径,如/home/jiangzi/testshdir/testsh1.sh
+		 *或者相对路径:./testsh1.sh，在当前命令的目录中输入
+		 *1.2以bash程序执行:如bash shell.sh或者sh shell.sh
+		 *2.echo -e 在shell脚本中是输出类容到屏幕上
+		 *read -p "firstname" firstname
+		 *echo -e "your name is : $firstname"
+		 *exit 0
+		 *上面动态读取输入，并输出到屏幕上
+		 *3.动态的使用小命令:$(command)
+		 *如:date=$(date +%Y%m%d)取格式化的日期
+		 *file=${filename}${date} 动态的设置变量和取变量
+		 *4.数值运算，简单的加减乘除
+		 *var=$((x+y))
+		 *5.利用test指令的测试功能
+		 *dao 453
 		 */
 	}
 
