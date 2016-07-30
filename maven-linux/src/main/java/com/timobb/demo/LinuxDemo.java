@@ -253,7 +253,61 @@ public class LinuxDemo {
 		 *4.数值运算，简单的加减乘除
 		 *var=$((x+y))
 		 *5.利用test指令的测试功能
-		 *dao 453
+		 *如：test -e sh3.sh && echo "exits" || echo "not exits"
+		 *测试某个文件是否存在
+		 *-e 是测试一个东西在不在
+		 *-f 该档案是否存在，file是档案
+		 *-d 该目录是否存在
+		 *-r,-w,-x测试该档案的权限
+		 *数值比较
+		 *-eq 相等
+		 *-gt n1大于n2
+		 *-lt n1小于n2
+		 *6.条件判断式
+		 *1.单层判断
+		 *if[条件];then:
+		 *fi结束if
+		 *多层
+		 *if[条件判断式];then
+		 *	chenli
+		 *else
+		 *	buchewngli
+		 *fi
+		 *多个
+		 *if[];then
+		 *elif[];then
+		 *elif[];then
+		 *else
+		 *	else block
+		 *fi
+		 *
+		 *case $变量名称 in "变量类容"程序段
+		 *esac
+		 *7.利用function功能
+		 *function fname(){
+		 *程序块
+		 *}
+		 *8.循环
+		 *while [con]
+		 *do 
+		 *done
+		 *,
+		 *for ...do ...done
+		 *如:for var in a b c d
+		 *do
+		 * echo "$var"
+		 *done
+		 *exit 0
+		 *第二种for
+		 *for((初始值;限制值;步骤))
+		 *do ...
+		 *done
+		 *如:for((i=0;i<10;i++))
+		 *do 
+		 *	echo "$i"
+		 *done
+		 *第十四章:Linux账号管理
+		 *dao 477页
 		 */
 		System.out.println("hello linux");
 	}
