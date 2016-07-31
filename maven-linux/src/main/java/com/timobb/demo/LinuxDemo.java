@@ -331,7 +331,40 @@ public class LinuxDemo {
 		 *-r:家目录也一起删除
 		 *2.6finger查询用户信息
 		 *finger jiangzi
-		 *dao 498
+		 *chfn更改账户finger显示的信息
+		 *3.chsh change shell的缩写
+		 *4.使用id查询当前账户UID，GID
+		 *id root查询root的UID,GID
+		 *5.群组操作
+		 *groupadd name 新建一个组
+		 *groupmod 修改group信息
+		 *groupdel 删除群组
+		 *如：groupdel tgrouop1
+		 *5.3gpasswd为群组设置密码
+		 *gpasswd -a 用户 组名
+		 *将用户添加到某个组中
+		 *如:gpasswd -a tuser1 jiangzi
+		 *gpasswd -d 将某个人移除改组
+		 *6.使用者身份切换
+		 *1.如何让一般使用者转变身份为root
+		 *1.1以su 直接把身份变为root 需要root密码
+		 *1.2以sudo 执行root的指令,比较常用
+		 *su username 切换用户
+		 *su - username或su -l username 切换用户，目录也切换到该用户
+		 *如 su - tuser2
+		 *exit 退出切换的用户
+		 *2.sudo 
+		 *在/etc/sudoers中的用户才能使用sudo
+		 *sudo -u 后面接欲使用者，如果没有，则默认为root
+		 *如:sudo -u tuser2 touch test2.txt用tuser2的身份创建文件
+		 *visudo 修改sudoers
+		 *7.who查询目前登录在系统上面的用户
+		 *lastlog查询账号最近登录的时间
+		 *write,mesg
+		 *使用者谈话
+		 *mail给使用的用户发邮件
+		 *第十五章：磁盘配额与进阶文件管理
+		 *dao 537
 		 */
 		System.out.println("hello linux");
 	}
