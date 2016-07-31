@@ -307,7 +307,31 @@ public class LinuxDemo {
 		 *	echo "$i"
 		 *done
 		 *第十四章:Linux账号管理
-		 *dao 477页
+		 *1.liux的账号，与群组
+		 *使用者标识符：UID,GID在/etc/passwd中
+		 *密码在/etc/shadow中
+		 *文件/etc/passwd中每一行都代表一个账号
+		 *文件/etc/group存取group信息
+		 *2.账号管理
+		 *2.1useradd添加账号
+		 *如:sudo useradd vbird1 使用系统默认设置创建新的账号
+		 *useradd -D 查看useradd默认值的设置
+		 *2.2passwd:设定账号密码
+		 *如:sudo passwd vbird1
+		 *提示输入密码:
+		 *再次输入密码:
+		 *设置成功
+		 *直接输入:passwd 不加账号，就是更改自己的密码
+		 *更改的密码:是原始的加123
+		 *2.3chage详细的密码参数显示功能
+		 *如:chage -l jiangzi
+		 *2.4usermod调整账号添加时的参数
+		 *2.5userdel删除用户账号
+		 *如:userdel -r vbird1 
+		 *-r:家目录也一起删除
+		 *2.6finger查询用户信息
+		 *finger jiangzi
+		 *dao 498
 		 */
 		System.out.println("hello linux");
 	}
