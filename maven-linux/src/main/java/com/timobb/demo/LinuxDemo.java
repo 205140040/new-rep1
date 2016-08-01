@@ -364,7 +364,18 @@ public class LinuxDemo {
 		 *使用者谈话
 		 *mail给使用的用户发邮件
 		 *第十五章：磁盘配额与进阶文件管理
-		 *dao 537
+		 *第十六章:列行性工作排程
+		 *列行工作类似定时任务
+		 *1.只执行一次的任务
+		 *1.1:at [mldvc]
+		 *ubuntu不支持at
+		 *2.定时执行的任务cron
+		 *crontab
+		 *-e:编辑工作内容
+		 *-l:查询cron内容
+		 *-r：移除cron
+		 *第十七章:程序管理与SELinux初探
+		 *dao 600
 		 */
 		System.out.println("hello linux");
 	}
