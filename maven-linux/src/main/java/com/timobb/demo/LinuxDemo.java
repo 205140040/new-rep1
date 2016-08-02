@@ -410,7 +410,34 @@ public class LinuxDemo {
 		 *pstree -A:列出系统上所有的程序树
 		 *pstree -Aup:同时显示pid与users
 		 *当有僵尸程序时，可通过pstree找出
-		 *dao 617
+		 *4.程序signal代号
+		 *1.启动被终止的程序
+		 *kill -1 pid 启动被终止的程序
+		 *kill -ginal 指令名称，通过名称终止程序
+		 *如:kill -1 syslog
+		 *5.nice调整程序执行的优先度
+		 *nice [-n 数字(-20-19)] command
+		 *如:nice -n  6 vi &
+		 *renice 已经存在的nice重新调整
+		 *renice -n 数字 Pid
+		 *6.free观察内存的使用情况
+		 *如free -m 显示Mbytes 格式的内存情况
+		 *uname查询系统与核心相关信息
+		 *如uname -a 显示所有的系统信息
+		 *uptime:观察系统启动时间与工作负载
+		 *7.netstat:追踪网络或插槽文件
+		 *netstat [-atunlp]
+		 *netstat -a 列出所有的联机，监听，socket
+		 *dmesg:分析核心产生的讯息
+		 *vmstat:显示系统cpu，内存，磁盘状态
+		 *8.程序的pid信息存在/proc/*目录中
+		 *fuser 找出正在使用该程序的档案
+		 *fuser -muv /proc
+		 *pidof 找出某个正在执行的程序pid
+		 *pidof init syslogd
+		 *9.SELinux安全管理程序权限
+		 *第十八章：认识系统服务
+		 *dao 652
 		 */
 		System.out.println("hello linux");
 	}
