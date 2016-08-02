@@ -375,7 +375,42 @@ public class LinuxDemo {
 		 *-l:查询cron内容
 		 *-r：移除cron
 		 *第十七章:程序管理与SELinux初探
-		 *dao 600
+		 *1.父子progress通过PPID关联
+		 *2.工作管理job control
+		 *2.1&将指令丢到背景中运行
+		 *如:cp thello.txt thello2.txt &
+		 *显示:[1] 2541
+		 *方括号中的2541为PID
+		 *2.2使用vi时可以通过ctrl+z暂停，到bash中查找文件
+		 *jobs：观察目前的背景工作状态
+		 *-l:列出任务时显示pid
+		 *-r:只列出运行中的任务
+		 *-s:列出暂停的工作
+		 *fg:(foreground)将背景工作拿到前景执行
+		 *如:fg 2 将 【2】这个编号的背景工作拿到前景执行
+		 *bg:让背景下的工作变为运行中
+		 *3.管理背景中的工作:kill
+		 *kill -l:列出目前kill能使用的singal有哪些
+		 *kill -9 :立即强制删除一个工作
+		 *如kill -9 %2 
+		 *kill -15:以正常的方式结束一个工作
+		 *nohup:可以在通过软件连接服务器时，
+		 *即使退出也可以让任务在服务器背景运行
+		 *3.ps查看程序的运行情况
+		 *如查询自己bash的程序:ps -l
+		 *查询所有系统运作的程序:ps aux
+		 *当列表中CMD后面有<defunct>则代表为僵尸程序
+		 *发现僵尸程序找到PPID，kill掉
+		 *top:动态观察程序的变化
+		 *top -d 后面接秒，间隔多少秒下滑是一次程序的变化
+		 *如:top -d 5
+		 *使用top后按q退出
+		 *top -d 5 -p pid 查看某个pid的运行情况
+		 *pstree:
+		 *pstree -A:列出系统上所有的程序树
+		 *pstree -Aup:同时显示pid与users
+		 *当有僵尸程序时，可通过pstree找出
+		 *dao 617
 		 */
 		System.out.println("hello linux");
 	}
