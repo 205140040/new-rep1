@@ -437,7 +437,23 @@ public class LinuxDemo {
 		 *pidof init syslogd
 		 *9.SELinux安全管理程序权限
 		 *第十八章：认识系统服务
-		 *dao 652
+		 *1.查看服务与端口号的联系:
+		 *cat /etc/services
+		 *2.service:启动或重启服务
+		 *如service crond restart
+		 *service --status-all:将所有的服务状态列出来
+		 *观察系统启动的服务:netstat
+		 *3.chkconfig:管理系统服务默认开机是否启动
+		 *chkconfig --list:显示服务启动信息list
+		 *第十九章：认识与分析登录档
+		 *1.syslogd：记录登录文件的服务
+		 *"/etc/syslog.conf管理着日志的配置
+		 *chattr +a 设置某个文件只能增加类容，但不能删除
+		 *chattr -a 取消不能删除
+		 *logrotate:登录档的轮替更新
+		 *logwatch:查看分析登录档案
+		 *第二十章：开机流程，模块管理
+		 *dao 700
 		 */
 		System.out.println("hello linux");
 	}
