@@ -510,7 +510,21 @@ public class LinuxDemo {
 		 *3.netstat
 		 *4.host -a ip或域名
 		 *第20章：服务管理和wwwApache441
-		 *
+		 *第21章：WWW服务器apache
+		 *1.命令方式安装apache2
+		 *sudo apt-get install apache2
+		 *安装期间会新建一个/var/www该目录是apache中存放文件的根目录
+		 *软件安装目录为:/etc/apache2
+		 *启动服务:service apache2 start
+		 *停止:service apache2 stop
+		 *重启:service apache2 restart
+		 *第22章：FTP服务器
+		 *FTP:FILE transfer protocol文件传输协议
+		 *安装vsftpd ftp服务
+		 *sudo apt-get install vsftpd
+		 *其他资料：
+		 *开启SSH服务：
+		 *http://jingyan.baidu.com/article/08b6a591f0fafc14a9092275.html
 		 */
 		System.out.println("hello linux");
 	}
