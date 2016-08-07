@@ -453,7 +453,64 @@ public class LinuxDemo {
 		 *logrotate:登录档的轮替更新
 		 *logwatch:查看分析登录档案
 		 *第二十章：开机流程，模块管理
-		 *dao 700
+		 *第二十一章：系统设定工具,与硬件侦测
+		 *1.centos 系统设定工具setup
+		 *lspci
+		 *lsusb系统接了多少usb
+		 *第二十二章：软件安装
+		 *1.gcc编译c源码
+		 *./a.out 运行刚刚的c程序
+		 *gcc:编译，参数，与链结
+		 *make:设置好规则然后进行多次编译与连结
+		 *tar -zxvf 解压
+		 *./configure --prefix=安装目录
+		 *安装:
+		 *make clean;make
+		 *make check
+		 *make install
+		 *2.利用patch更新原始码
+		 *第二十三章：软件安装
+		 *linux软件安装方式：1.dpkg
+		 *2.rpm【redhat package manager】
+		 *SRPM:SOURCE RPM带源码的rpm安装文件
+		 *SRPM：主要用来针对rpm环境和源码环境不一致，手动改环境后在使用rpm安装
+		 *1.1rpm安装
+		 *如:rpm -i rp1.rpm
+		 *rpm [-ivh]
+		 *-i install安装
+		 *-v 查看详细的安装信息
+		 *-h:显示安装进度
+		 *如:rpm -ivh rp1.rpm
+		 *同时安装多个软件:rpm -ivh rp1.rpm rp2.rpm
+		 *在线安装:rpm -ivh http://www.rpm.dowalod
+		 *RPM 软件升级:rpm -Uvh ,没安装过则直接安装，安装过则更新
+		 *RPM查询:rpm -q
+		 *rpm -qa 显示本机上所有安装的软件
+		 *rpm -e 卸载软件
+		 *rpm --rebuilddb重建程序安装数据库
+		 *2.YUM:在线升级机制
+		 *yum -search 搜寻某个软件
+		 *yum -info 显示某个软件的信息
+		 *yum list 显示yum服务器上所有的软件
+		 *yum -install 安装软件
+		 *yum -remove 删除软件
+		 *yum [群组功能][软件群组] 安装一套软件
+		 *3.不同版本安装方式:
+		 *版本 				软件管理机制		在线升级机制
+		 *readhat /fedora	RPM					YUM
+		 *debian/ubuntu     DPKG				APT
+		 *dpkg，apt和rpm，yum的使用类似，可以使用--help查看
+		 *第24章：XWindow介绍
+		 *第25章：Linux备份策略
+		 *ubuntu.linux
+		 *第19章：网络管理
+		 *19.3常用网络命令
+		 *1.ifconfig显示ip地址
+		 *2.ping 网址
+		 *3.netstat
+		 *4.host -a ip或域名
+		 *第20章：服务管理和wwwApache441
+		 *
 		 */
 		System.out.println("hello linux");
 	}
