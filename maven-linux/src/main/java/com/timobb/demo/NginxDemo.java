@@ -23,7 +23,10 @@ public class NginxDemo {
 		 *3.6:nginx的浏览器缓存设置
 		 *第4章：nginx与php的安装
 		 *第5章：nginx与jsp的安装与配置(重要)
-		 *dao 70页
+		 *1.安装tomcat，
+		 *http://cxshun.iteye.com/blog/1535188
+		 *nginx结合tomcat实现动静分离
+		 *http://www.tuicool.com/articles/A3mMJv
 		 */
 	}
 
