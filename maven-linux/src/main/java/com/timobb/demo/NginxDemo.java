@@ -27,6 +27,18 @@ public class NginxDemo {
 		 *http://cxshun.iteye.com/blog/1535188
 		 *nginx结合tomcat实现动静分离
 		 *http://www.tuicool.com/articles/A3mMJv
+		 *2.查看nginx location如何配置，匹配规则
+		 *第 6章：nginxHTTP负载均衡和反向代理的配置与优化
+		 *1.DNS轮循实现负载均衡，如为一个域名添加多个A记录，但是这样有缺点
+		 *6.5Nginx负载均衡服务器双机高可用
+		 *第7章nginx的rewrite规则与实例
+		 *1.rewrite功能就是实现url重定向
+		 *第8章：nginx模块开发
+		 *第9章：nginx的web缓存服务
+		 *第10章：nginx在国内知名网站的应用案例
+		 *第11章：nginx的非典型应用
+		 *11.1用HTTPS（SSL)构建一个安全的nginxweb服务器
+		 *dao 168
 		 */
 	}
 
