@@ -60,7 +60,7 @@ http {
         }  
               
        location ~ \.(html|js|css|png|gif)$ {  
-          root /wwwhtml/www;
+          root /usr/mysoft/apache-tomcat-8.5.4/webapps;
           #  echo  "js,css";  
        }  
 
@@ -132,5 +132,32 @@ http {
     #        index  index.html index.htm;
     #    }
     #}
+
+    server {
+         listen       443;
+         server_name  localhost;
+         charset uft-8;
+         # access_log logs/www.access.log main;
+         access_log  logs/host.access.log  main;
+         
+           location / {
+             proxy_pass http://localhost:8080;
+         }
+
+         location ~ \.jsp$ {
+              proxy_pass http://localhost:8080;
+         }
+
+         location ~ \.(html|js|css|png|gif)$ {
+              root /wwwhtml/www;
+             #  echo  "js,css";  
+         }
+
+
+         ssl                  on;
+         ssl_certificate      /usr/local/nginx/conf/ssl/client.pem;
+         ssl_certificate_key  /usr/local/nginx/conf/ssl/client.key;
+
+      }  
 
 }

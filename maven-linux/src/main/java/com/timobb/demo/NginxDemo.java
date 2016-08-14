@@ -38,7 +38,8 @@ public class NginxDemo {
 		 *第10章：nginx在国内知名网站的应用案例
 		 *第11章：nginx的非典型应用
 		 *11.1用HTTPS（SSL)构建一个安全的nginxweb服务器
-		 *dao 168
+		 *http://my.oschina.net/zijian1315/blog/207311
+		 *第12章：nginx的核心模块
 		 */
 	}
 
