@@ -40,6 +40,18 @@ public class NginxDemo {
 		 *11.1用HTTPS（SSL)构建一个安全的nginxweb服务器
 		 *http://my.oschina.net/zijian1315/blog/207311
 		 *第12章：nginx的核心模块
+		 *第13章：nginx的标准http模块
+		 *1.error_page 设置错误页面
+		 *2.index 设置index页面
+		 *3.listen 指令：用于监听虚拟主机的服务器地址和端口号
+		 *4.location根据不同的uri返回不同的响应
+		 *5.root指令：用来指定请求的文档根目录
+		 *6.server指令用于配置虚拟主机
+		 *7server_name根据请求头中的host匹配server_name对应的主机
+		 *13.11GZIP模块
+		 *13.20http代理模块
+		 *proxy_pass 代理地址
+		 *
 		 */
 	}
 
