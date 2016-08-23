@@ -14,13 +14,13 @@ import javax.jms.TopicSubscriber;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
-public class TopicBorrow2 implements MessageListener {
+public class TopicBorrow3 implements MessageListener {
 
 	private TopicConnection topicConnection;
 	private TopicSession topicSession;
 	private Topic topic;
 
-	public TopicBorrow2(String factory, String topicName) {
+	public TopicBorrow3(String factory, String topicName) {
 		try {
 			Context context = new InitialContext();
 			TopicConnectionFactory connectionFactory = (TopicConnectionFactory) context.lookup(factory);
@@ -28,8 +28,8 @@ public class TopicBorrow2 implements MessageListener {
 			topicSession = topicConnection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
 			topic = (Topic) context.lookup(topicName);
 			// 创建消息监听者，并设置监听器
-			//设置消息过滤器,rateCon>=500
-			TopicSubscriber topicSubscriber = topicSession.createSubscriber(topic,"rateCon>=500",false);
+			//设置消息过滤器,type='500'
+			TopicSubscriber topicSubscriber = topicSession.createSubscriber(topic,"type='500'",false);
 			topicSubscriber.setMessageListener(this);
 			topicConnection.start();
 		} catch (Exception e) {
@@ -42,14 +42,14 @@ public class TopicBorrow2 implements MessageListener {
 	public void onMessage(Message message) {
 		try {
 			TextMessage textMessage = (TextMessage) message;
-			System.out.println("TopicBorrow2订阅的消息:" + textMessage.getText());
+			System.out.println("TopicBorrow3订阅的消息:" + textMessage.getText());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-		TopicBorrow2 topicLender = new TopicBorrow2("TopicCF", "topic2");
+		TopicBorrow3 topicLender = new TopicBorrow3("TopicCF", "topic2");
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("请输入end:");
 		String msg = scanner.nextLine();

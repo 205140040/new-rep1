@@ -43,7 +43,12 @@ public class TopicLender {
 		try {
 			// 发布利率
 			TextMessage message = session.createTextMessage(rate);
+			// 添加消息过滤器属性rateCon
+			message.setDoubleProperty("rateCon", new Double(rate));
+			message.setStringProperty("type", rate);
 			TopicPublisher topicPublisher = session.createPublisher(topic);
+			//设置消息过期时间
+			topicPublisher.setTimeToLive(1000*60*30);
 			topicPublisher.publish(message);
 		} catch (Exception e) {
 			e.printStackTrace();
