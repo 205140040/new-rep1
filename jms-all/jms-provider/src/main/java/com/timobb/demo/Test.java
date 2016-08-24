@@ -1,5 +1,10 @@
 package com.timobb.demo;
 
+import javax.jms.ExceptionListener;
+import javax.jms.QueueConnection;
+import javax.jms.QueueSession;
+import javax.jms.Session;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -13,9 +18,22 @@ public class Test {
 		 * sesion.createSender(q1)
 		 * sesion.createRevicver(q1)
 		 * 第7章：保证消息传送和事务
-		 * dao 147
+		 *queueConnection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE)
+			使用自动确认消息时，如果消费方出现问题，消息可能被再次传送
+			可通过数据库中添加jmsMessageId校验消息是否被确认过
 		 * 
+		 * Session.AUTO_ACKNOWLEDGE：只发送一次
+		 * Session.DUPS_OK_ACKNOWLEDGE;发送两次以上
+		 * Session.CLIENT_ACKNOWLEDGE;客户端确认
+		 * 7.3.2消息组列子,发送一组消息后，客户端再确认
+		 * 7.4事务性消息
+		 * 7.5ExceptionListener丢失连接监听器
+		 * 7.6停用消息队列
+		 * 第8章：JAVAEE和消息驱动bean
+		 * dao 177
 		 */
+		
+		
 	}
 
 }
