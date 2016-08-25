@@ -5,6 +5,10 @@ import javax.jms.QueueConnection;
 import javax.jms.QueueSession;
 import javax.jms.Session;
 
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jndi.JndiTemplate;
+import org.springframework.web.servlet.DispatcherServlet;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -30,9 +34,11 @@ public class Test {
 		 * 7.5ExceptionListener丢失连接监听器
 		 * 7.6停用消息队列
 		 * 第8章：JAVAEE和消息驱动bean
-		 * dao 177
+		 * 第9章：spring和JMS
+		 * 9.3.2使用本地类配置spring-jms中的连接工厂，url，目的地
+		 * dao 209
 		 */
-		
+		//JndiTemplate
 		
 	}
 
