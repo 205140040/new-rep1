@@ -2,6 +2,7 @@
 	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jms="http://www.springframework.org/schema/jms"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
      http://www.springframework.org/schema/aop
@@ -10,7 +11,11 @@
      http://www.springframework.org/schema/context/spring-context-4.0.xsd
      http://www.springframework.org/schema/tx
      http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-     http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
+     http://www.springframework.org/schema/cache 
+     http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+     http://www.springframework.org/schema/jms
+	 http://www.springframework.org/schema/jms/spring-jms.xsd
+     ">
 
 	<!-- jndi模板，配置mq信息 -->
 	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
@@ -25,8 +30,26 @@
 		</property>
 	</bean>
 
+	<!-- 连接工厂 -->
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnection">
+		<property name="brokerURL" value="tcp://localhost:61616"></property>
+	</bean>
+	<!-- spring连接工厂认证 -->
+	<bean
+		class="org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter">
+		<property name="targetConnectionFactory" ref="connectionFactory"></property>
+		<property name="username" value="system"></property>
+		<property name="password" value="manager"></property>
+	</bean>
+
+
 	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
 
 	</bean>
-
+	<!-- 配置jms消息接收监听器 -->
+	<bean id="jmslistener1"></bean>
+	<jms:listener-container connection-factory="connectionFactory">
+		<jms:listener destination="queue1" ref="jmslistener1"/>
+		<jms:listener destination="queue1" ref="jmslistener2"/>
+	</jms:listener-container>
 </beans>

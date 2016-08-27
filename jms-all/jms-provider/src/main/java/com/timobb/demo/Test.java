@@ -5,7 +5,10 @@ import javax.jms.QueueConnection;
 import javax.jms.QueueSession;
 import javax.jms.Session;
 
+import org.apache.activemq.ActiveMQConnection;
+import org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 import org.springframework.jndi.JndiTemplate;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -36,10 +39,10 @@ public class Test {
 		 * 第8章：JAVAEE和消息驱动bean
 		 * 第9章：spring和JMS
 		 * 9.3.2使用本地类配置spring-jms中的连接工厂，url，目的地
-		 * dao 209
+		 * 第10章：部署注意事项
+		 * dao 235
 		 */
 		//JndiTemplate
-		
 	}
 
 }
