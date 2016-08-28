@@ -6,10 +6,15 @@ import javax.jms.QueueSession;
 import javax.jms.Session;
 
 import org.apache.activemq.ActiveMQConnection;
+import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.listener.adapter.MessageListenerAdapter;
+import org.springframework.jms.support.destination.JndiDestinationResolver;
+import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.jndi.JndiTemplate;
+import org.springframework.transaction.jta.JtaTransactionManager;
 import org.springframework.web.servlet.DispatcherServlet;
 
 public class Test {
@@ -43,6 +48,7 @@ public class Test {
 		 * dao 235
 		 */
 		//JndiTemplate
+//		JndiDestinationResolver
 	}
 
 }

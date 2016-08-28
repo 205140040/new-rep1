@@ -17,39 +17,55 @@
 	 http://www.springframework.org/schema/jms/spring-jms.xsd
      ">
 
-	<!-- jndi模板，配置mq信息 -->
-	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
-		<property name="environment">
-			<props>
-				<prop key="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory
-				</prop>
-				<prop key="java.naming.provider.url">tcp://localhost:61616</prop>
-				<prop key="java.naming.security.principal">system</prop>
-				<prop key="java.naming.security.credentials">manager</prop>
-			</props>
-		</property>
+	<!-- JMS服务厂商提供的连接工厂 -->
+	<bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
 	</bean>
-
-	<!-- 连接工厂 -->
-	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnection">
-		<property name="brokerURL" value="tcp://localhost:61616"></property>
+	<!-- 缓存连接工厂 -->
+	<bean id="cachingConnectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="activeMQConnectionFactory"></property>
+		<!-- Session缓存数量,CachingConnectionFactory只缓存一个session， 在它的JavaDoc中，它声明对于低并发情况下这是足够的。 -->
+		<property name="sessionCacheSize" value="100" />
 	</bean>
-	<!-- spring连接工厂认证 -->
-	<bean
-		class="org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter">
-		<property name="targetConnectionFactory" ref="connectionFactory"></property>
-		<property name="username" value="system"></property>
-		<property name="password" value="manager"></property>
+	<!--队列目的地 -->
+	<bean id="defaultQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>defaultQueue</value>
+		</constructor-arg>
 	</bean>
-
 
 	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
-
+		<property name="connectionFactory" ref="cachingConnectionFactory"></property>
+		<!-- 默认的目的地 -->
+		<property name="defaultDestination" ref="defaultQueue"></property>
+		<!--模式不是发布订阅模式,即p2p模式 -->
+		<property name="pubSubDomain" value="false" />
 	</bean>
 	<!-- 配置jms消息接收监听器 -->
-	<bean id="jmslistener1"></bean>
-	<jms:listener-container connection-factory="connectionFactory">
-		<jms:listener destination="queue1" ref="jmslistener1"/>
-		<jms:listener destination="queue1" ref="jmslistener2"/>
-	</jms:listener-container>
+	<bean id="jmslistener1"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg>
+			<bean class="com.timobb.demo.SpringAsyncReceive"></bean>
+		</constructor-arg>
+		<!-- 配置自定义方法，默认方法为handleMessage() <property name="delegate"> <bean class="com.tiantian.springintejms.listener.ConsumerListener"/> 
+			</property> <property name="defaultListenerMethod" value="receiveMessage"/> -->
+	</bean>
+
+	<!-- 配置分布式jms事务管理器，可把jms事务和jdbc作为同一个事务,还需要配置tomcat支持jta ,暂不使用 <bean id="jtaTransactionManager" 
+		class="org.springframework.transaction.jta.JtaTransactionManager"> </bean> -->
+
+	<!-- 消息监听器容器,container-type="default"代表使用DefaultMessageListenerContainer -->
+	<!-- 消息监听容器 -->
+	<bean id="defaultMessageListenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="cachingConnectionFactory" />
+		<property name="destination" ref="defaultQueue" />
+		<property name="messageListener" ref="jmslistener1" />
+		<!-- 支持jms事务,不包含jdbc事务 -->
+		<property name="sessionTransacted" value="true"></property>
+	</bean>
+	<!-- <jms:listener-container connection-factory="cachingConnectionFactory" 
+		container-type="default" > <jms:listener destination="defaultQueue" ref="jmslistener1" 
+		selector="type='eat'" /> </jms:listener-container> -->
 </beans>
