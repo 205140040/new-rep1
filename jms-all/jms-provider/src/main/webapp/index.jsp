@@ -104,19 +104,73 @@
 					元素内。被嵌套的行（row）所包含的列（column）的个数不能超过12（其实，没有要求你必须占满12列）。</p>
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-sm-9">
-							Level 1: .col-sm-9
+						<div class="col-md-8">
+							Level 1: .col-md-8
 							<div class="row">
-								<div class="col-xs-8 col-sm-6"
+								<div class="col-md-2 col-xs-6"
 									style="background-color: #00ffc4;">Level 2: .col-xs-8
 									.col-sm-6</div>
-								<div class="col-xs-4 col-sm-6" style="background-color: green;">Level
+								<div class="col-md-8 col-xs-4" style="background-color: green;">Level
 									2: .col-xs-4 .col-sm-6</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<p>3.3.3布局嵌套，75页</p>
+				<p>3.3.3布局嵌套，</p>
+				<p class="title">总结,bootstrap的布局就是容器+栅格系统(+嵌套+偏移)</p>
+				<p>
+					3.4响应式设计,通过css3媒体查询(Media Query)，实现响应式css,@media (min-width: 768px)
+					{} <br>使用js实现响应式设计,css3-mediaqures.js工具 <br>3.4.6响应式bootstrap设计,3.X版默认就是responsive的。
+				</p>
+				<div class="container-fluid">
+					<p>响应式工具
+
+						为了加快对移动设备友好的页面开发工作，利用媒体查询功能并使用这些工具类可以方便的针对不同设备展示或隐藏页面内容。另外还包含了针对打印机显示或隐藏内容的工具类。
+
+						有针对性的使用这类工具类，从而避免为同一个网站创建完全不同的版本。相反，通过使用这些工具类可以在不同设备上提供不同的展现形式。
+
+						可用的类 通过单独或联合使用以下列出的类，可以针对不同屏幕尺寸隐藏或显示页面内容。 超小屏幕 手机 (<768px) 小屏幕 平板
+						(≥768px) 中等屏幕 桌面 (≥992px) 大屏幕 桌面 (≥1200px) .visible-xs-* 可见 隐藏 隐藏
+						隐藏 .visible-sm-* 隐藏 可见 隐藏 隐藏 .visible-md-* 隐藏 隐藏 可见 隐藏
+						.visible-lg-* 隐藏 隐藏 隐藏 可见 .hidden-xs 隐藏 可见 可见 可见 .hidden-sm 可见 隐藏
+						可见 可见 .hidden-md 可见 可见 隐藏 可见 .hidden-lg 可见 可见 可见 隐藏 从 v3.2.0
+						版本起，形如 .visible-*-* 的类针对每种屏幕大小都有了三种变体，每个针对 CSS 中不同的 display
+						属性，列表如下：</p>
+					<div class="hidden-md" style="background-color: #00ffc4;">中等屏幕隐藏</div>
+					<p class="title">第4章：优化css样式</p>
+					<div>
+						<div style="text-indent: 1em;">
+							<h2>《出塞》</h2>
+							<p>作者：王之涣</p>
+							<p>.lead段落突出显示</p>
+							<p class="lead">黄河远上白云间，一片孤城万仞山。</p>
+
+							<p class="lead">羌笛何须怨杨柳，春风不度玉门关。</p>
+						</div>
+						<p>
+							4.1.2文本强调风格:em斜体,"b,strong"强调粗体 <br> <strong>strong</strong>
+							<br> <em>斜体文字</em>
+						</p>
+						<p>情境文本颜色 通过颜色来展示意图，Bootstrap
+							提供了一组工具类。这些类可以应用于链接，并且在鼠标经过时颜色可以还可以加深，就像默认的链接一样。</p>
+						<p class="text-muted">text-muted</p>
+						<p class="text-primary">text-primary</p>
+						<p class="text-success">text-success</p>
+						<p class="text-info">text-info...</p>
+						<p class="text-warning">text-warning...</p>
+						<p class="text-danger">text-danger...</p>
+						<p><small>small标签缩小文字</small></p>
+						<p>4.1.3文本对齐风格</p>
+						<p class="text-lfet">左对齐</p>
+						<p class="text-center">居中</p>
+						<p class="text-right">右对齐</p>
+						<p class="lead">4.1.4缩略语
+						<abbr title="css is 层叠样式表">css</abbr>
+						</p>
+						<p>4.1.5地址风格:<address>欢迎来到英雄联盟</address></p>
+						<p>4.1.7列表风格 dao 107</p>
+					</div>
+				</div>
 			</div>
 			<div class="tab-pane fade" id="profile">
 				<h4>Profile Tab</h4>
