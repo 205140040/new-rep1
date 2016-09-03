@@ -302,43 +302,233 @@ Your browser does not support the video tag.
 							<p class="title">4.2.3表格个性风格：dao 114</p>
 							<p class="title">
 								1.带边框的表格 添加 .table-bordered 类为表格和其中的每个单元格增加边框。 <br> 2.鼠标悬停
-								通过添加 .table-hover 类可以让 'tbody> 中的每一行对鼠标悬停状态作出响应。
+								通过添加 .table-hover 类可以让 'tbody> 中的每一行对鼠标悬停状态作出响应。 <br> 紧缩表格
+								通过添加 .table-condensed 类可以让表格更加紧凑，单元格中的内补（padding）均会减半。 <br>
+								状态类 通过这些状态类可以为行或单元格设置颜色。 Class 描述 .active 鼠标悬停在行或单元格上时所设置的颜色
+								.success 标识成功或积极的动作 .info 标识普通的提示信息或动作 .warning 标识警告或需要用户注意
+								.danger 标识危险或潜在的带来负面影响的动作 <br> 响应式表格 将任何 .table 元素包裹在
+								.table-responsive 元素内，即可创建响应式表格，其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于
+								768px 宽度时，水平滚动条消失。
+								<code> 'div class="table-responsive"> 'table
+									class="table">... '/table> '/div> </code>
 							</p>
-							<table class="table table-bordered table-hover">
-								<thead>
-									<tr>
-										<th colspan="3">条纹状表格:华语九天榜</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th>序号</th>
-										<th>排名</th>
-										<th>歌曲名</th>
-									</tr>
-									<tr>
-										<td>1</td>
-										<td>张三</td>
-										<td>13</td>
-									</tr>
-									<tr>
-										<td>2</td>
-										<td>李四</td>
-										<td>13</td>
-									</tr>
-									<tr>
-										<td>3</td>
-										<td>王五</td>
-										<td>13</td>
-									</tr>
-									<tr>
-										<td>4</td>
-										<td>赵六</td>
-										<td>13</td>
-									</tr>
-								</tbody>
-							</table>
-							<p class="lead">dao 115</p>
+							<div class="table-responsive">
+								<table class="table table-bordered table-hover">
+									<thead>
+										<tr>
+											<th colspan="15">条纹状表格:华语九天榜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>序号</th>
+											<th>排名</th>
+											<th>歌曲名</th>
+											<th>序号</th>
+											<th>排名</th>
+											<th>歌曲名</th>
+											<th>序号</th>
+											<th>排名</th>
+											<th>歌曲名</th>
+											<th>序号</th>
+											<th>排名</th>
+											<th>歌曲名</th>
+											<th>序号</th>
+											<th>排名</th>
+											<th>歌曲名</th>
+										</tr>
+										<tr class="success">
+											<td>1</td>
+											<td>张三成功</td>
+											<td>13</td>
+											<td>1</td>
+											<td>张三成功</td>
+											<td>13</td>
+											<td>1</td>
+											<td>张三成功</td>
+											<td>13</td>
+											<td>1</td>
+											<td>张三成功</td>
+											<td>13</td>
+											<td>1</td>
+											<td>张三成功</td>
+											<td>13</td>
+										</tr>
+										<tr class="danger">
+											<td>2</td>
+											<td>李四danger</td>
+											<td>13</td>
+											<td>2</td>
+											<td>李四danger</td>
+											<td>13</td>
+											<td>2</td>
+											<td>李四danger</td>
+											<td>13</td>
+											<td>2</td>
+											<td>李四danger</td>
+											<td>13</td>
+											<td>2</td>
+											<td>李四danger</td>
+											<td>13</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>王五</td>
+											<td>13</td>
+											<td>3</td>
+											<td>王五</td>
+											<td>13</td>
+											<td>3</td>
+											<td>王五</td>
+											<td>13</td>
+											<td>3</td>
+											<td>王五</td>
+											<td>13</td>
+											<td>3</td>
+											<td>王五</td>
+											<td>13</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>赵六</td>
+											<td>13</td>
+											<td>4</td>
+											<td>赵六</td>
+											<td>13</td>
+											<td>4</td>
+											<td>赵六</td>
+											<td>13</td>
+											<td>4</td>
+											<td>赵六</td>
+											<td>13</td>
+											<td>4</td>
+											<td>赵六</td>
+											<td>13</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<p class="lead">
+								4.3表单优化设计 <br>表单 基本实例 单独的表单控件会被自动赋予一些全局样式。所有设置了
+								.form-control 类的 input>、 textarea> 和 select> 元素都将被默认设置宽度属性为
+								width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。
+
+							</p>
+							<div>
+								<form>
+									姓名:<input type="text" placeholder="请输入">
+									<div class="form-inline">
+										<div class="form-group">
+											<label for="exampleInputEmail1">Email address</label> <input
+												type="email" class="form-control" id="exampleInputEmail1"
+												placeholder="Enter email">
+										</div>
+										<div class="form-group">
+											<label>学校:</label> <input type="text" class="form-control"
+												placeholder="请输入学校">
+										</div>
+									</div>
+									<div>内联表单 为 form>元素添加 .form-inline 类可使其内容左对齐并且表现为
+										inline-block 级别的控件。只适用于视口（viewport）至少在 768px
+										宽度时（视口宽度再小的话就会使表单折叠）。</div>
+									<div class="form-group">
+										<label class="sr-only" for="exampleInputEmail2">Email
+											address</label> <input type="email" class="form-control"
+											id="exampleInputEmail2" placeholder="Enter email">
+									</div>
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">@</div>
+											<input class="form-control" type="email"
+												placeholder="Enter email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="sr-only" for="exampleInputPassword2">Password</label>
+										<input type="password" class="form-control"
+											id="exampleInputPassword2" placeholder="Password">
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox"> Remember me
+										</label>
+									</div>
+									<div>文本域 支持多行文本的表单控件。可根据需要改变 rows 属性。</div>
+									<textarea class="form-control" rows="3"></textarea>
+									<div class="form-group has-error has-feedback">
+										<label class="control-label" for="inputError2">Input
+											with error</label> <input type="text" class="form-control"
+											id="inputError2"> <span
+											class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div>控件尺寸 通过 .input-lg 类似的类可以为控件设置高度，通过 .col-lg-*
+										类似的类可以为控件设置宽度。 高度尺寸 创建大一些或小一些的表单控件以匹配按钮尺寸。</div>
+									<input class="form-control input-lg" type="text"
+										placeholder=".input-lg"> <input class="form-control"
+										type="text" placeholder="Default input"> <input
+										class="form-control input-sm" type="text"
+										placeholder=".input-sm"> <select
+										class="form-control input-lg">...
+									</select> <select class="form-control">...
+									</select> <select class="form-control input-sm">...
+									</select>
+									<div>
+										调整列（column）尺寸 用栅格系统中的列（column）包裹输入框或其任何父元素，都可很容易的为其设置宽度。
+
+
+										.col-xs-2 .col-xs-3 .col-xs-4 Copy
+										<div class="row">
+											<div class="col-xs-2">
+												<input type="text" class="form-control"
+													placeholder=".col-xs-2">
+											</div>
+											<div class="col-xs-3">
+												<input type="text" class="form-control"
+													placeholder=".col-xs-3">
+											</div>
+											<div class="col-xs-4">
+												<input type="text" class="form-control"
+													placeholder=".col-xs-4">
+											</div>
+										</div>
+									</div>
+									<div>按钮 预定义样式 使用下面列出的类可以快速创建一个带有预定义样式的按钮。</div>
+									<div>
+										<!-- Standard button -->
+										<button type="button" class="btn btn-default btn-lg">Default</button>
+
+										<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+										<button type="button" class="btn btn-primary">Primary</button>
+
+										<!-- Indicates a successful or positive action -->
+										<button type="button" class="btn btn-success">Success</button>
+
+										<!-- Contextual button for informational alert messages -->
+										<button type="button" class="btn btn-info">Info</button>
+
+										<!-- Indicates caution should be taken with this action -->
+										<button type="button" class="btn btn-warning">Warning</button>
+
+										<!-- Indicates a dangerous or potentially negative action -->
+										<button type="button" class="btn btn-danger">Danger</button>
+
+										<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+										<button type="button" class="btn btn-link">Link</button>
+									</div>
+									<div>
+										<div class="well"
+											style="max-width: 400px; margin: 0 auto 10px;">
+											<button type="button"
+												class="btn btn-primary btn-lg btn-block">Block
+												level button</button>
+											<button type="button"
+												class="btn btn-default btn-lg btn-block">Block
+												level button</button>
+										</div>
+
+									</div>
+								</form>
+								<p class="title">4.5图片和图标设计,dao 135</p>
+							</div>
 						</div>
 					</div>
 				</div>
