@@ -159,16 +159,187 @@
 						<p class="text-info">text-info...</p>
 						<p class="text-warning">text-warning...</p>
 						<p class="text-danger">text-danger...</p>
-						<p><small>small标签缩小文字</small></p>
+						<p>
+							<small>small标签缩小文字</small>
+						</p>
 						<p>4.1.3文本对齐风格</p>
 						<p class="text-lfet">左对齐</p>
 						<p class="text-center">居中</p>
 						<p class="text-right">右对齐</p>
-						<p class="lead">4.1.4缩略语
-						<abbr title="css is 层叠样式表">css</abbr>
+						<p class="lead">
+							4.1.4缩略语 <abbr title="css is 层叠样式表">css</abbr>
 						</p>
-						<p>4.1.5地址风格:<address>欢迎来到英雄联盟</address></p>
+						<p>4.1.5地址风格:
+						<address>欢迎来到英雄联盟</address>
+						<blockquote>引用标签，领先的 Web 技术教程 - 全部免费 在
+							w3school，你可以找到你所需要的所有的网站建设教程。 从基础的 HTML 到 CSS，乃至进阶的XML、SQL、JS、PHP
+							和 ASP.NET。 从左侧的菜单选择你需要的教程！</blockquote>
+						</p>
 						<p>4.1.7列表风格 dao 107</p>
+						<p>无序列表
+						<ul>
+							<li>首页</li>
+							<li>二手车</li>
+							<li>二手车市场</li>
+							<li>社区</li>
+						</ul>
+						有序列表
+						<ol>
+							<li>首页</li>
+							<li>我的</li>
+							<li>好友</li>
+							<li>其他</li>
+						</ol>
+						无样式列表 移除了默认的 list-style
+						样式和左侧外边距的一组元素（只针对直接子元素）。这是针对直接子元素的，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。
+						<ul class="list-unstyled">
+							<li>哈哈</li>
+							<li>答案啊</li>
+							<li>你在哪</li>
+							<li>啦啦啦</li>
+						</ul>
+						列表显示在一行list-inline
+						<ul class="list-inline">
+							<li>一</li>
+							<li>二</li>
+							<li>三</li>
+							<li>啦啦啦</li>
+						</ul>
+						</p>
+						<p>
+							4.1.8代码风格:
+							<code>for(var i=0;i<3;i++){alert("重要的事说三遍");}</code>
+							代码块 多行代码可以使用 'pre>' 标签。该标签会保留空格和换行
+						<pre>class A{
+							function com(){
+								if(a>b){
+									alert("a>b");
+								}
+							}
+						}<a>bai</a>
+						</pre>
+						通过pre显示H5模板格式:
+						<pre>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;video width="320" height="240" controls="controls"&gt;
+  &lt;source src="movie.ogg" type="video/ogg"&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+Your browser does not support the video tag.
+&lt;/video&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+						</p>
+						<p>4.21.表格优化设计</p>
+						<div>
+							表格 基本实例 为任意 'table>'标签添加 .table 类可以为其赋予基本的样式 —
+							少量的内补（padding）和水平方向的分隔线。这种方式看起来很多余！？但是我们觉得，表格元素使用的很广泛，如果我们为其赋予默认样式可能会影响例如日历和日期选择之类的插件，所以我们选择将此样式独立出来。
+							<table class="table">
+								<caption>默认表格</caption>
+								<thead>
+									<tr>
+										<th colspan="2">华语九天榜</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>排名</th>
+										<th>歌曲名</th>
+									</tr>
+									<tr>
+										<td>张三</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>李四</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>王五</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>赵六</td>
+										<td>13</td>
+									</tr>
+								</tbody>
+							</table>
+							<p class="title">条纹状表格 通过 .table-striped 类可以给 'tbody>
+								之内的每一行增加斑马条纹样式。</p>
+							<table class="table table-striped">
+								<caption>条纹状表格</caption>
+								<thead>
+									<tr>
+										<th colspan="2">条纹状表格:华语九天榜</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>排名</th>
+										<th>歌曲名</th>
+									</tr>
+									<tr>
+										<td>张三</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>李四</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>王五</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>赵六</td>
+										<td>13</td>
+									</tr>
+								</tbody>
+							</table>
+							<p class="title">4.2.3表格个性风格：dao 114</p>
+							<p class="title">
+								1.带边框的表格 添加 .table-bordered 类为表格和其中的每个单元格增加边框。 <br> 2.鼠标悬停
+								通过添加 .table-hover 类可以让 'tbody> 中的每一行对鼠标悬停状态作出响应。
+							</p>
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th colspan="3">条纹状表格:华语九天榜</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>序号</th>
+										<th>排名</th>
+										<th>歌曲名</th>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>张三</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>李四</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>王五</td>
+										<td>13</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>赵六</td>
+										<td>13</td>
+									</tr>
+								</tbody>
+							</table>
+							<p class="lead">dao 115</p>
+						</div>
 					</div>
 				</div>
 			</div>
