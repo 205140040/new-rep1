@@ -528,13 +528,36 @@ Your browser does not support the video tag.
 									</div>
 								</form>
 								<p class="title">4.5图片和图标设计,dao 135</p>
+								<p>图片 响应式图片 在 Bootstrap 版本 3 中，通过为图片添加 .img-responsive
+									类可以让图片支持响应式布局。其实质是为图片设置了 max-width: 100%; 和 height: auto;
+									属性，从而让图片在其父元素中更好的缩放。</p>
+								<div>
+									<img src="<%=BasePath%>/image/t1.jpg"
+										class="img-responsive img-rounded" alt="Responsive image">
+									<br> 图片形状 通过为 <img> 元素添加以下相应的类，可以让图片呈现不同的形状。 跨浏览器兼容性
+									请时刻牢记：Internet Explorer 8 不支持 CSS3 中的圆角属性。 140x140 140x140
+									140x140 Copy 'img src="..." alt="..." class="img-rounded">'
+									'img src="..." alt="..." class="img-circle">' 'img src="..."
+									alt="..." class="img-thumbnail">
+									<div class="col-xs-10">
+										<img src="<%=BasePath%>/image/t2.jpg"
+											class="img-responsive img-thumbnail" alt="Responsive image">
+									</div>
+									<img src="<%=BasePath%>/image/t3.jpg"
+										class="img-responsive img-circle" alt="Responsive image">
+
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="tab-pane fade" id="profile">
-				<h4>Profile Tab</h4>
+				<h4 class="title">第5章：less 140</h4>
+				<div class="container-fluid">
+					<p>5.1.3less参考和工具：1.在线编译工具：less官网或http://tool.oschina.net/less,2.本地编译工具simpleless，winless</p>
+					<p>5.4LESS动态语法:dao 159</p>
+				</div>
 			</div>
 			<div class="tab-pane fade" id="messages">
 				<h4>Messages Tab</h4>
