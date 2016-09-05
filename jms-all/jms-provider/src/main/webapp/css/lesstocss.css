@@ -1,0 +1,42 @@
+.c1 {
+	color: #ff0000;
+	font-size: 1em;
+}
+/**
+css继承或混合
+*/
+/* .border {
+	border-top: 1px dotted #333;
+}
+
+.c2 {
+	border-top: 1px dotted #333;
+	background-color: blue;
+}
+
+.c3 {
+	border-top: 1px dotted #333;
+	background-color: yellow;
+} */
+/* .border {
+	border-top: 1px dotted #333;
+}
+
+.c2 {
+	border-top: 1px dotted #333;
+	background-color: blue;
+}
+
+.c3 {
+	border-top: 1px dotted #333;
+	background-color: yellow;
+} */
+.c2 {
+	border-top: 1px dotted #333333;
+	background-color: blue;
+}
+
+.c3 {
+	border-top: 3px dotted #333333;
+	background-color: yellow;
+}

@@ -12,6 +12,8 @@
 <!-- Bootstrap -->
 <link href="<%=BasePath%>/js/bootstrap-3.3.5/dist/css/bootstrap.min.css"
 	type="text/css" rel="stylesheet">
+<link href="<%=BasePath%>/css/lesstocss.css" type="text/css"
+	rel="stylesheet">
 <style>
 .title {
 	color: #ff6666;
@@ -25,9 +27,9 @@
 	<div class="panel-body">
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+			<li class=""><a href="#home" data-toggle="tab">Home</a></li>
 			<li class=""><a href="#profile" data-toggle="tab">Profile</a></li>
-			<li class=""><a href="#messages" data-toggle="tab">Messages</a>
+			<li class="active"><a href="#messages" data-toggle="tab">Messages</a>
 			</li>
 			<li class=""><a href="#settings" data-toggle="tab">Settings</a>
 			</li>
@@ -35,7 +37,7 @@
 
 		<!-- Tab panes -->
 		<div class="tab-content">
-			<div class="tab-pane fade active in" id="home">
+			<div class="tab-pane fade" id="home">
 				<h4>Home Tab</h4>
 				<p class="title">第一章</p>
 				<p>第30页,bootstrap开发工具:1.jetStrap,2.layoutIt</p>
@@ -467,9 +469,9 @@ Your browser does not support the video tag.
 										type="text" placeholder="Default input"> <input
 										class="form-control input-sm" type="text"
 										placeholder=".input-sm"> <select
-										class="form-control input-lg">...
-									</select> <select class="form-control">...
-									</select> <select class="form-control input-sm">...
+										class="form-control input-lg">
+									</select> <select class="form-control">
+									</select> <select class="form-control input-sm">
 									</select>
 									<div>
 										调整列（column）尺寸 用栅格系统中的列（column）包裹输入框或其任何父元素，都可很容易的为其设置宽度。
@@ -557,10 +559,163 @@ Your browser does not support the video tag.
 				<div class="container-fluid">
 					<p>5.1.3less参考和工具：1.在线编译工具：less官网或http://tool.oschina.net/less,2.本地编译工具simpleless，winless</p>
 					<p>5.4LESS动态语法:dao 159</p>
+					<ol>
+						<li>5.4.1:变量：@开头，写法和css一样,如:@color:red; <pre>
+						less:
+						@font-color:red;
+						.c1{
+							color:@font-color;
+						  	font-size:1em;
+						}
+	
+						</pre> <pre>
+						css:
+						.c1 {
+						  color: #ff0000;
+						  font-size: 1em;
+						}
+						</pre>
+							<div class="c1">c1样式</div>
+						</li>
+						<li>5.4.2混合：公共样式混合继承: <pre>.border{
+								border-top:1px dotted #333;
+							}
+							.c2{
+								.border;
+							  	background-color:blue;
+							}
+							.c3{
+								.border;
+							    background-color:yellow;
+							}</pre>
+							<div class="c2">c2555</div>
+							<div class="c3">c3333</div> 设置参数的混合： <pre>
+								.border(@pa:1px){
+								    border-top:@pa dotted #333;
+								}
+								.c2{
+								    .border;
+								    background-color:blue;
+								}
+								.c3{
+								    .border(3px);
+								    background-color:yellow;
+								}
+							</pre>
+						</li>
+						<li>5.4.4参数混合,模式匹配，类似重载</li>
+						<li>.border-set(@top:3px,@bottom:2px,@left:3px){
+							border-top:@top; border-bottom:@bottom; border-left:@left; }
+							.table{ .border-set; } <pre>
+								.reload(@a){
+									 color:@a;
+									}
+									.reload(@a:blue,@b:3px){
+									  color:@a;
+									  width:@b;
+									}
+									.r1{
+									 .reload(blue);
+									  
+									}
+									.r2{
+										.reload(green,5px);
+									}
+							</pre>
+						</li>
+						<li>5.4.5条件表达式:dao 166</li>
+						<li>when<pre>
+							.when1(@con) when (@con>=5){
+								color:yellow;
+							}
+							.when1(@con) when (@con<5){
+							  	color:blue;
+							}
+							.w1{
+							 .when1(6);
+							}
+							.w2{
+							.when1(3);
+							}
+						</pre> 常见的检测函数: <pre>
+							.when1(@con) when (iscolor(@con)){
+								color:@con;
+							}
+							.when1(@con) when (isnumber(@con)){
+							  	width:@con;
+							}
+							.w1{
+							 .when1(6);
+							}
+							.w2{
+							.when1(blue);
+							}
+						</pre> 还可使用and or(用,号) not
+						</li>
+						<li>5.4.6嵌套规则: 样式下面多个子样式： <pre>
+							.imgall{
+							  width:auto;
+							  span{
+							    border-size:3px;
+							  }
+							  p{
+							  	font-size:2em;
+							  }
+							}
+						</pre> 串联选择器用& <pre>
+						.imgall{
+							  width:auto;
+							  span{
+							    border-size:3px;
+							  }
+							  p{
+							  	font-size:2em;
+							  }
+							  &.imgc1{
+							    height:auto;
+							  }
+							}
+						</pre> 生成的css代码如下： <pre>
+							.imgall {
+							  width: auto;
+							}
+							.imgall span {
+							  border-size: 3px;
+							}
+							.imgall p {
+							  font-size: 2em;
+							}
+							.imgall.imgc1 {
+							  height: auto;
+							}
+						</pre>
+						</li>
+						<li>5.4.7运算,5.4.8颜色函数,5.4.9数学函数</li>
+						<li>5.4.11命名空间防止冲突 <pre>#ns1{
+								  .col{
+								  	color:blue;
+								  }
+								  @fs:3px;
+								  .font{
+								  	font-size:@fs;
+								  }
+								}
+								.nst1{
+									#ns1.font;
+								}</pre>
+						</li>
+						<li>5.4.12注释：/**/ <br>5.4.13导入@import "lib1.less" <br>字符串插值:<pre>
+						@basurl:"www.timobb.com";
+						.url1{
+						  background-img:url("@{baseurl}/a/1.png");
+						}
+						</pre>
+						</li>
+					</ol>
 				</div>
 			</div>
-			<div class="tab-pane fade" id="messages">
-				<h4>Messages Tab</h4>
+			<div class="tab-pane fade  active in" id="messages">
+				<h4 class="title">第6章：使用bootstrap组件:dao 187</h4>
 			</div>
 			<div class="tab-pane fade" id="settings">
 				<h4>Settings Tab</h4>
