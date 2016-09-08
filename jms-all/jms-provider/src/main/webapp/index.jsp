@@ -26,7 +26,7 @@
 
 	<div class="panel-body">
 		<!-- Nav tabs -->
-		<ul class="nav nav-tabs">
+		<ul class="nav nav-tabs navbar-fixed-top">
 			<li class=""><a href="#home" data-toggle="tab">Home</a></li>
 			<li class=""><a href="#profile" data-toggle="tab">Profile</a></li>
 			<li class="active"><a href="#messages" data-toggle="tab">Messages</a>
@@ -716,6 +716,244 @@ Your browser does not support the video tag.
 			</div>
 			<div class="tab-pane fade  active in" id="messages">
 				<h4 class="title">第6章：使用bootstrap组件:dao 187</h4>
+				<div class="container-fluid">
+					下拉菜单:
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button"
+							id="dropdownMenu1" data-toggle="dropdown">
+							Dropdown <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu"
+							aria-labelledby="dropdownMenu1">
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+								href="#">菜单1</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+								href="#">菜单2</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+								href="#">菜单3</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1"
+								href="#">菜单4</a></li>
+						</ul>
+					</div>
+					按钮组 通过按钮组容器把一组按钮放在同一行里。通过与按钮插件联合使用，可以设置为单选框或多选框的样式和行为。 <br>
+					<div class="btn-group">
+						<button type="button" class="btn btn-default">1</button>
+						<button type="button" class="btn btn-default">2</button>
+						<button type="button" class="btn btn-default">3</button>
+					</div>
+					<br> 按钮工具栏 把一组 'div class="btn-group"> 组合进一个 'div
+					class="btn-toolbar"> 中就可以做成更复杂的组件。 <br>
+					<div class="btn-toolbar">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default">
+								<span class="glyphicon glyphicon-backward"></span>
+							</button>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default">1</button>
+							<button type="button" class="btn btn-default">2</button>
+							<button type="button" class="btn btn-default">3</button>
+						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default">
+								<span class="glyphicon glyphicon-forward"></span>
+							</button>
+						</div>
+					</div>
+					垂直排列 让一组按钮垂直堆叠排列显示而不是水平排列。分列式按钮下拉菜单不支持这种方式。 <br>
+					<div class="btn-group-vertical">
+						<button type="button" class="btn btn-default">菜单1</button>
+						<button type="button" class="btn btn-default">菜单2</button>
+						<div class="btn-group">
+							<button id="btnGroupVerticalDrop1" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false">
+								菜单3 <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu"
+								aria-labelledby="btnGroupVerticalDrop1">
+								<li><a href="#">Dropdown link</a></li>
+								<li><a href="#">Dropdown link</a></li>
+							</ul>
+						</div>
+						<button type="button" class="btn btn-default">Button</button>
+						<button type="button" class="btn btn-default">Button</button>
+						<div class="btn-group">
+							<button id="btnGroupVerticalDrop2" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false">
+								Dropdown <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu"
+								aria-labelledby="btnGroupVerticalDrop2">
+								<li><a href="#">Dropdown link</a></li>
+								<li><a href="#">Dropdown link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button id="btnGroupVerticalDrop3" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false">
+								Dropdown <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu"
+								aria-labelledby="btnGroupVerticalDrop3">
+								<li><a href="#">Dropdown link</a></li>
+								<li><a href="#">Dropdown link</a></li>
+							</ul>
+						</div>
+						<div class="btn-group">
+							<button id="btnGroupVerticalDrop4" type="button"
+								class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="false">
+								Dropdown <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu"
+								aria-labelledby="btnGroupVerticalDrop4">
+								<li><a href="#">Dropdown link</a></li>
+								<li><a href="#">Dropdown link</a></li>
+							</ul>
+						</div>
+					</div>
+					<br>6.4.1导航导航 Bootstrap 中的导航组件都依赖同一个 .nav
+					类，状态类也是共用的。改变修饰类可以改变样式。 标签页 注意 .nav-tabs 类依赖 .nav 基类。 <br>
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#">首页</a></li>
+						<li><a href="#">个人中心</a></li>
+						<li><a href="#">游戏中心</a></li>
+
+					</ul>
+					胶囊式标签页 HTML 标记相同，但使用 .nav-pills 类：
+					<ul class="nav nav-pills" role="tablist">
+						<li role="presentation" class="active"><a href="#">Home</a></li>
+						<li role="presentation"><a href="#">Profile</a></li>
+						<li role="presentation"><a href="#">Messages</a></li>
+					</ul>
+					固定在顶部 添加 .navbar-fixed-top 类可以让导航条固定在顶部，还可包含一个 .container 或
+					.container-fluid 容器，从而让导航条居中，并在两侧添加内部（padding）。 <br> 标签
+					<div>
+						<span class="label label-default">默认</span> <span
+							class="label label-primary">Primary</span> <span
+							class="label label-success">NEw</span> <span
+							class="label label-info">Info</span> <span
+							class="label label-warning">Warning</span> <span
+							class="label label-danger">Danger</span>
+					</div>
+					徽章 给链接、导航等元素嵌套 span class="badge"> 元素，可以很醒目的展示新的或未读的信息条目。 Inbox 42
+					Messages 4 Copy <br> <a href="#">Inbox <span class="badge">42</span></a>
+
+					<button class="btn btn-primary" type="button">
+						Messages <span class="badge">4</span>
+					</button>
+					缩略图
+					<div class="col-xs-6 col-md-2">
+						<a href="#" class="thumbnail"> <img
+							src="<%=BasePath%>/image/t2.jpg" alt="...">
+						</a>
+					</div>
+					<br> 带标题的面版 通过 .panel-heading 可以很简单地为面板加入一个标题容器。你也可以通过添加设置了
+					.panel-title 类的 h1> - h6> 标签，添加一个预定义样式的标题。 为了给链接设置合适的颜色，务必将链接放到带有
+					.panel-title 类的标题标签内。 <br>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Panel title</h3>
+						</div>
+						<div class="panel-body">Panel content</div>
+					</div>
+					<p class="title">第7章：使用bootstrap插件 dao 238</p>
+					<div>
+						模态框
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary btn-lg"
+							data-toggle="modal" data-target="#myModal">Launch demo
+							modal</button>
+
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+									</div>
+									<div class="modal-body">...</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save
+											changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br> 不同尺寸的模态框：
+						<!-- Large modal -->
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+							data-target=".bs-example-modal-lg">Large modal</button>
+
+						<div class="modal fade bs-example-modal-lg" tabindex="-1"
+							role="dialog" aria-labelledby="myLargeModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">...</div>
+							</div>
+						</div>
+
+						<!-- Small modal -->
+						<button type="button" class="btn btn-primary" data-toggle="modal"
+							data-target=".bs-example-modal-sm">Small modal</button>
+
+						<div class="modal fade bs-example-modal-sm" tabindex="-1"
+							role="dialog" aria-labelledby="mySmallModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-sm">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">
+											<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+									</div>
+									<div class="modal-body">...</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save
+											changes</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div>
+						弹出提示工具: popover
+						<table class="table">
+							<tr>
+								<td><button id="b1" data-p="p1" type="button"
+										class="btn btn-default pop">操作</button></td>
+								<td>数据1</td>
+							</tr>
+							<tr>
+								<td>
+									<button id="b2" data-p="p2" type="button"
+										class="btn btn-default pop">操作</button>
+								</td>
+								<td>数据2 dao 264</td>
+							</tr>
+
+						</table>
+
+	<p>输入提示</p>
+	<input type="text" class="form-control" data-provide="typeahead"
+     data-source='["Deluxe Bicycle", "Super Deluxe Trampoline", "Super Duper Scooter"]'>
+					</div>
+					<p class="title">第8章：bootstrap扩展,dao 288</p>
+				</div>
 			</div>
 			<div class="tab-pane fade" id="settings">
 				<h4>Settings Tab</h4>
@@ -726,5 +964,29 @@ Your browser does not support the video tag.
 	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 	<!-- bootstrap.min.js -->
 	<script src="<%=BasePath%>/js/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+	<script src="<%=BasePath%>/js/bootstrap-typeahead.js"></script>
+	<script type="text/javascript">
+		$(".pop").popover({
+			html : true,
+			content : function(event) {
+				var p = $(this).attr("data-p");
+				return '<a onclick="upd(\'' + p + '\')">修改</a><a>删除</a>';
+			},
+			placement : "right",
+			trigger : "click",
+			delay : 0
+		});
+		//事件
+		$('.pop').on('show.bs.popover', function() {
+			$(this).parent().parent().siblings().each(function(i, d) {
+				$(d).find("td>button").popover('hide');
+// 				console.log("hide:" + $(d).html());
+			});
+		});
+
+		function upd(p) {
+			console.log("参数:" + p);
+		}
+	</script>
 </body>
 </html>
