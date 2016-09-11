@@ -948,11 +948,17 @@ Your browser does not support the video tag.
 
 						</table>
 
-	<p>输入提示</p>
-	<input type="text" class="form-control" data-provide="typeahead"
-     data-source='["Deluxe Bicycle", "Super Deluxe Trampoline", "Super Duper Scooter"]'>
+						<p>输入提示</p>
+						<input type="text" class="form-control" data-provide="typeahead"
+							data-source='["Deluxe Bicycle", "Super Deluxe Trampoline", "Super Duper Scooter"]'>
 					</div>
 					<p class="title">第8章：bootstrap扩展,dao 288</p>
+					<p class="title">编写jquery插件
+					<button class="btn btn-default" id="sayHelloBtn">jphello</button>
+					<button class="btn btn-default" id="colorBtn">jpColor</button>
+					<p id="jpCp">改变颜色</p>
+					<p id="jpDefault">支持默认参数改变颜色</p>
+					</p>
 				</div>
 			</div>
 			<div class="tab-pane fade" id="settings">
@@ -965,7 +971,21 @@ Your browser does not support the video tag.
 	<!-- bootstrap.min.js -->
 	<script src="<%=BasePath%>/js/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
 	<script src="<%=BasePath%>/js/bootstrap-typeahead.js"></script>
+	<script src="<%=BasePath%>/js/jquery.myplug.js"></script>
+
 	<script type="text/javascript">
+	$("#sayHelloBtn").click(function(){
+		$.sayHello();
+		var p=3;
+		if($.isEmpty(p)){
+			alert("p 是空");
+		}
+	});
+	$("#colorBtn").click(function(){
+		$("#jpCp").color("blue");
+		$("#jpDefault").colorDefault({"color":"yellow","fontSize":"2em"});
+	});
+	
 		$(".pop").popover({
 			html : true,
 			content : function(event) {
@@ -980,7 +1000,7 @@ Your browser does not support the video tag.
 		$('.pop').on('show.bs.popover', function() {
 			$(this).parent().parent().siblings().each(function(i, d) {
 				$(d).find("td>button").popover('hide');
-// 				console.log("hide:" + $(d).html());
+				// 				console.log("hide:" + $(d).html());
 			});
 		});
 
