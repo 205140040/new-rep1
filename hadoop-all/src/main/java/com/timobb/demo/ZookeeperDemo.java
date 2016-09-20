@@ -14,8 +14,20 @@ public class ZookeeperDemo {
 		 * zkCli：zookeeper的一个简易客户端
 		 * zkEnv：设置zookeeper的环境变量
 		 * zkServer:zookeeper的启动，停止和重启
+		 * 启动:./zkServer.sh start
 		 * 如：停止服务: ./zkServer.sh stop
 		 * 5.2客户端脚本:zkCli dao 99
+		 * 1.create 创建zookeeper节点
+		 * 不设置参数默认创建持久节点:create /zk-node1 123  创建一个
+		 * zk-node1 内容为123
+		 * 2读取命令:ls path
+		 * 如ls /
+		 * 3.get path获取指定path节点的类容信息
+		 * 4.set path更新节点的数据类容:set /zk-node1 456
+		 * 5.删除:delete path
+		 * 如:delete /zl-node1
+		 * 5.3:JAVA客户端api使用
+		 * 
 		 */
 
 	}
