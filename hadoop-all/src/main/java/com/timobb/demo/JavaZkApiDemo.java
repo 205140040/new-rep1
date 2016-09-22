@@ -64,8 +64,17 @@ public class JavaZkApiDemo implements Watcher {
 			// System.out.println("节点类容:"+new String(n1datas2));
 			// 检测节点是否存在:
 			Stat stat = zooKeeper.exists("/node1", true);
-			//5.3.7权限控制，dao 126
-			//5.4开源客户端
+			// 5.3.7权限控制，dao 126
+			zooKeeper.addAuthInfo("digest", "zll:521".getBytes());
+//			zooKeeper.create("/node_auth1", "node_auth1".getBytes(), Ids.CREATOR_ALL_ACL, CreateMode.PERSISTENT);
+			ZooKeeper z2 = new ZooKeeper("47.90.9.239:2181", 5000, null);
+			byte[] z2n1datas = z2.getData("/node_auth1", false, null);
+			z2.addAuthInfo("digest", "zll:555".getBytes());
+			System.out.println("节点类容:" + new String(z2n1datas));
+			// 5.4开源客户端
+			//5.4.1开源客户端,ZKClient
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
