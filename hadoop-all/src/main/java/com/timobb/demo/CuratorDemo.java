@@ -15,6 +15,7 @@ import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
+import org.apache.zookeeper.server.PrepRequestProcessor;
 
 public class CuratorDemo {
 
@@ -138,6 +139,10 @@ public class CuratorDemo {
 			//6.1.7分布式锁dao 199
 			//6.2zookeeper在大型分布式系统中的应用dao 208
 			//6.3.6实时计算引擎jstorm 249
+			//第7章：zookeeper技术内幕 254
+			//7.1.3版本 257页，讲到版本对并发的控制
+			//7.2 序列化与协议 dao 283
+			
 			
 			Thread.sleep(Integer.MAX_VALUE);
 		} catch (Exception e) {
