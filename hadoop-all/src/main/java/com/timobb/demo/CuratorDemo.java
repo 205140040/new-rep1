@@ -15,7 +15,6 @@ import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
-import org.apache.zookeeper.server.PrepRequestProcessor;
 
 public class CuratorDemo {
 
@@ -115,7 +114,7 @@ public class CuratorDemo {
 						try {
 							// 等待完成工作
 							countDownLatch.await();
-							//获取分布式锁
+							// 获取分布式锁
 							lock.acquire();
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -133,17 +132,17 @@ public class CuratorDemo {
 				}).start();
 			}
 			System.out.println("循环完成........");
-			//工具:169页
-			//ZKPaths,EnsurePath:创建节点，如果不存在，则创建，否则不做任何操作
-			//第6章：zookeeper的典型应用场景：dao 173
-			//6.1.7分布式锁dao 199
-			//6.2zookeeper在大型分布式系统中的应用dao 208
-			//6.3.6实时计算引擎jstorm 249
-			//第7章：zookeeper技术内幕 254
-			//7.1.3版本 257页，讲到版本对并发的控制
-			//7.2 序列化与协议 dao 283
-			
-			
+			// 工具:169页
+			// ZKPaths,EnsurePath:创建节点，如果不存在，则创建，否则不做任何操作
+			// 第6章：zookeeper的典型应用场景：dao 173
+			// 6.1.7分布式锁dao 199
+			// 6.2zookeeper在大型分布式系统中的应用dao 208
+			// 6.3.6实时计算引擎jstorm 249
+			// 第7章：zookeeper技术内幕 254
+			// 7.1.3版本 257页，讲到版本对并发的控制
+			// 7.2 序列化与协议 dao 283,zookeeper 在连接时127.0.0.1:2181/namespace1 设置命名空间
+			// 7.9.2事务日志:zookeeper实现一致性的重要部分 369 
+
 			Thread.sleep(Integer.MAX_VALUE);
 		} catch (Exception e) {
 			e.printStackTrace();
