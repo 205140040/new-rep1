@@ -142,6 +142,7 @@ public class CuratorDemo {
 			// 7.1.3版本 257页，讲到版本对并发的控制
 			// 7.2 序列化与协议 dao 283,zookeeper 在连接时127.0.0.1:2181/namespace1 设置命名空间
 			// 7.9.2事务日志:zookeeper实现一致性的重要部分 369 
+			//第8章：zookeeper运维 390 看完了.........
 
 			Thread.sleep(Integer.MAX_VALUE);
 		} catch (Exception e) {
