@@ -1,4 +1,4 @@
-package com.timobb.demo;
+package com.timobb.zookeeper.demo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
