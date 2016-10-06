@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.timobb</groupId>
 	<artifactId>hadoop-all</artifactId>
-	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hadoop-all Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -267,4 +266,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<packaging>war</packaging>
 </project>

@@ -7,6 +7,7 @@ public class Demo {
 		//第二章：hadoop的安装与配置 33
 		//第三章:hadoop应用案例分析 50
 		//第4章：mapreduce计算模型  69
+		//第5章：开发mapreduce应用程序 90
 
 	}
 
