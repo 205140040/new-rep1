@@ -3,6 +3,18 @@ package com.timobb.hadoop.demo.wordcount;
 public class Demo {
 
 	public static void main(String[] args) {
+		/**
+		 * linux运行步骤：
+		 * 1.打成jar包
+		 * 2.bin/hdfs dfs -mkdir /qc  创建输入目录
+		 * 3.把文件添加到输入目录:bin/hdfs dfs -put 
+		 * bin/hdfs dfs -put /home/hadoopdata/qc/* /qc
+		 * 4.运行maprecude jar包:
+		 *  bin/hadoop jar /home/hadoopdata/jars/qc.jar
+		 *  5.查看输出类容:
+		 *  bin/hdfs dfs -ls /qcout
+		 *  bin/hdfs dfs -cat /qcout/part-r-00000
+		 */
 		// 1.6.2 HBase的数据管理 27
 		//第二章：hadoop的安装与配置 33
 		//第三章:hadoop应用案例分析 50
