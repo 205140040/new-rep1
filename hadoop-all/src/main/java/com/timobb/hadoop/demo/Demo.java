@@ -8,6 +8,7 @@ public class Demo {
 		//第三章:hadoop应用案例分析 50
 		//第4章：mapreduce计算模型  69
 		//第5章：开发mapreduce应用程序 90
+		//第6章：mapreduce应用案列 113
 
 	}
 
