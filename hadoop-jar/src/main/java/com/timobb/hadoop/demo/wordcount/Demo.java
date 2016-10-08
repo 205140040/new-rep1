@@ -22,6 +22,11 @@ public class Demo {
 		//第5章：开发mapreduce应用程序 90
 		//第6章：mapreduce应用案列 113
 		//6.3排序 121
+		//第7章：mapreduce工作机制 132
+		//7.5.2任务JVM重用 149
+		//第8章：hadoop IO操作 152
+		//hadoop压缩:http://www.cnblogs.com/ggjucheng/archive/2012/04/22/2465580.html
+		//第9章：hdfs详解 177
 
 	}
 
