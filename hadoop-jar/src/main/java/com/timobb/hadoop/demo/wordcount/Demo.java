@@ -1,5 +1,7 @@
 package com.timobb.hadoop.demo.wordcount;
 
+import org.apache.hadoop.fs.FileSystem;
+
 public class Demo {
 
 	public static void main(String[] args) {
@@ -27,7 +29,13 @@ public class Demo {
 		//第8章：hadoop IO操作 152
 		//hadoop压缩:http://www.cnblogs.com/ggjucheng/archive/2012/04/22/2465580.html
 		//第9章：hdfs详解 177
-
+		//9.4.1HDFS的命令行操作:hadoop fs -help查看帮助
+		//bin/hadoop fs -ls / 查看目录:/
+		//bin/hadoop fs -cat /wcout1/part-r-00000  查看文件类容
+		//-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst> :
+		 // Identical to the -get command.  复制hdfs文件到本地
+		//9.5.3 使用api创建目录 mkdirs 191
+		
 	}
 
 }
