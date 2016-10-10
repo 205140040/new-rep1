@@ -28,6 +28,10 @@ public class FileSystemReadDemo {
 		BufferedInputStream bufferedInputStream = new BufferedInputStream(in);
 		bufferedInputStream.read(bytes);
 		System.out.println(new String(bytes));
+		//获取文件状态		fileSystem.getFileStatus(f)
+		//获取目录下的类容：fileSystem.listStatus
+//		fileSystem.list
+//		fileSystem.getFileStatus(f)
 
 	}
 

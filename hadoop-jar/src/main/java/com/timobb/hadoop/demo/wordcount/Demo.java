@@ -35,6 +35,8 @@ public class Demo {
 		//-copyToLocal [-p] [-ignoreCrc] [-crc] <src> ... <localdst> :
 		 // Identical to the -get command.  复制hdfs文件到本地
 		//9.5.3 使用api创建目录 mkdirs 191
+		//9.6.2 文件的写入 199
+		//9.7 HDFS命令详解 186 /201
 		
 	}
 
