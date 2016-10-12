@@ -37,6 +37,18 @@ public class Demo {
 		//9.5.3 使用api创建目录 mkdirs 191
 		//9.6.2 文件的写入 199
 		//9.7 HDFS命令详解 186 /201
+		//distcp :用于在hadoop集群间并行传递数据
+		//archives压缩归档小文件提升性能
+		//datanode 将hadoop回滚到上一个版本
+		//balancer分担负载
+		//fs 对hadoop文件系统进行操作 hadoop fs --help查看如何使用
+		//第10章：hadoop的管理 195/210
+		//第11章：HIVE详解 217/232
+		//第12章：HBase详解  243/259
+		//第13章：Mahout详解 276/291
+		//第14章：PIg详解 299/314
+		//第15章：zookeeper详解 326/341
+		
 		
 	}
 
