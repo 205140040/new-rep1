@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.yfairy</groupId>
+	<artifactId>yfairy-all</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>yfairy-all</name>
+	<url>http://maven.apache.org</url>
+	<modules>
+		<module>yfairy-beans</module>
+		<module>yfairy-user-interface</module>
+		<module>yfairy-user-service</module>
+		<module>yfairy-common-dependency</module>
+		<module>yfairy-web-www</module>
+		<module>yfairy-web-file</module>
+		<module>yfairy-timer</module>
+	</modules>
+	<properties>
+		<!-- 设置utf-8编码格式 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- 编译的时候使用JDK8和UTF8编码 , -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- <version>3.0</version> -->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
