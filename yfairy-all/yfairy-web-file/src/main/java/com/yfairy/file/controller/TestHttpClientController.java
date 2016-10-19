@@ -24,7 +24,7 @@ public class TestHttpClientController {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append("响应类容:");
 			for (Entry<String, String[]> entry : params.entrySet()) {
-				stringBuilder.append(entry.getKey() + ":" + entry.getValue() + "  ,");
+				stringBuilder.append(entry.getKey() + ":" + entry.getValue()[0].toString() + "  ,");
 			}
 			out.println(stringBuilder.toString());
 		} catch (Exception e) {

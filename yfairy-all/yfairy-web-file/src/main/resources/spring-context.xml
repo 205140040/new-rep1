@@ -24,4 +24,12 @@
 	<!-- 扫描component，controller，repository,service -->
 	<context:component-scan base-package="com.yfairy">
 	</context:component-scan>
+	<!-- 拦截器
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.yfairy.common.interceptor.WelcomeInterpector"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	 -->
 </beans>

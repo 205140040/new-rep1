@@ -1,4 +1,4 @@
-package org.yfairy.common.utils;
+package com.yfairy.common.utils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

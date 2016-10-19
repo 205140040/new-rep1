@@ -1,4 +1,4 @@
-package org.yfairy.common.dependency;
+package com.yfairy.common.dependency;
 
 /**
  * Hello world!
