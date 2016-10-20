@@ -1,43 +1,48 @@
-package com.yfairy.test.startjetty;
+package com.yfairy.common.jetty;
+
+import java.io.File;
 
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-public class StartJettyWebFile {
-
-	public static void main(String[] args) {
+public class StartJetty {
+	public static void startJetty(int port) {
 		try {
+			String FILE_SEPARATOR = File.separator;
+
 			Server server = new Server();
+
 			Connector connector = new SelectChannelConnector();
-			connector.setPort(8080);
+			connector.setPort(port);
 			server.setConnectors(new Connector[] { connector });
 
 			WebAppContext webAppContext = new WebAppContext();
 			webAppContext.setContextPath("/");
-			String ProPath = System.getProperty("user.dir");
-			webAppContext.setResourceBase(ProPath + "\\src\\main\\webapp");
-			webAppContext.setDescriptor(ProPath + "\\src\\main\\webapp\\WEB-INF\\web.xml");
+			String ProjectPath = System.getProperty("user.dir");
+			String webappPath = FILE_SEPARATOR + "src" + FILE_SEPARATOR + "main" + FILE_SEPARATOR + "webapp";
+			String webXmlPath = webappPath + FILE_SEPARATOR + "WEB-INF" + FILE_SEPARATOR + "web.xml";
+			webAppContext.setResourceBase(ProjectPath + webappPath);
+			webAppContext.setDescriptor(ProjectPath + webXmlPath);
 			webAppContext.setWelcomeFiles(new String[] { "index.jsp" });
 			webAppContext.setClassLoader(Thread.currentThread().getContextClassLoader());
 			webAppContext.setConfigurationDiscovered(true);
 			webAppContext.setParentLoaderPriority(true);
 			server.setHandler(webAppContext);
+
 			System.out.println("---------------------------------");
-			System.out.println("ProPath:" + ProPath);
+			System.out.println("ProjectPath:" + ProjectPath);
 			System.out.println("ContextPath:" + webAppContext.getContextPath());
-			System.out.println("Descriptor:" + webAppContext.getDescriptor());
 			System.out.println("ResourceBase:" + webAppContext.getResourceBase());
-			System.out.println("getWelcomeFiles:" + webAppContext.getWelcomeFiles().toString());
+			System.out.println("Descriptor:" + webAppContext.getDescriptor());
 			System.out.println("---------------------------------");
 
 			server.start();
 			server.join();
-			System.out.println("server is  start");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }
