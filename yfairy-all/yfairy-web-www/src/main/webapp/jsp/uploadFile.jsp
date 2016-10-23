@@ -22,7 +22,7 @@
 	<div class="container-fluid">
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<img
-				src="/file/imageFile/jpg/eea3fb4e-0c98-4e1d-a1e6-acef84502675.jpg"
+				src="http://localhost:8081/yfairy-web-file/file/imageFile/jpg/eea3fb4e-0c98-4e1d-a1e6-acef84502675.jpg"
 				alt="..." class="img-thumbnail">
 		</div>
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">

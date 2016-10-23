@@ -22,25 +22,25 @@
 	<div class="container-fluid">
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<img
-				src="/file/imageFile/jpg/eea3fb4e-0c98-4e1d-a1e6-acef84502675.jpg"
+				src="<%=BasePath%>/file/imageFile/jpg/eea3fb4e-0c98-4e1d-a1e6-acef84502675.jpg"
 				alt="..." class="img-thumbnail">
 		</div>
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<img
-				src="/file/imageFile/jpg/b1481329-015b-43f6-8578-01bc1fa9e92d.jpg"
+				src="<%=BasePath%>/file/imageFile/jpg/b1481329-015b-43f6-8578-01bc1fa9e92d.jpg"
 				alt="..." class="img-thumbnail">
 		</div>
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<img
-				src="/file/imageFile/png/46d2d163-3c43-40ae-aebe-3a02274bc418.png"
+				src="<%=BasePath%>/file/imageFile/png/46d2d163-3c43-40ae-aebe-3a02274bc418.png"
 				alt="..." class="img-circle" width="200" height="200">
 		</div>
 		<div class="row">
 			<ol>
 				<li><a
-					href="/file/downloadFile/xlsx/83926022-8f0b-4cca-bff6-1a316c7d1dc2.xlsx">下载</a></li>
+					href="<%=BasePath%>/file/downloadFile/xlsx/83926022-8f0b-4cca-bff6-1a316c7d1dc2.xlsx">下载</a></li>
 				<li><a
-					href="/file/downloadFile/jar/b22e9d58-6e6b-42b6-bae1-7eb563195ded.jar">下载</a></li>
+					href="<%=BasePath%>/file/downloadFile/jar/b22e9d58-6e6b-42b6-bae1-7eb563195ded.jar">下载</a></li>
 			</ol>
 
 		</div>

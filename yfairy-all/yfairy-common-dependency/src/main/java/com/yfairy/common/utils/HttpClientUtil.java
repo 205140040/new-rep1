@@ -307,7 +307,7 @@ public class HttpClientUtil {
 		List<NameValuePair> ps = new ArrayList<>();
 		ps.add(new BasicNameValuePair("tel", "15000395588"));
 		System.out.println(post("http://tcc.taobao.com/cc/json/mobile_tel_segment.htm", ps));
-		System.out.println(post("http://localhost:8081/testHttpClient/test?name=zhangsan"));
+		System.out.println(post("http://localhost:8081/yfairy-web-file/testHttpClient/test?name=zhangsan"));
 	}
 
 }

@@ -74,10 +74,13 @@ public class FileController {
 	public void imageFile(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			response.setCharacterEncoding("UTF-8");
+			String contextPath = request.getServletContext().getContextPath();
+			contextPath = contextPath.replace("/", "");
 			String[] uriss = request.getRequestURI().split("/");
 			StringBuilder imageFilePathSb = new StringBuilder();
 			for (String item : uriss) {
-				if (StringUtils.hasText(item) && !item.equals("file") && !item.equals("imageFile")) {
+				if (StringUtils.hasText(item) && !item.equals(contextPath) && !item.equals("file")
+						&& !item.equals("imageFile")) {
 					imageFilePathSb.append((item + File.separator));
 				}
 			}
@@ -97,11 +100,13 @@ public class FileController {
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("multipart/form-data");
-
+			String contextPath = request.getServletContext().getContextPath();
+			contextPath = contextPath.replace("/", "");
 			String[] uriss = request.getRequestURI().split("/");
 			StringBuilder filePathSb = new StringBuilder();
 			for (String item : uriss) {
-				if (StringUtils.hasText(item) && !item.equals("file") && !item.equals("downloadFile")) {
+				if (StringUtils.hasText(item) && !item.equals(contextPath) && !item.equals("file")
+						&& !item.equals("downloadFile")) {
 					filePathSb.append((item + File.separator));
 				}
 			}
