@@ -18,18 +18,25 @@
       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
       ">
 
+	<!-- 读取多个properties配置文件 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:*.properties</value>
+				<!-- file:./dbpool.properties ,相对路径 "./" 代表当前目录,"../"代表上级目录 -->
+				<value>file:./conf/*.properties</value>
+			</list>
+		</property>
+	</bean>
+
 	<!-- 启用mvc注解 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<!-- 扫描component，controller，repository,service -->
 	<context:component-scan base-package="com.yfairy">
 	</context:component-scan>
-	<!-- 拦截器
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<bean class="com.yfairy.common.interceptor.WelcomeInterpector"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
-	 -->
+	<!-- 拦截器 <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**" /> 
+		<bean class="com.yfairy.common.interceptor.WelcomeInterpector"></bean> </mvc:interceptor> 
+		</mvc:interceptors> -->
 </beans>

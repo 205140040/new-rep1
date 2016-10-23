@@ -26,8 +26,11 @@
 	</properties>
 
 	<build>
+		<!-- Maven常用插件介绍: http://www.cnblogs.com/pixy/p/4977550.html -->
+		<!-- Maven内置属性介绍:http://blog.csdn.net/wangjunjun2008/article/details/17761355 -->
+		<!-- -->
 		<plugins>
-			<!-- 编译的时候使用JDK8和UTF8编码 , -->
+			<!-- 编译的时候使用JDK8和UTF8编码 ,编译插件 -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<!-- <version>3.0</version> -->
@@ -37,6 +40,80 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			<!-- 打包源码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- 依赖分析,导出所有依赖到lib目录 -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${project.build.directory}/lib</outputDirectory>
+					<excludeTransitive>false</excludeTransitive>  <!--是否排除间接依赖的包 -->
+					<stripVersion>false</stripVersion>  <!--复制的jar文件是否去掉版本信息 -->
+				</configuration>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--maven-war-plugin -->
+			<!-- maven-war-plugin使用介绍:https://segmentfault.com/a/1190000007166005 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<warName>${project.artifactId}</warName>
+					<webResources>
+						<!--将额外的属性文件打入war包 -->
+						<resource>
+							<!-- directory的目录是相对于pom.xml的位置来的 -->
+							<directory>conf</directory>
+							<!-- targetPath:相对WebContent根目录：如输入conf和WEB-INF是同一个目录 -->
+							<targetPath>conf</targetPath>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
 		</plugins>
+		<!-- 配置resource目录 -->
+		<resources>
+			<!--存在mapper.xml时通过此配置打包 -->
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<!-- <resource> <directory>conf</directory> <includes> <include>**/*</include> 
+				</includes> 目标路径 <targetPath>${project.build.directory}/classes/conf</targetPath> 
+				</resource> -->
+		</resources>
 	</build>
 </project>
