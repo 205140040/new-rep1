@@ -34,6 +34,9 @@
 		<unitils-core.version>3.4.2</unitils-core.version>
 		<httpclient.version>4.5.2</httpclient.version>
 		<jetty.version>8.1.14.v20131031</jetty.version>
+		<dubbo.version>2.5.3</dubbo.version>
+		<zookeeper.version>3.4.8</zookeeper.version>
+		<zkclient.version>0.9</zkclient.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -281,6 +284,28 @@
 			<groupId>ant</groupId>
 			<artifactId>ant</artifactId>
 			<version>1.6.5</version>
+		</dependency>
+		<!-- dubbo -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${dubbo.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>${zookeeper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>${zkclient.version}</version>
 		</dependency>
 	</dependencies>
 </project>

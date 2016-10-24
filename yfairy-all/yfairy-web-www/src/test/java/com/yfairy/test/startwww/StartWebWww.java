@@ -4,6 +4,6 @@ import com.yfairy.common.jetty.StartJetty;
 
 public class StartWebWww {
 	public static void main(String[] args) {
-		StartJetty.startJetty(8080);
+		StartJetty.startJetty(8080, "/yfairy-web-www");
 	}
 }

@@ -27,18 +27,18 @@
 		</div>
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<img
-				src="/file/imageFile/jpg/b1481329-015b-43f6-8578-01bc1fa9e92d.jpg"
+				src="http://localhost:8081/yfairy-web-file/file/imageFile/jpg/44fb9bbe-062d-4e24-92c2-3d76b7e52ab3.jpg"
 				alt="..." class="img-thumbnail">
 		</div>
 		<div class="row col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<img
-				src="/file/imageFile/png/46d2d163-3c43-40ae-aebe-3a02274bc418.png"
+				src="http://localhost:8081/yfairy-web-file/file/imageFile/jpg/91944049-92f3-4aa3-aa3a-5ce2a642f435.jpg"
 				alt="..." class="img-circle" width="200" height="200">
 		</div>
 		<div class="row">
 			<ol>
 				<li><a
-					href="/file/downloadFile/xlsx/83926022-8f0b-4cca-bff6-1a316c7d1dc2.xlsx">下载</a></li>
+					href="http://localhost:8081/yfairy-web-file/file/downloadFile/jpg/91944049-92f3-4aa3-aa3a-5ce2a642f435.jpg">下载</a></li>
 				<li><a
 					href="/file/downloadFile/jar/b22e9d58-6e6b-42b6-bae1-7eb563195ded.jar">下载</a></li>
 			</ol>

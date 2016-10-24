@@ -25,6 +25,9 @@ public class FileController {
 	@Value("${filebasepath}")
 	private String FILEBASEPATH;
 
+	@Value("${fileServerDomain}")
+	private String FILE_SERVER_DOMAIN;
+
 	@RequestMapping("/toUploadFilePage")
 	public String toUploadFilePage() {
 		return "jsp/uploadFile";
@@ -59,9 +62,9 @@ public class FileController {
 				}
 			}
 			if (isImage) {
-				fileUrl = "/file/imageFile/" + fileSuffix + "/" + newFileName;
+				fileUrl = FILE_SERVER_DOMAIN + "/yfairy-web-file/file/imageFile/" + fileSuffix + "/" + newFileName;
 			} else {
-				fileUrl = "/file/downloadFile/" + fileSuffix + "/" + newFileName;
+				fileUrl = FILE_SERVER_DOMAIN + "/yfairy-web-file/file/downloadFile/" + fileSuffix + "/" + newFileName;
 			}
 		} catch (Exception e) {
 			fileUrl = e.getMessage();
