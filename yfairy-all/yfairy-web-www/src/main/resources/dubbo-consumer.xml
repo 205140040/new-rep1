@@ -7,12 +7,5 @@
 	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 扫描注解包路径，多个包用逗号分隔， 不填pacakge表示扫描当前ApplicationContext中所有的类 , Spring2.5及以后版本支持component-scan -->
-	<!-- <dubbo:annotation /> -->
-
-	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="com.yfairy.user.service.IHelloService"
-		ref="helloService" />
-
-	<!-- 和本地bean一样实现服务 -->
-	<bean id="helloService" class="com.yfairy.user.service.impl.HelloServiceImpl" />
+	<dubbo:annotation />
 </beans>
