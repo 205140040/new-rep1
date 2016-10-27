@@ -32,9 +32,12 @@
 	<context:component-scan base-package="com.yfairy.*.service.*">
 	</context:component-scan>
 
-	<context:property-placeholder location="classpath:*.properties"
-		file-encoding="UTF-8" />
+	<!-- <context:property-placeholder location="classpath:jdbc.properties" 
+		file-encoding="UTF-8" /> -->
+	<!-- classpath*:*.properties,使用此方式，避免找不到属性文件 -->
+	<context:property-placeholder
+		file-encoding="UTF-8" location="classpath*:*.properties" />
 
-<!-- 	<import resource="spring-mybatis.xml" /> -->
-	<import resource="dubbo-provider.xml" />
+	<import resource="spring-mybatis.xml" />
+<!-- 	<import resource="dubbo-provider.xml" /> -->
 </beans>

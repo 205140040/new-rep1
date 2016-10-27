@@ -1,11 +1,13 @@
 package com.yfairy.user.service.impl;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.yfairy.user.service.IHelloService;
 
+@Service(value="HelloServiceImpl")
 public class HelloServiceImpl implements IHelloService {
-	@Value("${yfjdbc.url}")
+	@Value("${jdbc.url}")
 	private String jurl;
 
 	/*
@@ -17,6 +19,7 @@ public class HelloServiceImpl implements IHelloService {
 	public String hello(String name) {
 		String res = "hello：" + name;
 		System.out.println(res);
+		System.out.println(jurl);
 		return res;
 	}
 }

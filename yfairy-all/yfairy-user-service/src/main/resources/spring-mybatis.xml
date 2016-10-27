@@ -22,11 +22,11 @@
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<!-- 数据库基本信息配置 -->
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<!-- 基本属性 url、user、password -->
-		<property name="url" value="jdbc:mysql://localhost/test" />
-		<property name="username" value="root" />
-		<property name="password" value="hycroot" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 
 		<!-- 配置初始化大小、最小、最大 -->
 		<property name="initialSize" value="1" />
@@ -87,33 +87,21 @@
 
 	<!-- Mybatis教程:http://blog.mybatis.org/p/products.html -->
 	<!--Mybatis-spring教程:http://www.mybatis.org/spring/zh/factorybean.html -->
+
 	<!-- 配置SqlSessionFactoryBean用于创建 SqlSessionFactory 的 -->
-	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		mapperLocations 指定 MyBatis 的 XML 映射器文件的位置
-		<property name="mapperLocations" value="classpath*:com/yfairy/*/*/*Mapping.xml" />
-	</bean> -->
-	
-	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		扫描所有的mapper.xml
-		<property name="mapperLocations">
-			<list>
-				<value>classpath*:com/yfairy/*/*/*Mapping.xml</value>
-			</list>
-		</property>
-	</bean> -->
+		<!-- mapperLocations 指定 MyBatis 的 XML 映射器文件的位置 -->
+		<property name="mapperLocations" value="classpath*:com/yfairy/*/*/*mapping.xml" />
+	</bean>
+
 
 	<!-- 注入数据映射器接口(Mapper)到你的 service 层 bean 中 -->
-	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		basePackage 属性是让你为映射器接口文件设置基本的包路径。 你可以使用分号或逗号 作为分隔符设置多于一个的包路径。
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- basePackage 属性是让你为映射器接口文件设置基本的包路径。 你可以使用分号或逗号 作为分隔符设置多于一个的包路径。 -->
 		<property name="basePackage" value="com.yfairy.*.service" />
-		 设置sqlSessionFactoryBeanName，可避免无法注入属性文件错误
-		<property name="sqlSessionFactoryBeanName" ref="sqlSessionFactory" />
-	</bean> -->
-	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com/demo/dao" />
-		<property  name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-	</bean> -->
-	
+		<!-- 设置sqlSessionFactoryBeanName，可避免无法注入属性文件错误 -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
 </beans>
