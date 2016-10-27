@@ -2,9 +2,9 @@
 <!DOCTYPE generatorConfiguration  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
       "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-
-	<!-- 数据库驱动 <classPathEntry location="mysql-connector-java-5.1.25-bin.jar" 
-		/> -->
+	<!-- 数据库驱动 -->
+	<classPathEntry
+		location="D:\new-rep1\yfairy-all\yfairy-mybatis-generator\src\main\resources\mysql-connector-java-5.1.25-bin.jar" />
 	<context id="mybatis" targetRuntime="MyBatis3">
 		<!-- generate entity时，生成serialVersionUID -->
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
@@ -20,7 +20,7 @@
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://localhost:3306/test" userId="root"
-			password="root123">
+			password="hycroot">
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -28,28 +28,30 @@
 		</javaTypeResolver>
 
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="test.vo"
+		<javaModelGenerator targetPackage="com.test.bean"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成映射文件的包名和位置 -->
-		<sqlMapGenerator targetPackage="test.map"
+		<sqlMapGenerator targetPackage="com.test.mapping"
 			targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="test.dao" targetProject="src/main/java">
+			targetPackage="com.test.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="table1" domainObjectName="Table1"
-			enableCountByExample="false" enableSelectByExample="false"
-			enableDeleteByExample="false" enableUpdateByExample="false"
+
+		<table tableName="yf_user" domainObjectName="User"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableCountByExample="false" enableUpdateByExample="false"
 			selectByExampleQueryId="false" />
-		<!-- <table tableName="ss_task" domainObjectName="Task" enableCountByExample="false" 
-			enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false" 
+		<!-- <table tableName="yf_user" domainObjectName="User"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableCountByExample="false" enableUpdateByExample="false"
 			selectByExampleQueryId="false" /> -->
 	</context>
 </generatorConfiguration>

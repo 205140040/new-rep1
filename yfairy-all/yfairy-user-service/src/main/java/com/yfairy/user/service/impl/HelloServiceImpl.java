@@ -1,8 +1,13 @@
 package com.yfairy.user.service.impl;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import com.yfairy.user.service.IHelloService;
 
 public class HelloServiceImpl implements IHelloService {
+	@Value("${yfjdbc.url}")
+	private String jurl;
+
 	/*
 	 * (non-Javadoc)
 	 * 

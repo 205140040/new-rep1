@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yfairy</groupId>
@@ -17,8 +18,8 @@
 		<module>yfairy-web-www</module>
 		<module>yfairy-web-file</module>
 		<module>yfairy-timer</module>
-    <module>yfairy-mybatis-generator</module>
-  </modules>
+		<module>yfairy-mybatis-generator</module>
+	</modules>
 	<properties>
 		<!-- 设置utf-8编码格式 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,46 +56,60 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Maven生成可以直接运行的jar包的多种方式:http://blog.csdn.net/xiao__gui/article/details/47341385 -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-jar-plugin</artifactId> -->
+<!-- 				<version>2.6</version> -->
+<!-- 				<configuration> -->
+<!-- 					<archive> -->
+<!-- 						<manifest> -->
+<!-- 							<addClasspath>true</addClasspath> -->
+<!-- 							<classpathPrefix>lib/</classpathPrefix> -->
+<!-- 						</manifest> -->
+<!-- 					</archive> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 			<!-- 依赖分析,导出所有依赖到lib目录 -->
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<outputDirectory>${project.build.directory}/lib</outputDirectory>
-					<excludeTransitive>false</excludeTransitive>  <!--是否排除间接依赖的包 -->
-					<stripVersion>false</stripVersion>  <!--复制的jar文件是否去掉版本信息 -->
-				</configuration>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<outputDirectory>${project.build.directory}/lib</outputDirectory> -->
+<!-- 					<excludeTransitive>false</excludeTransitive>  是否排除间接依赖的包 -->
+<!-- 					<stripVersion>false</stripVersion>  复制的jar文件是否去掉版本信息 -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>copy-dependencies</id> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>copy-dependencies</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 			<!--maven-war-plugin -->
 			<!-- maven-war-plugin使用介绍:https://segmentfault.com/a/1190000007166005 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-				<configuration>
-					<warName>${project.artifactId}</warName>
-					<webResources>
-						<!--将额外的属性文件打入war包 -->
-						<resource>
-							<!-- directory的目录是相对于pom.xml的位置来的 -->
-							<directory>conf</directory>
-							<!-- targetPath:相对WebContent根目录：如输入conf和WEB-INF是同一个目录 -->
-							<targetPath>conf</targetPath>
-							<includes>
-								<include>**/*</include>
-							</includes>
-						</resource>
-					</webResources>
-				</configuration>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-war-plugin</artifactId> -->
+<!-- 				<version>2.1.1</version> -->
+<!-- 				<configuration> -->
+<!-- 					<warName>${project.artifactId}</warName> -->
+<!-- 					<webResources> -->
+<!-- 						将额外的属性文件打入war包 -->
+<!-- 						<resource> -->
+<!-- 							directory的目录是相对于pom.xml的位置来的 -->
+<!-- 							<directory>conf</directory> -->
+<!-- 							targetPath:相对WebContent根目录：如输入conf和WEB-INF是同一个目录 -->
+<!-- 							<targetPath>conf</targetPath> -->
+<!-- 							<includes> -->
+<!-- 								<include>**/*</include> -->
+<!-- 							</includes> -->
+<!-- 						</resource> -->
+<!-- 					</webResources> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 		</plugins>
 		<!-- 配置resource目录 -->
 		<resources>

@@ -1,4 +1,4 @@
-package org.yfairy.mybatis.generator;
+package com.yfairy.mybatis.generator;
 
 /**
  * Hello world!
