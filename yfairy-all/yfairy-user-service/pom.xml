@@ -19,12 +19,6 @@
 			<groupId>com.yfairy</groupId>
 			<artifactId>yfairy-user-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.alibaba</groupId>
-					<artifactId>dubbo</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>
