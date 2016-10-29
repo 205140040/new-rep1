@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String BasePath = request.getServletContext().getContextPath();
+%>
 <!--navigation  -->
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
@@ -28,7 +31,7 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Login</a></li>
+				<li><a href="<%=BasePath%>/login/toLoginPage">Login</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">账户 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">

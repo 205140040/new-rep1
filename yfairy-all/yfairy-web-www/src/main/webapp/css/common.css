@@ -6,4 +6,16 @@
 	.body-space-left {
 		margin-left: 280px !important;
 	}
+	.login-margin {
+		margin-left: 40% !important;
+		margin-right: 40% !important;
+		margin-top: 10% !important;
+	}
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media ( max-width : 768px) {
+	.login-margin {
+		margin-top: 20% !important;
+	}
 }
