@@ -27,9 +27,9 @@
 				<value>file:./conf/*.properties</value>
 			</list>
 		</property>
-		<!-- 忽略多个PropertyPlaceholderConfigurer配置，避免报错 -->
+		<!-- 忽略多个PropertyPlaceholderConfigurer配置，避免报错 
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
-
+		-->
 	</bean>
 
 

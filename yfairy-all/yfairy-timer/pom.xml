@@ -21,5 +21,29 @@
 	</dependencies>
 	<build>
 		<finalName>yfairy-timer</finalName>
+		<plugins>
+			<!--maven-war-plugin -->
+			<!-- maven-war-plugin使用介绍:https://segmentfault.com/a/1190000007166005 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<warName>${project.artifactId}</warName>
+					<webResources>
+						<!-- 将额外的属性文件打入war包 -->
+						<resource>
+							<!-- directory的目录是相对于pom.xml的位置来的 -->
+							<directory>conf</directory>
+							<!-- targetPath:相对WebContent根目录：如输入conf和WEB-INF是同一个目录 -->
+							<targetPath>conf</targetPath>
+							<includes>
+								<include>**/*</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>

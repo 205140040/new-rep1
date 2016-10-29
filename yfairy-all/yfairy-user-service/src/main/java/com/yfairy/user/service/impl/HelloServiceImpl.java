@@ -13,7 +13,7 @@ public class HelloServiceImpl implements IHelloService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.yfairy.user.service.IHelloService2#hello(java.lang.String)
+	 * @see com.yfairy.user.service.IHelloService#hello(java.lang.String)
 	 */
 	@Override
 	public String hello(String name) {
