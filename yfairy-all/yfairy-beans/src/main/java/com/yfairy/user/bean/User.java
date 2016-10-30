@@ -1,4 +1,4 @@
-package com.test.bean;
+package com.yfairy.user.bean;
 
 import java.io.Serializable;
 import java.util.Date;

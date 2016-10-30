@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String BasePath = request.getServletContext().getContextPath();
 %>
@@ -21,7 +22,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="<%=BasePath%>">Home</a></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group input-group">
@@ -31,14 +32,16 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<%=BasePath%>/login/toLoginPage">Login</a></li>
+				<c:if test="${empty loggedUser}">
+					<li><a href="<%=BasePath%>/login/toLoginPage">Login</a></li>
+				</c:if>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">账户 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">Account</a></li>
+						<li><a href="<%=BasePath%>/user/toUserAccountPage">Account</a></li>
 						<li class="divider"></li>
 						<li><a href="#">Settings</a></li>
-						<li><a href="#">Logout</a></li>
+						<li><a href="<%=BasePath%>/login/logout">Logout</a></li>
 					</ul></li>
 			</ul>
 		</div>

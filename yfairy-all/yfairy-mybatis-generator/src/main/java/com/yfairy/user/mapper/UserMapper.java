@@ -1,6 +1,6 @@
-package com.test.mapper;
+package com.yfairy.user.mapper;
 
-import com.test.bean.User;
+import com.yfairy.user.bean.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);

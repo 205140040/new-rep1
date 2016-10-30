@@ -1,7 +1,10 @@
 package com.yfairy.common.jetty;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.util.Set;
 
+import org.apache.jasper.runtime.TldScanner;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
@@ -32,6 +35,12 @@ public class StartJetty {
 			webAppContext.setConfigurationDiscovered(true);
 			webAppContext.setParentLoaderPriority(true);
 			server.setHandler(webAppContext);
+			/**
+			 * 修复Jetty无法加载JSTL类库
+			 */
+			Field f = TldScanner.class.getDeclaredField("systemUris");
+			f.setAccessible(true);
+			((Set) f.get(null)).clear();
 
 			System.out.println("---------------------------------");
 			System.out.println("ProjectPath:" + ProjectPath);
@@ -72,6 +81,12 @@ public class StartJetty {
 			webAppContext.setConfigurationDiscovered(true);
 			webAppContext.setParentLoaderPriority(true);
 			server.setHandler(webAppContext);
+			/**
+			 * 修复Jetty无法加载JSTL类库
+			 */
+			Field f = TldScanner.class.getDeclaredField("systemUris");
+			f.setAccessible(true);
+			((Set) f.get(null)).clear();
 
 			System.out.println("---------------------------------");
 			System.out.println("ProjectPath:" + ProjectPath);

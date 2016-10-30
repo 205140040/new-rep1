@@ -92,14 +92,14 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- mapperLocations 指定 MyBatis 的 XML 映射器文件的位置 -->
-		<property name="mapperLocations" value="classpath*:com/yfairy/*/*/*mapping.xml" />
+		<property name="mapperLocations" value="classpath*:com/yfairy/*/mapping/*Mapper.xml" />
 	</bean>
 
 
 	<!-- 注入数据映射器接口(Mapper)到你的 service 层 bean 中 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- basePackage 属性是让你为映射器接口文件设置基本的包路径。 你可以使用分号或逗号 作为分隔符设置多于一个的包路径。 -->
-		<property name="basePackage" value="com.yfairy.*.service" />
+		<property name="basePackage" value="com.yfairy.*.mapper" />
 		<!-- 设置sqlSessionFactoryBeanName，可避免无法注入属性文件错误 -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>

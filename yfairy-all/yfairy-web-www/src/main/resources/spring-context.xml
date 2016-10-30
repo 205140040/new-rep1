@@ -31,11 +31,32 @@
 	</bean>
 
 	<!-- 启用mvc注解 -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven>
+		<!--使用fastjson作为json解析器 -->
+		<mvc:message-converters register-defaults="true">
+			<bean
+				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+				<property name="supportedMediaTypes" value="application/json" />
+				<property name="features">
+					<array>
+						<value>WriteMapNullValue</value>
+						<value>WriteDateUseDateFormat</value>
+					</array>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<!-- 扫描component，controller，repository,service -->
 	<context:component-scan base-package="com.yfairy">
 	</context:component-scan>
-	
-	<import resource="dubbo-consumer.xml"/>
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.yfairy.interceptor.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<import resource="dubbo-consumer.xml" />
 </beans>

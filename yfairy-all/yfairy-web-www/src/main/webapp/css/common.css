@@ -11,6 +11,10 @@
 		margin-right: 40% !important;
 		margin-top: 10% !important;
 	}
+	.alert-margin{
+		margin-left: 25% !important;
+		margin-right:25% !important;
+	}
 }
 
 /* 小屏幕（平板，大于等于 768px） */

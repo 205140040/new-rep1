@@ -27,14 +27,13 @@
 				<value>file:./conf/*.properties</value>
 			</list>
 		</property>
-		<!-- 忽略多个PropertyPlaceholderConfigurer配置，避免报错 
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
-		-->
+		<!-- 忽略多个PropertyPlaceholderConfigurer配置，避免报错 <property name="ignoreUnresolvablePlaceholders" 
+			value="true" /> -->
 	</bean>
-
 
 	<!-- 启用mvc注解 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
+
 
 	<!-- 扫描component，controller，repository,service -->
 	<context:component-scan base-package="com.yfairy.*.service.*">
