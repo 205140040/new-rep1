@@ -33,7 +33,7 @@
 		<xstream.version>1.4.7</xstream.version>
 		<unitils-core.version>3.4.2</unitils-core.version>
 		<httpclient.version>4.5.2</httpclient.version>
-		<jetty.version>8.1.14.v20131031</jetty.version>
+		<jetty.version>8.1.22.v20160922</jetty.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.4.8</zookeeper.version>
 		<zkclient.version>0.9</zkclient.version>

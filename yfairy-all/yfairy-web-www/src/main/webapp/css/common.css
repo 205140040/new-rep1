@@ -18,4 +18,7 @@
 	.login-margin {
 		margin-top: 20% !important;
 	}
+	body {
+		background-color: #CCCCFF;
+	}
 }

@@ -25,6 +25,8 @@ public class StartJetty {
 			String webXmlPath = webappPath + FILE_SEPARATOR + "WEB-INF" + FILE_SEPARATOR + "web.xml";
 			webAppContext.setResourceBase(ProjectPath + webappPath);
 			webAppContext.setDescriptor(ProjectPath + webXmlPath);
+			// 设置jetty,webapp配置
+			webAppContext.setDefaultsDescriptor("src/main/resources/webdefault.xml");
 			webAppContext.setWelcomeFiles(new String[] { "index.jsp" });
 			webAppContext.setClassLoader(Thread.currentThread().getContextClassLoader());
 			webAppContext.setConfigurationDiscovered(true);
@@ -63,6 +65,8 @@ public class StartJetty {
 			String webXmlPath = webappPath + FILE_SEPARATOR + "WEB-INF" + FILE_SEPARATOR + "web.xml";
 			webAppContext.setResourceBase(ProjectPath + webappPath);
 			webAppContext.setDescriptor(ProjectPath + webXmlPath);
+			// 设置jetty,webapp配置
+			webAppContext.setDefaultsDescriptor("src/main/resources/webdefault.xml");
 			webAppContext.setWelcomeFiles(new String[] { "index.jsp" });
 			webAppContext.setClassLoader(Thread.currentThread().getContextClassLoader());
 			webAppContext.setConfigurationDiscovered(true);
