@@ -59,4 +59,5 @@
 	</mvc:interceptors>
 
 	<import resource="dubbo-consumer.xml" />
+	<import resource="spring-redis.xml" />
 </beans>
