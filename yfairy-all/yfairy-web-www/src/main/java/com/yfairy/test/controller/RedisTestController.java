@@ -20,6 +20,8 @@ public class RedisTestController {
 		/**
 		 * Spring Session + Redis实现分布式Session共享
 		 * http://www.codexiu.cn/nosql/blog/42201/
+		 * 这篇文章更详细:
+		 * http://edbiji.com/doccenter/showdoc/161/nav/2949.html
 		 */
 		String attributeName = request.getParameter("attributeName");
 		String attributeValue = request.getParameter("attributeValue");

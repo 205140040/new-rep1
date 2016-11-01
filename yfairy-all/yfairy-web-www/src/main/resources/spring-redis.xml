@@ -18,17 +18,16 @@
       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
       ">
 
-	<!-- <bean id="jredisConnectionFactory" class="org.springframework.data.redis.connection.jredis.JredisConnectionFactory"> 
-		<constructor-arg> <bean class="org.springframework.data.redis.connection.jredis.DefaultJredisPool"> 
-		<constructor-arg value="localhost" /> <constructor-arg value="6379" /> </bean> 
-		</constructor-arg> </bean> -->
-
-	<bean id="jredisConnectionFactory"
-		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-		p:use-pool="true" p:host-name="23.248.162.67" p:port="6379" />
-
-	<!-- redis template definition -->
-	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
-		p:connection-factory-ref="jredisConnectionFactory" />
-
+	<bean id="redisHttpSessionConfiguration"
+		class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+		<!-- 配置session的过期时间，参数maxInactiveIntervalInSeconds，默认1800秒, -->
+		<!-- 使用了spring-session，web.xml里面的关于session过期的配置不在生效。 -->
+		<property name="maxInactiveIntervalInSeconds" value="3600" />
+	</bean>
+	<bean
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<!-- redis 配置 -->
+		<property name="hostName" value="23.248.162.67" />
+		<property name="port" value="6379" />
+	</bean>
 </beans>
