@@ -294,8 +294,8 @@
 			<version>${jetty.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- ,Jetty启动时报错： NO JSP Support for /, did not find org.apache.jasper.servlet.JspServlet, 
-			解决方法，在mvn的pom.xml文件中加入： -->
+		<!-- ,Jetty启动时报错： NO JSP Support for /, did not find org.apache.jasper.servlet.JspServlet, -->
+		<!-- 解决方法，在mvn的pom.xml文件中加入： -->
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jsp-2.1</artifactId>
