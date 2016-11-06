@@ -36,7 +36,15 @@
 					<include>**/*</include>
 				</includes>
 			</resource>
-			<!-- 结合com.alibaba.dubbo.container.Main -->
+			<!-- 把conf目录下的配置文件打包到conf目录(配置文件外置) -->
+			<resource>
+				<directory>conf</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+				<targetPath>${project.build.directory}/conf</targetPath>
+			</resource>
+			<!-- 结合com.alibaba.dubbo.container.Main,把spring配置打包到META-INF中 -->
 			<resource>
 				<targetPath>${project.build.directory}/classes/META-INF/spring</targetPath>
 				<directory>src/main/resources/spring</directory>
