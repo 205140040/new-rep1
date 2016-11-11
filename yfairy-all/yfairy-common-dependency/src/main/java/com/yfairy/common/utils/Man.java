@@ -1,4 +1,4 @@
-package com.yfairy.demo.poi;
+package com.yfairy.common.utils;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

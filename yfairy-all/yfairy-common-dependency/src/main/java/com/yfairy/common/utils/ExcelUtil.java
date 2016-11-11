@@ -1,4 +1,4 @@
-package com.yfairy.demo.poi;
+package com.yfairy.common.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +25,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.yfairy.common.utils.DateUtil;
 
 public class ExcelUtil {
 
