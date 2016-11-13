@@ -41,6 +41,8 @@
 					href="http://localhost:8081/yfairy-web-file/file/downloadFile/jpg/91944049-92f3-4aa3-aa3a-5ce2a642f435.jpg">下载</a></li>
 				<li><a
 					href="/file/downloadFile/jar/b22e9d58-6e6b-42b6-bae1-7eb563195ded.jar">下载</a></li>
+
+				<li><a href="<%=BasePath%>/hello/writeWord">下载Word</a></li>
 			</ol>
 
 		</div>

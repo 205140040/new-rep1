@@ -4,4 +4,6 @@ public interface IHelloService {
 
 	String hello(String name);
 
+	byte[] writeWordByTemplate();
+
 }
