@@ -71,6 +71,8 @@ public class Md5Demo {
 		System.out.println("javaMd532：" + javaMd532);
 		// 直接使用apache中codec中的DigestUtil生成32位MD5码
 		System.out.println("DigestUtil生成:" + DigestUtils.md5Hex(pwd.getBytes("UTF-8")));
+		// 使用shiro中的类看这篇文章进行加密解密:http://jinnianshilongnian.iteye.com/blog/2021439
+		// Md5Hash
 	}
 
 	/**
