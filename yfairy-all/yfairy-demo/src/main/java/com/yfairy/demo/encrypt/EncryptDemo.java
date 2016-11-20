@@ -1,5 +1,8 @@
 package com.yfairy.demo.encrypt;
 
+import org.springframework.security.crypto.encrypt.TextEncryptor;
+import org.springframework.security.rsa.crypto.RsaSecretEncryptor;
+
 public class EncryptDemo {
 
 	public static void main(String[] args) {
@@ -31,8 +34,34 @@ public class EncryptDemo {
 		 * <br>
 		 * <br>
 		 * <br>
+		 * 对称加密算法（http://baike.baidu.com/link?url=i4wgA2DNSlyqqtTHMSoFdkCvfiM2EEnQj8yvBjRw7MXR9UH4FmwTbmWGbFC4XL0KdrcBQ7kzTeKtQaAS0uhSkQgUK82EZZ5p6jzPksCUAMoad_I0--I6YLvTdYizCiLbGF3EMr1hZVR8krituMWx3K#6）：<br>
+		 * 对称加密算法是应用较早的加密算法，技术成熟。<br>
+		 * 在对称加密算法中，数据发信方将明文（原始数据）和加密密钥（mi yao）<br>
+		 * 一起经过特殊加密算法处理后，使其变成复杂的加密密文发送出去。<br>
+		 * 收信方收到密文后，若想解读原文，则需要使用加密用过的密钥及相同算法的逆算法对密文进行解密，<br>
+		 * 才能使其恢复成可读明文。在对称加密算法中，使用的密钥只有一个，<br>
+		 * 发收信双方都使用这个密钥对数据进行加密和解密，这就要求解密方事先必须知道加密密钥。<br>
+		 * <br>
+		 * <br>
+		 * <br>
+		 * 非对称加密算法（百度百科）<br>
+		 * 非对称加密算法是一种密钥的保密方法。<br>
+		 * 非对称加密算法需要两个密钥：公开密钥（publickey）和私有密钥（privatekey）。<br>
+		 * 公开密钥与私有密钥是一对，如果用公开密钥对数据进行加密，<br>
+		 * 只有用对应的私有密钥才能解密；如果用私有密钥对数据进行加密，<br>
+		 * 那么只有用对应的公开密钥才能解密。因为加密和解密使用的是两个不同的密钥，<br>
+		 * 所以这种算法叫作非对称加密算法。<br>
+		 * 非对称加密算法实现机密信息交换的基本过程是：<br>
+		 * 甲方生成一对密钥并将其中的一把作为公用密钥向其它方公开；<br>
+		 * 得到该公用密钥的乙方使用该密钥对机密信息进行加密后再发送给甲方；<br>
+		 * 甲方再用自己保存的另一把专用密钥对加密后的信息进行解密。<br>
+		 * 主要算法： RSA、Elgamal、背包算法、Rabin、D-H、ECC（椭圆曲线加密算法）。
+		 * 使用最广泛的是RSA算法，Elgamal是另一种常用的非对称加密算法。
 		 */
 		// MessageDigest.getInstance(algorithm)
+		TextEncryptor encryptor = new RsaSecretEncryptor();
+		String cipher = encryptor.encrypt("my message");
+		String message = encryptor.decrypt(cipher);
 	}
 
 }
