@@ -3,7 +3,9 @@ package com.yfairy.user.service.impl;
 import static com.yfairy.common.utils.NullUtil.isEmpty;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
+import com.alibaba.dubbo.config.spring.ServiceBean;
 import com.yfairy.common.beans.Result;
 import com.yfairy.user.bean.User;
 import com.yfairy.user.mapper.UserMapper;
@@ -22,6 +24,13 @@ public class LoginServiceImpl implements ILoginService {
 	 */
 	@Override
 	public Result login(User user) {
+		/**
+		 * dubbo中可在service中使用dubbo的ServiceBean，获取ApplicationContext
+		 */
+		ApplicationContext context = ServiceBean.getSpringContext();
+		ILoginService loginService = (ILoginService) context.getBean("loginService");
+		System.out.println(loginService);
+
 		if (isEmpty(user)) {
 			return Result.resultFalse("用户参数不能为空!");
 		}
