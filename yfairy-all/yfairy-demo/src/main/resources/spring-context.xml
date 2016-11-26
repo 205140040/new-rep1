@@ -31,25 +31,65 @@
 	</bean>
 
 	<!-- 启用mvc注解 -->
-	<mvc:annotation-driven>
+	<mvc:annotation-driven
+		content-negotiation-manager="contentNegotiationManager">
 		<!--使用fastjson作为json解析器 -->
 		<mvc:message-converters register-defaults="true">
+			<!-- 配置Fastjson支持 -->
 			<bean
 				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-				<property name="supportedMediaTypes" value="application/json" />
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>application/json</value>
+					</list>
+				</property>
 				<property name="features">
-					<array>
-						<value>WriteMapNullValue</value>
+					<list>
+						<!-- 输出key时是否使用双引号 -->
+						<!-- <value>QuoteFieldNames</value> -->
+						<!-- 是否输出值为null的字段 -->
+						<!-- <value>WriteMapNullValue</value> -->
+						<!-- 数值字段如果为null,输出为0,而非null -->
+						<!-- <value>WriteNullNumberAsZero</value> -->
+						<!-- List字段如果为null,输出为[],而非null -->
+						<!-- <value>WriteNullListAsEmpty</value> -->
+						<!-- 字符类型字段如果为null,输出为"",而非null -->
+						<!-- <value>WriteNullStringAsEmpty</value> -->
+						<!-- Boolean字段如果为null,输出为false,而非null -->
+						<!-- <value>WriteNullBooleanAsFalse</value> -->
+						<!-- null String不输出 -->
+						<!-- <value>WriteNullStringAsEmpty</value> -->
+						<!-- null String也要输出 -->
+						<!-- <value>WriteMapNullValue</value> -->
+
+						<!-- Date的日期转换器,使用fastjson的<value>WriteDateUseDateFormat</value>配置（使得返回的日期类型默认为yyyy-MM-dd 
+							hh:mm:ss）, 特殊类型使用字段@JSONField来进行控制 -->
 						<value>WriteDateUseDateFormat</value>
-					</array>
+					</list>
 				</property>
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+
+	<!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
+	<bean id="contentNegotiationManager"
+		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+			</map>
+		</property>
+		<!-- 这里是否忽略掉accept header，默认就是false -->
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="favorPathExtension" value="true" />
+	</bean>
+
 
 	<!-- 扫描component，controller，repository,service -->
 	<context:component-scan base-package="com.yfairy">
 	</context:component-scan>
 
 	<import resource="dubbo-consumer.xml" />
+	<import resource="spring-kaptcha.xml" />
 </beans>

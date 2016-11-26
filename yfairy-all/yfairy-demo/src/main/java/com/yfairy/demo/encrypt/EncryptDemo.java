@@ -1,8 +1,5 @@
 package com.yfairy.demo.encrypt;
 
-import org.springframework.security.crypto.encrypt.TextEncryptor;
-import org.springframework.security.rsa.crypto.RsaSecretEncryptor;
-
 public class EncryptDemo {
 
 	public static void main(String[] args) {
@@ -59,13 +56,12 @@ public class EncryptDemo {
 		 * 使用最广泛的是RSA算法，Elgamal是另一种常用的非对称加密算法。
 		 */
 		/**
-		 * java中常用的加密方法:
-		 * (文章很好)http://www.iteye.com/topic/1122076
+		 * java中常用的加密方法: (文章很好)http://www.iteye.com/topic/1122076
 		 */
 		// MessageDigest.getInstance(algorithm)
-		TextEncryptor encryptor = new RsaSecretEncryptor();
-		String cipher = encryptor.encrypt("my message");
-		String message = encryptor.decrypt(cipher);
+		// TextEncryptor encryptor = new RsaSecretEncryptor();
+		// String cipher = encryptor.encrypt("my message");
+		// String message = encryptor.decrypt(cipher);
 	}
 
 }

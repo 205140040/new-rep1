@@ -1,8 +1,5 @@
 package com.yfairy.demo.encrypt;
 
-import org.springframework.security.crypto.encrypt.TextEncryptor;
-import org.springframework.security.rsa.crypto.RsaSecretEncryptor;
-
 public class RSADemo {
 
 	public static void main(String[] args) {
@@ -23,11 +20,14 @@ public class RSADemo {
 		 */
 		// MessageDigest.getInstance(algorithm)
 		/**
-		 * spring-security-rsa中的示列， TODO 继续看java如何使用RSA
+		 * spring-security-rsa中的示列，
+		 * 
+		 * 这篇文章介绍了RSA：http://www.iteye.com/topic/1122076
+		 * 
 		 */
-		TextEncryptor encryptor = new RsaSecretEncryptor();
-		String cipher = encryptor.encrypt("my message");
-		String message = encryptor.decrypt(cipher);
+		// TextEncryptor encryptor = new RsaSecretEncryptor();
+		// String cipher = encryptor.encrypt("my message");
+		// String message = encryptor.decrypt(cipher);
 	}
 
 }
