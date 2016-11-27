@@ -60,4 +60,6 @@
 
 	<import resource="dubbo-consumer.xml" />
 	<import resource="spring-redis.xml" />
+	<import resource="spring-kaptcha.xml" />
+
 </beans>
