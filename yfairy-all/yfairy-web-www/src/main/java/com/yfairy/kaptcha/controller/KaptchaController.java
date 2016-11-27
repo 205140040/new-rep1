@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import com.yfairy.common.annotation.NotNeedSession;
 
 @RequestMapping("/kaptcha")
 @Controller
@@ -21,6 +22,7 @@ public class KaptchaController {
 	@Autowired
 	private Producer kaptchaProducer;
 
+	@NotNeedSession
 	@RequestMapping("/captchaImage")
 	public ModelAndView captchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// Set to expire far in the past.
@@ -37,7 +39,7 @@ public class KaptchaController {
 
 		// create the text for the image
 		String capText = kaptchaProducer.createText();
-		System.out.println("验证码:"+capText);
+		System.out.println("验证码:" + capText);
 
 		// store the text in the session
 		request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);

@@ -29,6 +29,19 @@
 					class="glyphicon glyphicon-lock"></span></span> <input type="password"
 					class="form-control" placeholder="Password" name="password">
 			</div>
+
+			<div class="form-group input-group">
+				<img id="yzm" src="<%=BasePath%>/kaptcha/captchaImage"> <span
+					class="input-group-addon"> <span id="refreshBtn"
+					class="glyphicon glyphicon-refresh"></span>
+				</span>
+			</div>
+
+			<div class="form-group input-group">
+				<span class="input-group-addon">验证码</span> <input type="text"
+					class="form-control" placeholder="请输入验证码" name="kaptchaCode">
+			</div>
+
 			<div class="form-inline">
 				<div class="checkbox">
 					<label> <input type="checkbox">Remember&nbsp;&nbsp;me
@@ -61,6 +74,16 @@
 				}
 			});
 		});
+		
+		$("#refreshBtn").click(function(){
+			changeCaptchaImage();
+		});
+		
+		function changeCaptchaImage(){
+			var date=new Date();
+			var srccon="<%=BasePath%>/kaptcha/captchaImage?date=" + date;
+			$("#yzm").attr("src", srccon);
+		}
 	</script>
 </body>
 </html>

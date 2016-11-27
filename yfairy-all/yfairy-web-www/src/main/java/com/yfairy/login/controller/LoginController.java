@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.google.code.kaptcha.Constants;
 import com.yfairy.common.annotation.NotNeedSession;
 import com.yfairy.common.beans.Result;
 import com.yfairy.common.session.SessionKey;
@@ -35,7 +36,16 @@ public class LoginController {
 	@NotNeedSession
 	@RequestMapping("/doLogin")
 	@ResponseBody
-	public Result login(User user, HttpServletRequest request) {
+	public Result login(User user, String kaptchaCode, HttpServletRequest request) {
+		if (NullUtil.isEmpty(kaptchaCode)) {
+			return Result.resultFalse("验证码不能为空!");
+		}
+		// session中的验证码
+		String captchaId = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		if (!captchaId.equals(kaptchaCode)) {
+			return Result.resultFalse("验证码错误!");
+		}
+
 		Result result = loginService.login(user);
 		if (NullUtil.isNotEmpty(result) && NullUtil.isNotEmpty(result.getFlag()) && result.getFlag()) {
 			// 登录成功，保存session
