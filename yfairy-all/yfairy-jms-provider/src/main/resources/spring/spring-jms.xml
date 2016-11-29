@@ -1,0 +1,47 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+     http://www.springframework.org/schema/cache 
+     http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+     http://www.springframework.org/schema/jms
+	 http://www.springframework.org/schema/jms/spring-jms.xsd
+     ">
+
+	<!-- JMS服务厂商提供的连接工厂 -->
+	<bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+	</bean>
+	<!-- 缓存连接工厂 -->
+	<bean id="cachingConnectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="activeMQConnectionFactory"></property>
+		<!-- Session缓存数量,CachingConnectionFactory只缓存一个session， 在它的JavaDoc中，它声明对于低并发情况下这是足够的。 -->
+		<property name="sessionCacheSize" value="100" />
+	</bean>
+	<!--队列目的地 -->
+	<bean id="defaultQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>defaultQueue</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- springJms模板 -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="cachingConnectionFactory"></property>
+		<!-- 默认的目的地 -->
+		<property name="defaultDestination" ref="defaultQueue"></property>
+		<!--模式不是发布订阅模式,即p2p模式 -->
+		<property name="pubSubDomain" value="false" />
+	</bean>
+
+</beans>

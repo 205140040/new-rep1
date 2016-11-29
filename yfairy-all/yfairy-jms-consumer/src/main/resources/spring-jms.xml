@@ -1,0 +1,86 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+     http://www.springframework.org/schema/cache 
+     http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+     http://www.springframework.org/schema/jms
+	 http://www.springframework.org/schema/jms/spring-jms.xsd
+     ">
+
+	<!-- JMS服务厂商提供的连接工厂 -->
+	<bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+		<!-- 配置bean支持转换 -->
+		<property name="trustAllPackages" value="true" />
+	</bean>
+	<bean id="jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+		<property name="connectionFactory" ref="activeMQConnectionFactory" />
+	</bean>
+	<bean id="activeMQComponent" class="org.apache.activemq.camel.component.ActiveMQComponent">
+		<property name="configuration" ref="jmsConfig" />
+	</bean>
+
+	<!-- 缓存连接工厂 -->
+	<bean id="cachingConnectionFactory"
+		class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="activeMQConnectionFactory"></property>
+		<!-- Session缓存数量,CachingConnectionFactory只缓存一个session， 在它的JavaDoc中，它声明对于低并发情况下这是足够的。 -->
+		<property name="sessionCacheSize" value="100" />
+	</bean>
+
+	<!--队列目的地 -->
+	<bean id="defaultQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg>
+			<value>defaultQueue</value>
+		</constructor-arg>
+	</bean>
+
+	<!-- jms模板 -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="cachingConnectionFactory"></property>
+		<!-- 默认的目的地 -->
+		<property name="defaultDestination" ref="defaultQueue"></property>
+		<!--模式不是发布订阅模式,即p2p模式 -->
+		<property name="pubSubDomain" value="false" />
+	</bean>
+
+
+	<!-- 配置jms消息接收监听器 -->
+	<bean id="regEmailAsyncListener"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg>
+			<bean class="com.yfairy.jms.consumer.consumers.RegEmailAsyncListener"></bean>
+		</constructor-arg>
+	</bean>
+	<bean id="jmsListener2"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<constructor-arg>
+			<bean class="com.yfairy.jms.consumer.consumers.JmsListener2"></bean>
+		</constructor-arg>
+	</bean>
+
+	<!-- 消息转换器 -->
+	<bean id="simpleMessageConverter"
+		class="org.springframework.jms.support.converter.SimpleMessageConverter"></bean>
+
+	<!-- 消息监听器容器,container-type="default"代表使用DefaultMessageListenerContainer -->
+	<jms:listener-container connection-factory="cachingConnectionFactory"
+		container-type="default" message-converter="simpleMessageConverter">
+		<!-- 多个监听器，配置多个jms:listener -->
+		<jms:listener destination="defaultQueue" ref="regEmailAsyncListener"
+			selector="type='userRegEmail'" />
+		<jms:listener destination="defaultQueue" ref="jmsListener2"
+			selector="type='jmsListener2'" />
+
+	</jms:listener-container>
+</beans>

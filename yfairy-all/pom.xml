@@ -19,6 +19,8 @@
 		<module>yfairy-timer</module>
 		<module>yfairy-mybatis-generator</module>
     <module>yfairy-demo</module>
+    <module>yfairy-jms-provider</module>
+    <module>yfairy-jms-consumer</module>
   </modules>
 	<properties>
 		<!-- 设置utf-8编码格式 -->
