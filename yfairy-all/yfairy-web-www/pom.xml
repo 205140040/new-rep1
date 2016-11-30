@@ -18,6 +18,11 @@
 			<artifactId>yfairy-user-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.yfairy</groupId>
+			<artifactId>yfairy-jms-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>yfairy-web-www</finalName>

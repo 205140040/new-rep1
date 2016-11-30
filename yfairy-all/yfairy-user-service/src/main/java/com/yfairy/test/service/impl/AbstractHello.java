@@ -16,8 +16,7 @@ public abstract class AbstractHello {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		@SuppressWarnings("unchecked")
-		AbstractHello res = ApplicationContextHelper.getBean(clazz);
+		AbstractHello res = (AbstractHello) ApplicationContextHelper.getBean(clazz);
 		System.out.println(res);
 		return res;
 	}

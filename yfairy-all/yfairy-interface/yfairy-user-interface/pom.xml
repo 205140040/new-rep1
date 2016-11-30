@@ -4,10 +4,10 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.yfairy</groupId>
-		<artifactId>yfairy-all</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+    <groupId>com.yfairy</groupId>
+    <artifactId>yfairy-interface</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
 	<artifactId>yfairy-user-interface</artifactId>
 	<name>yfairy-user-interface</name>
 	<url>http://maven.apache.org</url>

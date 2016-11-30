@@ -13,6 +13,9 @@
         <dependent-module archiveName="yfairy-common-dependency-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/yfairy-common-dependency/yfairy-common-dependency">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="yfairy-jms-interface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/yfairy-jms-interface/yfairy-jms-interface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="yfairy-web-www"/>
         <property name="java-output-path" value="/yfairy-web-www/target/classes"/>
     </wb-module>

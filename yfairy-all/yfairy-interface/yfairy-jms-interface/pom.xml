@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.yfairy</groupId>
-		<artifactId>yfairy-all</artifactId>
+		<artifactId>yfairy-interface</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>yfairy-jms-provider</artifactId>
-	<name>yfairy-jms-provider</name>
+	<artifactId>yfairy-jms-interface</artifactId>
+	<name>yfairy-jms-interface</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +17,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.yfairy</groupId>
-			<artifactId>yfairy-jms-interface</artifactId>
+			<artifactId>yfairy-beans</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

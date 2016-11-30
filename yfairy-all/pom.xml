@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yfairy</groupId>
@@ -11,17 +12,17 @@
 	<url>http://maven.apache.org</url>
 	<modules>
 		<module>yfairy-beans</module>
-		<module>yfairy-user-interface</module>
 		<module>yfairy-user-service</module>
 		<module>yfairy-common-dependency</module>
 		<module>yfairy-web-www</module>
 		<module>yfairy-web-file</module>
 		<module>yfairy-timer</module>
 		<module>yfairy-mybatis-generator</module>
-    <module>yfairy-demo</module>
-    <module>yfairy-jms-provider</module>
-    <module>yfairy-jms-consumer</module>
-  </modules>
+		<module>yfairy-demo</module>
+		<module>yfairy-jms-provider</module>
+		<module>yfairy-jms-consumer</module>
+		<module>yfairy-interface</module>
+	</modules>
 	<properties>
 		<!-- 设置utf-8编码格式 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
