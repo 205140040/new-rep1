@@ -12,16 +12,18 @@
 	<url>http://maven.apache.org</url>
 	<modules>
 		<module>yfairy-beans</module>
-		<module>yfairy-user-service</module>
+<!-- 		<module>yfairy-user-service</module> -->
 		<module>yfairy-common-dependency</module>
-		<module>yfairy-web-www</module>
-		<module>yfairy-web-file</module>
-		<module>yfairy-timer</module>
+<!-- 		<module>yfairy-web-www</module> -->
+<!-- 		<module>yfairy-web-file</module> -->
+<!-- 		<module>yfairy-timer</module> -->
 		<module>yfairy-mybatis-generator</module>
 		<module>yfairy-demo</module>
-		<module>yfairy-jms-provider</module>
-		<module>yfairy-jms-consumer</module>
+<!-- 		<module>yfairy-jms-provider</module> -->
+<!-- 		<module>yfairy-jms-consumer</module> -->
 		<module>yfairy-interface</module>
+		<module>yfairy-service</module>
+		<module>yfairy-web</module>
 	</modules>
 	<properties>
 		<!-- 设置utf-8编码格式 -->
@@ -43,21 +45,6 @@
 					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
-			</plugin>
-			<!-- 打包源码插件 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<!-- Maven生成可以直接运行的jar包的多种方式:http://blog.csdn.net/xiao__gui/article/details/47341385 -->
 			<!-- <plugin> -->
