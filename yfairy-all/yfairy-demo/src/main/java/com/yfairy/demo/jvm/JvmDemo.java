@@ -18,10 +18,20 @@ public class JvmDemo {
 		 * http://visualvm.java.net/zh_CN/gettingstarted.html （很好的工具）<br>
 		 * 第5章：132(153/460) <br>
 		 * 第三部分:161(182/460)<br>
-		 * 6.4字节码指令简介196(217/460)
+		 * 6.4字节码指令简介196(217/460)<br>
+		 * 第7章：虚拟机类加载机制209(230/460)<br>
+		 * 第8章：236(257/460)<br>
+		 * MethodHandle动态语言，可替代反射调用方法（有空看看）<br>
+		 * 第9章：类加载案列实战276(297/460)<br>
+		 * retrotranslatorJAVA逆向移值工具<br>
+		 * 9.3实战自己动手实现远程执行功能，即调用服务器代码测试289(310/460)<br>
+		 * 第四部分：程序编译与代码优化301(322/460)<br>
+		 * 10.3.1泛型与类型擦除311(332/460)<br>
+		 * 第11章：329(350/460)
 		 */
 		System.out.println("hello");
-
+		// ParameterizedType
+		// System.out.println(JvmDemo.class.geta);
 	}
 
 }
