@@ -1,6 +1,8 @@
 package com.yfairy.demo.thinkinginjava;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 public class ThinkInJava {
@@ -19,7 +21,9 @@ public class ThinkInJava {
 		 * 第5章：124/688<br>
 		 * 第7章：161<br>
 		 * 7.6内部类（重要)<br>
-		 * 7.6.2方法和作用域中的内部类182/688
+		 * 7.6.2方法和作用域中的内部类182/688<br>
+		 * 7.7 199<br>
+		 * 第八章：容器 第15章：网络编程538/688<br>
 		 */
 		System.out.println(new Date().toLocaleString());
 		Properties properties = System.getProperties();
@@ -42,6 +46,12 @@ public class ThinkInJava {
 		 */
 		// final值不可改变
 		// PI=222;
+		List<Child> childs = new ArrayList<>();
+		childs.add(new Child("aaa"));
+		Child c1 = childs.get(0);
+		System.out.println(c1.getName());
+		// Collection<E>
+		// Map<K, V>
 	}
 
 }
