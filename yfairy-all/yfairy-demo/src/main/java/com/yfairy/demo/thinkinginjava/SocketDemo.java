@@ -9,7 +9,15 @@ public class SocketDemo {
 		 * think in java<br>
 		 * 第15章：网络编程538/688<br>
 		 * 15.3服务多个客户543/688<br>
-		 * 15.4数据报UDP 547/688 TODO 待继续学习<br>
+		 * 15.4数据报UDP 547/688 <br>
+		 * java中的socket即TCP,数据报：即UDP<br>
+		 * 传输控制协议（ TCP）<br>
+		 * 用户数据报协议（ UDP）<br>
+		 * TCP 和 UDP 端口是相互独立的。也就是说，可以在端口 8080 同时运行一个 TCP 和 UDP 服务程 序<br>
+		 * ，两者之间不会产生冲突。<br>
+		 * 可参考:http://wiki.jikexueyuan.com/project/java-socket/(很好)<br>
+		 * 可参考：http://m.codes51.com/article/detail_138617.html<br>
+		 * 
 		 */
 		// 获取本机ip信息
 		InetAddress localinetAddress = InetAddress.getLocalHost();
