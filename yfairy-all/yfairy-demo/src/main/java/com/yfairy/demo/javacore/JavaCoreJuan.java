@@ -1,6 +1,7 @@
 package com.yfairy.demo.javacore;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
+
 import java.util.Arrays;
 
 public class JavaCoreJuan {
@@ -31,6 +32,10 @@ public class JavaCoreJuan {
 		 * 第4章对象与类107/720<br>
 		 * 静态导入import static java.lang.System.*<br>
 		 * 第5章：继承166/720<br>
+		 * 5.1.7受保护访问183/720<br>
+		 * 5.2 Object所有类的超类,会介绍object中的方法(重要)<br>
+		 * 5.2.2相等测试与继承Object 中的equals方法,187/720<br>
+		 * 5.5参数数量可变的方法205/720<br>
 		 */
 		System.out.println("JavaCore");
 		final int afinal = 5;
@@ -91,6 +96,49 @@ public class JavaCoreJuan {
 
 		// 静态导入import static java.lang.System.*;
 		out.println("静态导入import static java.lang.System.*");
+
+		/**
+		 * object.equals(obj)方法用于检测一个对象是否等于另一个对象<br>
+		 * java语言规范要求equals方法具有下面的特性<br>
+		 * 1.自反性：对于任何非空引用，x.equals(x) 应该返回true<br>
+		 * 2.对称性，x.equals(y)返回true则y.equals(x)也要返回true<br>
+		 * 3.传递性 ,4一致性<br>
+		 */
+		class StudentEqDemo {
+
+			private String name;
+
+			@Override
+			public boolean equals(Object obj) {
+				System.out.println("---------------");
+				System.out.println("重写equals");
+				System.out.println("object.equals(obj)方法用于检测一个对象是否等于另一个对象");
+				if (null == obj) {
+					return false;
+				}
+				if (this == obj)
+					return true;
+				return false;
+			}
+
+			public String getName() {
+				return name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}
+		}
+
+		Object object = new Object();
+		// object.equals(obj)
+		//
+		StudentEqDemo se1 = new StudentEqDemo();
+		StudentEqDemo se2 = new StudentEqDemo();
+		System.out.println(se1.equals(se2));
+		System.out.println(se1.equals(null));
+		System.out.println(se1.equals(se1));
+		// Objects.equals(a, b)
 
 	}
 
