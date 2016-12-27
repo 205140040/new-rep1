@@ -36,6 +36,8 @@ public class JavaCoreJuan {
 		 * 5.2 Object所有类的超类,会介绍object中的方法(重要)<br>
 		 * 5.2.2相等测试与继承Object 中的equals方法,187/720<br>
 		 * 5.5参数数量可变的方法205/720<br>
+		 * 5.6枚举<br>
+		 * 5.7反射<br>
 		 */
 		System.out.println("JavaCore");
 		final int afinal = 5;
