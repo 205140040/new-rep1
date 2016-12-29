@@ -10,6 +10,8 @@ public class ReflectiveDemo extends ReflectiveParent {
 
 	public String currentBir;
 
+	private double score;
+
 	public ReflectiveDemo() {
 		super();
 	}
@@ -23,6 +25,13 @@ public class ReflectiveDemo extends ReflectiveParent {
 		super();
 		this.name = name;
 		this.currentBir = currentBir;
+	}
+
+	public ReflectiveDemo(String name, String currentBir, double score) {
+		super();
+		this.name = name;
+		this.currentBir = currentBir;
+		this.score = score;
 	}
 
 	public String getName() {
@@ -39,6 +48,14 @@ public class ReflectiveDemo extends ReflectiveParent {
 
 	public void setCurrentBir(String currentBir) {
 		this.currentBir = currentBir;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
 	}
 
 	private void privateMethod(int age, String bir) {
@@ -112,17 +129,38 @@ public class ReflectiveDemo extends ReflectiveParent {
 
 		// 使用反射获取对象信息
 		System.out.println("使用反射获取对象信息");
-		ReflectiveDemo rd5 = new ReflectiveDemo("张三", "1995");
-		Class<ReflectiveDemo> c5 = ReflectiveDemo.class;
-		Field f = c5.getDeclaredField("currentBir");
-		System.out.println(f);
+		ReflectiveDemo rd5 = new ReflectiveDemo("张三", "1995", 98.88);
+		@SuppressWarnings("rawtypes")
+		Class class5 = rd5.getClass();
+		Field field = class5.getDeclaredField("name");
+		System.out.println("字段:" + field);
 		// 设置可访问
-		f.setAccessible(true);
-		System.out.println("是否可访问:" + f.isAccessible());
+		field.setAccessible(true);
+		System.out.println("是否可访问:" + field.isAccessible());
+		// 返回对象的字段值field.get()
+		System.out.println("反射获得的值:" + field.get(rd5));
 
-		// 返回对象的字段值
-		Object val = f.get(c5);
-		System.out.println(val);
+		// 反射获取基本类型的值
+		Field scoreField = class5.getDeclaredField("score");
+		System.out.println("scoreField:" + scoreField);
+		double sd = scoreField.getDouble(rd5);
+		System.out.println("score:" + sd);
+		// set()方法设置值
+		field.set(rd5, "李四");
+		System.out.println(rd5.getName());
+
+		// getComponentType()
+		System.out.println(class5.getComponentType());
+
+		System.out.println("--------------------");
+		Method m2 = class5.getDeclaredMethod("setName", String.class);
+		m2.invoke(rd5, "invoke改值");
+		// 反射调用方法,获取Method
+		Method method = class5.getDeclaredMethod("getName");
+		System.out.println(method);
+		// 反射调用方法
+		String mname = (String) method.invoke(rd5);
+		System.out.println(mname);
 
 	}
 

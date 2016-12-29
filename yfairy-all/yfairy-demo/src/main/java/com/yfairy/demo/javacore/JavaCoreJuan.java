@@ -2,11 +2,13 @@ package com.yfairy.demo.javacore;
 
 import static java.lang.System.out;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class JavaCoreJuan {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 		/**
 		 * java核心技术卷<br>
 		 * 第1章java程序设计概述17/720<br>
@@ -38,6 +40,10 @@ public class JavaCoreJuan {
 		 * 5.5参数数量可变的方法205/720<br>
 		 * 5.6枚举<br>
 		 * 5.7反射<br>
+		 * 第6章接口与内部类231/720<br>
+		 * 为什么有了抽象类还要有接口:抽象类只能单根继承，实现,接口可实现多个<br>
+		 * 6.2对象克隆<br>
+		 * 6.3接口与回调243/720<br>
 		 */
 		System.out.println("JavaCore");
 		final int afinal = 5;
@@ -142,6 +148,29 @@ public class JavaCoreJuan {
 		System.out.println(se1.equals(se1));
 		// Objects.equals(a, b)
 
+		/**
+		 * 使用sort(a)方法排序<br>
+		 * 该对象要实现Comparator接口,重写compare方法，当a<b返回-1,相等返回0,>返回1
+		 */
+		List<ManSort> manSorts = new ArrayList<>();
+		manSorts.add(new ManSort("w李思", 12));
+		manSorts.add(new ManSort("e张三", 11));
+		manSorts.add(new ManSort("a王五", 15));
+		ManSort comparator = new ManSort();
+		manSorts.sort(comparator);
+		for (ManSort manSort : manSorts) {
+			System.out.println(manSort);
+		}
+		// instanceof 判断是否是某种类型，比如接口，类
+		if (comparator instanceof Cloneable) {
+			System.out.println("comparator instanceof Cloneable");
+		}
+		//实现Cloneable接口,代表可使用clone
+		ManSort source=new ManSort("张1",19);
+		ManSort clone1=(ManSort)source.clone();
+		System.out.println("source:"+source);
+		System.out.println(clone1);
+		
 	}
 
 }
