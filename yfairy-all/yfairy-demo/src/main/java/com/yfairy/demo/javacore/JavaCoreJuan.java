@@ -44,6 +44,8 @@ public class JavaCoreJuan {
 		 * 为什么有了抽象类还要有接口:抽象类只能单根继承，实现,接口可实现多个<br>
 		 * 6.2对象克隆<br>
 		 * 6.3接口与回调243/720<br>
+		 * 6.5动态代理263/720(重要)<br>
+		 * 第7章图形程序设计269/720<br>
 		 */
 		System.out.println("JavaCore");
 		final int afinal = 5;
@@ -165,12 +167,32 @@ public class JavaCoreJuan {
 		if (comparator instanceof Cloneable) {
 			System.out.println("comparator instanceof Cloneable");
 		}
-		//实现Cloneable接口,代表可使用clone
-		ManSort source=new ManSort("张1",19);
-		ManSort clone1=(ManSort)source.clone();
-		System.out.println("source:"+source);
+		// 实现Cloneable接口,代表可使用clone
+		ManSort source = new ManSort("张1", 19);
+		ManSort clone1 = (ManSort) source.clone();
+		System.out.println("source:" + source);
 		System.out.println(clone1);
-		
+
+		// 6.4.4局部内部类 255/720
+		// 局部内部类不能声明访问类型，他只在一段代码块中有效
+		// Illegal modifier for the local class JubuLei; only abstract or final
+		// is permitted
+		final String var1 = "var1";
+		class JubuLei {
+			private String jubuName;
+
+			public String getJubuName() {
+				System.out.println("局部内部类访问final变量:" + var1);
+				return jubuName;
+			}
+
+			public void setJubuName(String jubuName) {
+				this.jubuName = jubuName;
+			}
+		}
+		JubuLei jubuLei = new JubuLei();
+		jubuLei.setJubuName("name");
+		System.out.println(jubuLei.getJubuName());
 	}
 
 }
