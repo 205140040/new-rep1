@@ -16,6 +16,18 @@ public class SimpleFrame extends JFrame {
 	public SimpleFrame() throws HeadlessException {
 		super();
 		setSize(WIDTH, HEIGHT);
+		// 加类容组件
+		add(new SimpleComponent());
+		pack();
+	}
+
+	public SimpleFrame(int pwidth, int pheight) throws HeadlessException {
+		super();
+		setSize(pwidth, pheight);
+		// 加类容组件
+		add(new SimpleComponent());
+		//调整窗口大小
+		pack();
 	}
 
 }
