@@ -46,6 +46,9 @@ public class JavaCoreJuan {
 		 * 6.3接口与回调243/720<br>
 		 * 6.5动态代理263/720(重要)<br>
 		 * 第7章图形程序设计269/720<br>
+		 * 第10章：部署应用程序和applet442/720<br>
+		 * 10.4.1属性文件476/720<br>
+		 * 第11章异常，断言日志和调试487/720<br>
 		 */
 		System.out.println("JavaCore");
 		final int afinal = 5;

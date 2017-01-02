@@ -1,5 +1,7 @@
 package com.yfairy.demo.javacore;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.HeadlessException;
 
 import javax.swing.JFrame;
@@ -25,7 +27,10 @@ public class SimpleFrame extends JFrame {
 		super();
 		setSize(pwidth, pheight);
 		// 加类容组件
-		add(new SimpleComponent());
+		Component component=new SimpleComponent();
+		//设置背景色
+		component.setBackground(Color.PINK);
+		add(component);
 		//调整窗口大小
 		pack();
 	}
