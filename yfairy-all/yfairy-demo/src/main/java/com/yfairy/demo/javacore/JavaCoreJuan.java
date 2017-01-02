@@ -49,6 +49,7 @@ public class JavaCoreJuan {
 		 * 第10章：部署应用程序和applet442/720<br>
 		 * 10.4.1属性文件476/720<br>
 		 * 第11章异常，断言日志和调试487/720<br>
+		 * 第12章：泛型程序设计543/720<br>
 		 */
 		System.out.println("JavaCore");
 		final int afinal = 5;

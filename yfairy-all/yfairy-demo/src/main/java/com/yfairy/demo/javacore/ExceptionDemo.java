@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Logger;
 
 public class ExceptionDemo {
 
@@ -15,6 +16,8 @@ public class ExceptionDemo {
 		 * 其他异常称为已检查异常,编译器将检查是否为已检查异常提供异常处理器<br>
 		 * 11.2.5分析堆栈跟踪元素<br>
 		 * 11.3使用异常机制的技巧506/720<br>
+		 * 11.4使用断言508/720<br>
+		 * 11.5记录日志<br>
 		 */
 		// 异常处理的方式:1throws IOException, MyException 声明异常，2或try catch 捕获异常
 		// 如果程序的异常没有捕获，程序就会终止
@@ -67,6 +70,19 @@ public class ExceptionDemo {
 		for (StackTraceElement stackTraceElement : stackTraceElements) {
 			System.out.println(stackTraceElement);
 		}
+
+		// 断言
+		// 开启断言
+		ExceptionDemo.class.getClassLoader().setDefaultAssertionStatus(true);
+		Integer a = null;
+		assert a != null;
+		System.out.println(a);
+		//
+		// 11.5记录日志<br>
+//		Logger.getGlobal().setLevel(newLevel);设置级别
+		Logger.getGlobal().info("Logger.getGlobal().info");
+		Logger.getGlobal().warning("waring");
+
 	}
 
 	// 创建异常类
