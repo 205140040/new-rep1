@@ -1,7 +1,17 @@
 package com.yfairy.demo.thinkinginjava;
 
-public class Parent {
+import java.io.Serializable;
+
+public class Parent implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String name;
+
+	public Parent() {
+		super();
+	}
 
 	public Parent(String name) {
 		super();
