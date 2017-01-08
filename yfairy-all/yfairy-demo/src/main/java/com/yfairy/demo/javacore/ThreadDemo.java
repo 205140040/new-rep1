@@ -1,5 +1,8 @@
 package com.yfairy.demo.javacore;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class ThreadDemo {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -21,8 +24,22 @@ public class ThreadDemo {
 			t.start();
 		}
 
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		System.out.println(Thread2.count);
+		System.out.println("vcount:" + Thread2.vcount);
+
+		// 原子类
+		// AtomicBoolean,AtomicInteger,AtomicLong
+
+		// 阻塞队列
+		// ArrayBlockingQueue<E>,BlockingQueue<E>
+
+		// 14.7线程安全的集合
+		/**
+		 * 并发map
+		 */
+		Map<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+
 	}
 
 }
