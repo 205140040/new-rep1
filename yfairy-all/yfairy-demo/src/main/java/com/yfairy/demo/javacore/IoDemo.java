@@ -4,12 +4,24 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
+import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class IoDemo {
@@ -19,6 +31,7 @@ public class IoDemo {
 		 * 第1章：流与文件<br>
 		 * InputStream字节输入流 OutputStream字节输出流16/858<br>
 		 * 1.4 zip文档42/858(看java开发实战经典压缩流)<br>
+		 * 1.5対向流与序列化<br>
 		 */
 		/*
 		 * // 获取用户目录 String userDir = System.getProperty("user.dir");
@@ -94,6 +107,65 @@ public class IoDemo {
 		// 参考:http://blog.csdn.net/hanshileiai/article/details/6718375
 		// InflaterInputStream 压缩类的基类
 		// DeflaterOutputStream
+		zipDemo(desktop, filePath, file2Path);
+
+		// 1.5対向流与序列化<br>
+		SerStudent ss1 = new SerStudent();
+		ss1.setName("张三");
+		ss1.setSex("哈哈");
+		ss1.setAge(18);
+
+		// 序列化对象到文件中
+		ObjectOutputStream objOut = new ObjectOutputStream(
+				new FileOutputStream(desktop + File.separator + "SerStudent.txt"));
+		objOut.writeObject(ss1);
+		objOut.close();
+		// 反序列化：从文件中读取对象
+		ObjectInputStream objIn = new ObjectInputStream(
+				new FileInputStream(desktop + File.separator + "SerStudent.txt"));
+		SerStudent ss2 = (SerStudent) objIn.readObject();
+		System.out.println(ss2);
+		objIn.close();
+
+		// 1.6 Path路径对象1.7才有
+		// 通过Paths.get()获取绝对路径或者相对路径的path
+		Path path = Paths.get(desktop);
+		System.out.println(path);
+		// 获取path的绝对路径：toAbsolutePath
+		System.out.println(path.toAbsolutePath());
+		File desFile = new File(desktop);
+		// 通过File.toPath获取一个文件的path对象
+		Path fileToPath = desFile.toPath();
+		System.out.println("fileToPath:" + fileToPath);
+
+		// Files @since 1.7
+		Path f2Path = Paths.get(file2Path);
+		// Files写文件
+		Files.write(f2Path, ",Files写文件你好啊啊,".getBytes("UTF-8"), StandardOpenOption.APPEND);
+		// Files读取小型中等文件 @since 1.7
+		System.out.println("Files读取小型中等文件 @since 1.7");
+		byte[] f2bs = Files.readAllBytes(f2Path);
+		System.out.println(new String(f2bs, "UTF-8"));
+
+		// 复制并替换文件
+		Path f2cpPath = Paths.get(desktop + File.separator + "iot2cp1.txt");
+		Files.copy(f2Path, f2cpPath, StandardCopyOption.REPLACE_EXISTING);
+		// 移动并替换
+		Path f2mvPath = Paths.get("E:\\" + File.separator + "iot2mv1.txt");
+		Files.move(f2cpPath, f2mvPath, StandardCopyOption.REPLACE_EXISTING);
+		Logger.getGlobal().info("success...");
+		
+		//1.7内存映射文件
+		
+	}
+
+	private static void zipDemo(String desktop, String filePath, String file2Path)
+			throws FileNotFoundException, IOException, UnsupportedEncodingException {
+		// 压缩
+		// 1.4 zip文档42/858(看java开发实战经典压缩流)<br>
+		// 参考:http://blog.csdn.net/hanshileiai/article/details/6718375
+		// InflaterInputStream 压缩类的基类
+		// DeflaterOutputStream
 		String zipoutFile = desktop + File.separator + "zout1.zip";
 
 		// ZipOutputStream zip输出流
@@ -129,22 +201,22 @@ public class IoDemo {
 				dirzipOut.write(copyToByteArray(new FileInputStream(file)));
 			} else {
 				// 压缩目录
-				ZipEntry zipEntry = new ZipEntry(file.getName() + "\\");
+				ZipEntry zipEntry = new ZipEntry(file.getName() + File.separator);
 				dirzipOut.putNextEntry(zipEntry);
 
 				// 获取目录中的文件，压缩
 				File[] cfiles = file.listFiles();
-				for (File file2 : cfiles) {
-					dirzipOut.putNextEntry(new ZipEntry(file.getName() + "\\" + file2.getName()));
-					dirzipOut.write(copyToByteArray(new FileInputStream(file2)));
+				for (File cf : cfiles) {
+					dirzipOut.putNextEntry(new ZipEntry(file.getName() + File.separator + cf.getName()));
+					dirzipOut.write(copyToByteArray(new FileInputStream(cf)));
 				}
 			}
 
 		}
 
 		// 自定义文件夹添加到压缩文件中
-		dirzipOut.putNextEntry(new ZipEntry("cusdir1" + "\\"));
-		dirzipOut.putNextEntry(new ZipEntry("cusdir1" + "\\" + f2.getName()));
+		dirzipOut.putNextEntry(new ZipEntry("cusdir1" + File.separator));
+		dirzipOut.putNextEntry(new ZipEntry("cusdir1" + File.separator + f2.getName()));
 		dirzipOut.write(copyToByteArray(new FileInputStream(f2)));
 
 		/**
@@ -162,7 +234,25 @@ public class IoDemo {
 		System.out.println("压缩文件夹success...");
 
 		System.out.println("------读取压缩文件------");
-
+		// 每一个zip 实体代表一个ZipFile
+		ZipFile zf1 = new ZipFile(zdirpath);
+		System.out.println("获取zipfile的路径:" + zf1.getName());
+		// 通过ZipInputStream 获取zip文件中的所有entry
+		ZipInputStream zin = new ZipInputStream(new FileInputStream(zdirpath));
+		ZipEntry nextEntry = null;
+		while ((nextEntry = zin.getNextEntry()) != null) {
+			if (!nextEntry.isDirectory()) {
+				System.out.println("文件:" + nextEntry.getName());
+				// 通过ZipFile获取ZipEntry 的输入流
+				InputStream inputStream = zf1.getInputStream(nextEntry);
+				byte[] datas = copyToByteArray(inputStream);
+				System.out.println("zipEntry内容:" + new String(datas, "UTF-8"));
+			} else {
+				System.out.println("目录:" + nextEntry.getName());
+			}
+		}
+		zf1.close();
+		zin.close();
 	}
 
 	public static byte[] copyToByteArray(InputStream in) throws IOException {
@@ -175,8 +265,10 @@ public class IoDemo {
 			byteReadedCount = byteReadedCount + read;
 		}
 		out.flush();
+		byte[] datas = out.toByteArray();
 		in.close();
-		return out.toByteArray();
+		out.close();
+		return datas;
 	}
 
 }
