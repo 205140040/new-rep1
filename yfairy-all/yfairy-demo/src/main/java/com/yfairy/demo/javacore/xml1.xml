@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 文档类型定义DTD -->
+<!DOCTYPE note [
+  <!ELEMENT note (to,from,heading,body)>
+  <!ELEMENT to      (#PCDATA)>
+  <!ELEMENT from    (#PCDATA)>
+  <!ELEMENT heading (#PCDATA)>
+  <!ELEMENT body    (#PCDATA)>
+]>
+<content xmlns="http://www.w3.org/TR/html4/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3school.com.cn schema1.xsd">
+	<font>
+		<name>hello</name>
+		<size>18</size>
+	</font>
+	<font unit="px">
+		<name>f2</name>
+		<size>19</size>
+	</font>
+</content>
