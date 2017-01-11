@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/schema1" xmlns:tns="http://www.example.org/schema1" elementFormDefault="qualified">
-    <element name="content" type="string"></element>
-    <element name="name" type="date"></element>
-</schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org/schema1"
+	targetNamespace="http://www.example.org/schema1" elementFormDefault="qualified">
+	<!-- 定义复合元素 -->
+	<xs:complexType name="size">
+		<xs:attribute name="unit" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<!-- 定义font复合元素 -->
+	<xs:element name="font">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- 引用复合元素 -->
+				<xs:element name="size" type="size" />
+				<xs:element name="font" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

@@ -1,11 +1,13 @@
 package com.yfairy.demo.javacore;
 
 import java.io.File;
+import java.util.Iterator;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
+import org.dom4j.io.SAXReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,6 +18,11 @@ public class XmlDemo {
 		 * 第2章：XML91/858<br>
 		 * 推荐看w3cXML教程:http://www.w3school.com.cn/xml/<br>
 		 * schema教程w3c:http://www.w3school.com.cn/schema/index.asp<br>
+		 * Dom4j 处理xml<br>
+		 * dom4j教程<br>
+		 * http://dom4j.sourceforge.net/dom4j-1.6.1/cookbook.html<br>
+		 * http://blog.csdn.net/chenweitang123/article/details/6255108(看这个)<br>
+		 * XStream处理XML文件和JavaBean对象互转<br>
 		 */
 
 		/**
@@ -75,12 +82,50 @@ public class XmlDemo {
 
 		// 导入本地schema : xsi:schemaLocation="http://www.w3school.com.cn
 		// schema1.xsd"
-		
-		//XSD 简易元素
-		//<element name="name" type="date"></element>
-		
-		//看到 XSD 复合元素
-		//http://www.w3school.com.cn/schema/schema_complex.asp
+
+		// XSD 简易元素
+		// <element name="name" type="date"></element>
+
+		// 看到 XSD 复合元素
+		// http://www.w3school.com.cn/schema/schema_complex.asp
+
+		// 2. "employee" 元素可以使用 type 属性，这个属性的作用是引用要使用的复合类型的名称：
+		// <xs:element name="employee" type="personinfo"/>
+		//
+		// <xs:complexType name="personinfo">
+		// <xs:sequence>
+		// <xs:element name="firstname" type="xs:string"/>
+		// <xs:element name="lastname" type="xs:string"/>
+		// </xs:sequence>
+		// </xs:complexType>
+
+		// dom4j教程
+		// http://dom4j.sourceforge.net/dom4j-1.6.1/cookbook.html
+		// http://blog.csdn.net/chenweitang123/article/details/6255108(看这个)
+
+		// 读取xml文件
+		SAXReader saxReader = new SAXReader();
+		org.dom4j.Document doc = saxReader.read(xml1); // 读取XML文件,获得document对象
+		// 获取根节点
+		org.dom4j.Element rootEle = doc.getRootElement();
+		System.out.println(rootEle);
+		// 遍历xml节点
+		// .getName()获取节点名称,getData()获取节点值,attributeValue("unit")获取属性值
+		Iterator<org.dom4j.Element> its = rootEle.elementIterator();
+		while (its.hasNext()) {
+			org.dom4j.Element e = its.next();
+			System.out.println(e.getName() + "\tattr:" + e.attributeValue("unit"));
+			Iterator<org.dom4j.Element> cits = e.elementIterator();
+			while (cits.hasNext()) {
+				org.dom4j.Element ce = cits.next();
+				// 输出element名称和数据
+				System.out.println("name:" + ce.getName() + "\tdata:" + ce.getData());
+			}
+		}
+
+		// TODO 看XStream
+
+		Logger.getGlobal().info("success...");
 	}
 
 }
