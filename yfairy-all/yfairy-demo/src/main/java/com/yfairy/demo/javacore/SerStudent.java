@@ -18,6 +18,17 @@ public class SerStudent implements Serializable {
 	 */
 	private transient String sex;
 
+	public SerStudent() {
+		super();
+	}
+
+	public SerStudent(String name, Integer age, String sex) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+	}
+
 	public String getName() {
 		return name;
 	}

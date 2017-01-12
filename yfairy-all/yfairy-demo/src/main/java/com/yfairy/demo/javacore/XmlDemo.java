@@ -1,7 +1,9 @@
 package com.yfairy.demo.javacore;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -10,6 +12,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.dom4j.io.SAXReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import com.thoughtworks.xstream.XStream;
 
 public class XmlDemo {
 
@@ -23,6 +27,7 @@ public class XmlDemo {
 		 * http://dom4j.sourceforge.net/dom4j-1.6.1/cookbook.html<br>
 		 * http://blog.csdn.net/chenweitang123/article/details/6255108(看这个)<br>
 		 * XStream处理XML文件和JavaBean对象互转<br>
+		 * XStream教程:http://x-stream.github.io/tutorial.html(官网)
 		 */
 
 		/**
@@ -103,6 +108,7 @@ public class XmlDemo {
 		// http://dom4j.sourceforge.net/dom4j-1.6.1/cookbook.html
 		// http://blog.csdn.net/chenweitang123/article/details/6255108(看这个)
 
+		System.out.println("------------DOM4J--------------------");
 		// 读取xml文件
 		SAXReader saxReader = new SAXReader();
 		org.dom4j.Document doc = saxReader.read(xml1); // 读取XML文件,获得document对象
@@ -123,8 +129,35 @@ public class XmlDemo {
 			}
 		}
 
-		// TODO 看XStream
+		System.out.println("------------XStream--------------------");
+		// XStream教程:http://x-stream.github.io/tutorial.html(官网)
 
+		// xstream
+		XStream xstream = new XStream();
+		// 对象toXMLxstream.toXML()
+		SerStudent ss = new SerStudent("张三", 18, "哈哈");
+		xstream.alias("SerStudent", SerStudent.class); // 设置别名
+		String ssxml = xstream.toXML(ss);
+		System.out.println(ssxml);
+		List<SerStudent> list = new ArrayList<>();
+		list.add(ss);
+		list.add(ss);
+		list.add(new SerStudent("李思", 18, "呵呵"));
+		System.out.println("listToXML");
+
+		xstream.setMode(XStream.NO_REFERENCES); // 设置对象无引用模式
+		String lxml = xstream.toXML(list);
+		System.out.println(lxml);
+
+		// xml转换成对象xstream.fromXML()
+		SerStudent ser1 = (SerStudent) xstream.fromXML(ssxml);
+		System.out.println(ser1);
+		System.out.println();
+		@SuppressWarnings("unchecked")
+		List<SerStudent> ssList = (List<SerStudent>) xstream.fromXML(new File(desktop, "xml2.xml"));
+		for (SerStudent serStudent : ssList) {
+			System.out.println(serStudent);
+		}
 		Logger.getGlobal().info("success...");
 	}
 
