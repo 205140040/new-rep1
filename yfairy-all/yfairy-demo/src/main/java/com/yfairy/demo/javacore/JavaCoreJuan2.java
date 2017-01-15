@@ -14,6 +14,8 @@ public class JavaCoreJuan2 {
 		 * 第4章：数据库编程206/858<br>
 		 * 第5章：国际化261/858<br>
 		 * 第9章：安全659/858<br>
+		 * 第10章：脚本,编译，与注解处理731/858<br>
+		 * 第12章：本地方法807/858<br>
 		 */
 		InputStream in = new FileInputStream("");
 		in.read(); // 读，当流结束时返回-1
