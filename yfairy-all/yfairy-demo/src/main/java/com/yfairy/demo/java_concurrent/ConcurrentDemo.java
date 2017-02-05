@@ -32,6 +32,7 @@ public class ConcurrentDemo {
 		 * :http://wenku.baidu.com/link?url=hzLqUAs8vWdkoOURyiFEJplGxQ_QlOulkVM67lWW-gFZDOmmhYJw8i-vg072KCrE1WzYw34ZFuWDYd0mRsAVKEZ5PBb-y1kfFR9vFzvxkh7
 		 * 第7章：任务取消与关闭125/308<br>
 		 * 第8章：线程池的使用152/308<br>
+		 * 第9章:图形用户界面应用程序170/308<br>
 		 */
 
 		System.out.println("hello");
