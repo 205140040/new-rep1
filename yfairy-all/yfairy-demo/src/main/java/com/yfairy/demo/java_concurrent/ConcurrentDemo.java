@@ -39,6 +39,7 @@ public class ConcurrentDemo {
 		 * 第12章：并发程序的测试218/308<br>
 		 * 第13章：显式锁241/308<br>
 		 * \TODO 继续显式锁
+		 * \ TODO 学习condition
 		 * 第14章：构建自定义的同步工具252/308<br>
 		 */
 

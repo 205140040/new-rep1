@@ -1,17 +1,37 @@
 package com.yfairy.demo.java_concurrent;
 
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Chapter13LockDemo {
 
 	public static void main(String[] args) {
 		/**
 		 * 第13章：显式锁241/308<br>
-		 * ReentrantLock 网络 重入锁; 可重入锁;<br>
+		 * ReentrantLock 重入锁; 可重入锁;<br>
 		 * java lock
 		 * doc:http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Lock.html推荐使用谷歌翻译此页面<br>
-		 * 
+		 * Lock接口:<br>
+		 * void lock（） 获取锁。 如果锁不可用，<br>
+		 * 则当前线程变为禁用以用于线程调度目的，并且处于休眠状态，直到获取锁为止。<br>
+		 * boolean tryLock（） 尝试获取锁，
+		 * 如果它是可用的和值立即返回true。如果锁不可用，则此方法将值立即返回false。<br>
+		 * boolean tryLock(long time, TimeUnit unit) throws
+		 * InterruptedException; <br>
+		 * 尝试获取锁，如果没获取到，那么将再次获取，直到超时，将释放锁<br>
+		 * void unlock（）释放锁。<br>
+		 * <br>
+		 * (重要:显示锁对象是针对对象的，所以lock变量的声明要放在对象里,如果在方法体中声明lock,<br>
+		 * 那么每个方法使用的锁对象都是不同的锁，无法达到同步)<br>
+		 * <br>
+		 * 可通过Lock lock=new ReentrantLock(boolean fair);
+		 * true设置公平锁，从而实现先等待的线程先获得锁(不推荐使用公平锁)<br>
 		 */
 
 		// java.util.concurrent.locks
@@ -204,23 +224,143 @@ public class Chapter13LockDemo {
 		System.out.println(Chapter13LockDemo.class);
 		System.out.println(new Chapter13LockDemo().getClass());
 
-		Lock lock = new ReentrantLock();
-		lock.lock();
-		try {
+		ExecutorService exec = Executors.newFixedThreadPool(100);
+		SellTicket ticket = new SellTicket();
+		for (int i = 0; i < 200; i++) {
+			exec.execute(new SellTicketThread(ticket, "lala" + i));
+		}
+		exec.shutdown();
 
-		} finally {
-			lock.unlock();
+		// 可重入读写锁,读写锁允许多个读线程并发的访问被保护的对象,当访问读操作为主的数据结构时，能提供较好的性能
+		// private final ReadWriteLock readWriteLock = new
+		// ReentrantReadWriteLock();
+		//
+		// private final Lock readLock = readWriteLock.readLock(); //读锁
+		//
+		// private final Lock writeLock = readWriteLock.writeLock(); //写锁
+
+	}
+
+	static class ReadWriteMap<K, V> {
+
+		private final Map<K, V> map;
+
+		public ReadWriteMap(Map<K, V> map) {
+			this.map = map;
 		}
 
-		// 轮询锁与定时锁
-		if (lock.tryLock()) {
+		// 可重入读写锁
+		private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+
+		private final Lock readLock = readWriteLock.readLock(); // 读锁
+
+		private final Lock writeLock = readWriteLock.writeLock(); // 写锁
+
+		public V put(K key, V value) {
+			writeLock.lock();
 			try {
-				// manipulate protected state
+				return map.put(key, value);
 			} finally {
-				lock.unlock();
+				writeLock.unlock();
 			}
-		} else {
-			// perform alternative actions
+		}
+
+		public V get(K key) {
+			readLock.lock();
+			try {
+				return map.get(key);
+			} finally {
+				readLock.unlock();
+			}
+		}
+
+	}
+
+	static class SellTicketThread extends Thread {
+
+		private SellTicket ticket;
+
+		private String name;
+
+		public SellTicketThread(SellTicket ticket, String name) {
+			super();
+			this.ticket = ticket;
+			this.name = name;
+		}
+
+		@Override
+		public void run() {
+			ticket.sellTicket(name);
+			// ticket.sellTicket_trylock(name);
+			// try {
+			// ticket.sellTicket_trylock_timeout(name);
+			// } catch (InterruptedException e) {
+			// e.printStackTrace();
+			// }
+		}
+	}
+
+	static class SellTicket {
+
+		private Lock lock = new ReentrantLock(); // 显示锁对象(重要:显示锁对象是针对对象的，所以lock变量的声明要放在对象里)
+
+		// private Lock lock = new ReentrantLock(true); //公平锁
+
+		private Lock try_lock = new ReentrantLock();
+
+		private Lock try_lock_timeout = new ReentrantLock();
+
+		private int no = 0;
+
+		public void sellTicket(String name) {
+			lock.lock(); // 获得锁，没获得会一直轮训，直到获得锁
+			try {
+				no++;
+				System.out.println(name + "买到了第" + no + "张票");
+			} finally {
+				System.out.println(name + "\tunlock");
+				lock.unlock(); // 释放锁
+			}
+		}
+
+		public void sellTicket_trylock(String name) {
+			if (try_lock.tryLock()) {
+				try {
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					no++;
+					System.out.println(name + "买到了第" + no + "张票");
+				} finally {
+					System.out.println("unlock");
+					try_lock.unlock(); // 释放锁
+				}
+			} else {
+				System.err.println("获取锁失败...");
+			}
+
+		}
+
+		public void sellTicket_trylock_timeout(String name) throws InterruptedException {
+			if (try_lock_timeout.tryLock(3000, TimeUnit.MILLISECONDS)) { // 在指定时间内尝试获取锁，超时失败
+				try {
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					no++;
+					System.out.println(name + "买到了第" + no + "张票");
+				} finally {
+					System.out.println("unlock");
+					try_lock_timeout.unlock(); // 释放锁
+				}
+			} else {
+				System.err.println("获取锁超时...");
+			}
+
 		}
 	}
 
