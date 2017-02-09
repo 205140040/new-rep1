@@ -38,9 +38,10 @@ public class ConcurrentDemo {
 		 * 使用分解锁(不同数据使用不同的锁，如LeftRightDeadLock)，分段锁（对一个数据使用多段锁）,减少锁持有的时间,可提高性能<br>
 		 * 第12章：并发程序的测试218/308<br>
 		 * 第13章：显式锁241/308<br>
-		 * \TODO 继续显式锁
-		 * \ TODO 学习condition
+		 * \TODO 继续显式锁 , condition<br>
 		 * 第14章：构建自定义的同步工具252/308<br>
+		 * 第15章：原子变量与非阻塞同步机制275/308<br>
+		 * \ TODO Thread .join() Thread类 study<br>
 		 */
 
 		System.out.println("hello");
