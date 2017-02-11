@@ -42,6 +42,7 @@ public class ConcurrentDemo {
 		 * 第14章：构建自定义的同步工具252/308<br>
 		 * 第15章：原子变量与非阻塞同步机制275/308<br>
 		 * \ TODO Thread .join() Thread类 study<br>
+		 * 第16章:java内存模型291/308<br>
 		 */
 
 		System.out.println("hello");
