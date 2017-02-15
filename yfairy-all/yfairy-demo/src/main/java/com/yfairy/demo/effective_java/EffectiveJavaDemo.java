@@ -9,6 +9,7 @@ public class EffectiveJavaDemo {
 		 * 第5条避免创建不必要的对象<br>
 		 * 第3章：对于所有对象都通用的方法41/303<br>
 		 * 第4章：类和接口71/303<br>
+		 * 到17条要么为继承而设计76(89/303)<br>
 		 */
 		System.out.println("hello world");
 
