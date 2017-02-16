@@ -10,6 +10,7 @@ public class EffectiveJavaDemo {
 		 * 第3章：对于所有对象都通用的方法41/303<br>
 		 * 第4章：类和接口71/303<br>
 		 * 到17条要么为继承而设计76(89/303)<br>
+		 * 第5章：泛型97(110/303)<br>
 		 */
 		System.out.println("hello world");
 
