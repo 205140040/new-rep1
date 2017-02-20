@@ -16,6 +16,7 @@ public class EffectiveJavaDemo {
 		 * 第8章：通用程序设计181(194/303)<br>
 		 * 第9章:异常211(223/303)<br>
 		 * 第10章:并发229(242/303)<br>
+		 * 第11章:序列化255(268/303)<br>
 		 */
 		System.out.println("hello world");
 
