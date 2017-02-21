@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+     http://www.springframework.org/schema/cache
+      http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+      ">
+
+	<bean id="helloService" class="com.yfairy.demo.spring_in_action_2.HelloServiceImpl">
+		<!--通过构造方法注入 -->
+		<!-- <constructor-arg value="jiangzi"> -->
+		<!-- </constructor-arg> -->
+		<!-- 通过属性注入 -->
+		<property name="name" value="jiangzi"></property>
+	</bean>
+
+	<!--aop示列 -->
+	<bean id="helloAspect" class="com.yfairy.demo.spring_in_action_2.HelloAspect"></bean>
+	<aop:config>
+		<!--pointcut切点 -->
+		<aop:pointcut
+			expression="execution(* com.yfairy.demo.spring_in_action_2.*.*(..))"
+			id="pointcut" />
+		<!-- aspect切面 -->
+		<aop:aspect ref="helloAspect">
+			<!--before通知 -->
+			<aop:before method="singBefore" pointcut-ref="pointcut" />
+			<aop:after-returning method="singAfter"
+				pointcut-ref="pointcut" />
+		</aop:aspect>
+	</aop:config>
+</beans>
