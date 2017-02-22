@@ -11,6 +11,7 @@ public class SpringInAction2 {
 		 * 目录(17/505)<br>
 		 * 第1章：开启spring之旅(24/505)<br>
 		 * 第2章：基本bean装配(42/505)<br>
+		 * 到2.2创建bean(48/505)<br>
 		 */
 		String userDir = System.getProperty("user.dir");
 		System.out.println(userDir);
