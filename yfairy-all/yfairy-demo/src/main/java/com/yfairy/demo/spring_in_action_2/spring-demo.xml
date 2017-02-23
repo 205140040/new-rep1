@@ -47,4 +47,74 @@
 		<property name="name" value="jiangzi"></property>
 		<property name="sex" value="haha"></property>
 	</bean>
+
+	<!-- 注入bean -->
+	<bean id="teacher" class="com.yfairy.demo.spring_in_action_2.Teacher">
+		<!-- 通过属性注入 -->
+		<property name="teacherNo" value="教师NO1"></property>
+	</bean>
+	<bean id="teacher2" class="com.yfairy.demo.spring_in_action_2.Teacher">
+		<!-- 通过属性注入 -->
+		<property name="teacherNo" value="教师NO2"></property>
+	</bean>
+
+	<bean id="student" class="com.yfairy.demo.spring_in_action_2.Student">
+		<!-- 多个构造参数注入 -->
+		<constructor-arg name="teacher" ref="teacher"></constructor-arg>
+		<constructor-arg name="classNo" value="班级NO1"></constructor-arg>
+	</bean>
+
+	<bean id="student2" class="com.yfairy.demo.spring_in_action_2.Student">
+		<!--注入内部bean,内部bean无法被共享，可以不设置id -->
+		<property name="teacher">
+			<bean class="com.yfairy.demo.spring_in_action_2.Teacher">
+				<property name="teacherNo" value="内部bean教师"></property>
+			</bean>
+		</property>
+
+		<property name="teachers">
+			<!-- 注入list -->
+			<list>
+				<ref bean="teacher" />
+				<ref bean="teacher2" />
+				<!--注入 null -->
+				<null></null>
+			</list>
+		</property>
+		<property name="kechengSet">
+			<!-- 注入set -->
+			<set>
+				<value>语文</value>
+				<value>数学</value>
+				<value>语文</value>
+			</set>
+		</property>
+		<property name="scoreMap">
+			<!-- 注入map -->
+			<map>
+				<entry key="语文" value="95"></entry>
+				<entry key="数学" value="88"></entry>
+			</map>
+		</property>
+		<property name="properties">
+			<!-- 注入props -->
+			<props>
+				<prop key="p1">p1</prop>
+				<prop key="p2">p2</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 自动装配 -->
+	<!-- byName查找容器中和属性名称相同的bean或beanId -->
+	<bean id="student3" class="com.yfairy.demo.spring_in_action_2.Student"
+		autowire="byName">
+		<!-- 混合使用自动装配，可同时使用自动装配，和property设置值 -->
+		<property name="classNo" value="混合使用自动装配"></property>
+	</bean>
+
+	<!-- 自动装配 -->
+	<!-- byType查找类型相同的bean <bean id="student5" class="com.yfairy.demo.spring_in_action_2.Student" 
+		autowire="byType"> </bean> -->
+
 </beans>
