@@ -117,4 +117,33 @@
 	<!-- byType查找类型相同的bean <bean id="student5" class="com.yfairy.demo.spring_in_action_2.Student" 
 		autowire="byType"> </bean> -->
 
+	<bean id="beanScope" class="com.yfairy.demo.spring_in_action_2.BeanScope"
+		scope="prototype" factory-method="newInstance" init-method="initMethod"
+		destroy-method="destroyMethod">
+		<!-- scope="prototype"每次都new 一个bean,singleton返回bean的单列 -->
+		<property name="name" value="bean范围"></property>
+	</bean>
+
+	<!-- abstract设置bean 为抽象的不能实例化 -->
+	<bean id="parent" class="com.yfairy.demo.spring_in_action_2.Parent"
+		abstract="true">
+		<property name="name" value="张三"></property>
+		<property name="sex" value="哈哈"></property>
+	</bean>
+	<!-- 通过parent设置父类实现继承 -->
+	<bean id="parentc1" parent="parent"></bean>
+	<bean id="parentc2" parent="parent">
+		<property name="name" value="重写父类张三"></property>
+	</bean>
+
+	<!--不设置bean的class，设置 abstract="true",其他不是同父类通过parent也可共享同一个配置 -->
+	<bean id="commonBean" abstract="true">
+		<property name="name" value="李思"></property>
+	</bean>
+	<bean id="parent2" class="com.yfairy.demo.spring_in_action_2.Parent"
+		parent="commonBean">
+	</bean>
+	<bean id="people" class="com.yfairy.demo.spring_in_action_2.People"
+		parent="commonBean">
+	</bean>
 </beans>

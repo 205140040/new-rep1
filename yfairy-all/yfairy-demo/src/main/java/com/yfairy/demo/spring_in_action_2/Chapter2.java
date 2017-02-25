@@ -3,6 +3,8 @@ package com.yfairy.demo.spring_in_action_2;
 import java.io.IOException;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -74,5 +76,19 @@ public class Chapter2 {
 		// Student student5 = (Student) context.getBean("student5");
 		// System.out.println("自动装配:" + student5);
 
+		// 2.5控制bean的创建
+		BeanScope beanScope = (BeanScope) context.getBean("beanScope");
+		System.out.println(beanScope);
+		BeanScope beanScope2 = (BeanScope) context.getBean("beanScope");
+		System.out.println(beanScope2);
+		
+		//利用工厂方法来创建bean
+		//factory-method='' 设置工厂方法创建bean 
+		
+		//2.5.3初始化和销毁bean
+		//设置自定义初始化，销毁方法init-method="initMethod" destroy-method="destroyMethod"
+		//通过实现spring 接口:InitializingBean设置初始化，DisposableBean销毁方法
+		//不推荐使用接口，这样和spring api耦合度较高
+		
 	}
 }
