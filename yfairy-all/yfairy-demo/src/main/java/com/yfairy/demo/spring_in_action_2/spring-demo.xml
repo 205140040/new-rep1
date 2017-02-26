@@ -146,4 +146,49 @@
 	<bean id="people" class="com.yfairy.demo.spring_in_action_2.People"
 		parent="commonBean">
 	</bean>
+
+	<!-- 替换方法 -->
+	<bean id="methodReplaceer" class="com.yfairy.demo.spring_in_action_2.MethodReplaceer">
+	</bean>
+	<bean id="methodReplaceDemo" class="com.yfairy.demo.spring_in_action_2.MethodReplaceDemo">
+		<property name="name" value="lele"></property>
+		<replaced-method name="getContent" replacer="methodReplaceer">
+		</replaced-method>
+	</bean>
+
+	<!-- 注入非spring bean -->
+	<!-- <bean id="user" class="com.yfairy.demo.spring_in_action_2.User" abstract="true"> 
+		<property name="helloService" ref="helloService"></property> </bean> -->
+	<!-- <context:spring-configured></context:spring-configured> -->
+	<!-- CustomEditorConfigurer自定义属性编辑器设置bean -->
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> 
+		<property name="customEditors"> <map> <entry key="com.yfairy.demo.spring_in_action_2.Parent"> 
+		<bean class="com.yfairy.demo.spring_in_action_2.ParentEdit"></bean> </entry> 
+		</map> </property> </bean> -->
+	<!-- <bean id="parentEditDemo" class="com.yfairy.demo.spring_in_action_2.ParentEditDemo"> 
+		<property name="parent" value="zhangsan-哈哈"></property> </bean> -->
+
+	<bean id="advanceBeanLifeCycle" class="com.yfairy.demo.spring_in_action_2.AdvanceBeanLifeCycle">
+		<property name="name" value="李思III"></property>
+	</bean>
+
+	<bean id="beanCounter" class="com.yfairy.demo.spring_in_action_2.BeanCounter">
+	</bean>
+
+	<!-- 读取多个properties配置文件 -->
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:*.properties</value>
+				<!-- file:./dbpool.properties ,相对路径 "./" 代表当前目录,"../"代表上级目录 -->
+				<value>file:./conf/*.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="msg"></property>
+	</bean>
 </beans>

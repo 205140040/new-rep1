@@ -5,6 +5,16 @@ public class Parent {
 
 	private String sex;
 
+	public Parent() {
+		super();
+	}
+
+	public Parent(String name, String sex) {
+		super();
+		this.name = name;
+		this.sex = sex;
+	}
+
 	public String getName() {
 		return name;
 	}
