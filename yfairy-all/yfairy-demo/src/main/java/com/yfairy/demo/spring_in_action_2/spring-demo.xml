@@ -16,6 +16,8 @@
       http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
       http://www.springframework.org/schema/mvc
       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/lang
+      http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
       ">
 
 	<bean id="helloService" class="com.yfairy.demo.spring_in_action_2.HelloServiceImpl">
@@ -191,4 +193,12 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="msg"></property>
 	</bean>
+
+	<!-- ApplicationListener -->
+	<bean id="myEventListener" class="com.yfairy.demo.spring_in_action_2.MyEventListener">
+		<!-- <property name="helloService" ref="ghello"></property> -->
+	</bean>
+
+	<!--配置使用groovy脚本 -->
+	<!-- <lang:groovy id="ghello" script-source=”classpath:groov.groovy”> </lang:groovy> -->
 </beans>

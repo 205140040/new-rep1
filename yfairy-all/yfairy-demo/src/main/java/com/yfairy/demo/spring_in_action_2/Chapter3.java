@@ -81,7 +81,26 @@ public class Chapter3 {
 
 		// 3.5.5程序事件的解耦 (88/505)
 		// ServiceConfig<T>
-//		context.
+		// extends ApplicationEvent设置事件 ,source参数代表事件源
+		// 实现事件监听器ApplicationListener
+		context.publishEvent(new MyApplicationEvent(context));
+		MyEventListener myEventListener = (MyEventListener) context.getBean("myEventListener");
+
+		// spring系统事件:继承ApplicationEvent
+		// ContextClosedEvent:程序上下文被关闭时发布
+		// ContextRefreshedEvent:上下文被初始化或刷新时发布
+		// RequestHandledEvent:一个请求被处理时，在web程序上下文发布
+
+		// 3.5.6让bean了解容器
+		// BeanNameAware,了解名称,这个名称是bean的id或者name属性设置的
+		// BeanFactoryAware, ApplicationContextAware获取容器
+		System.out.println(advanceBeanLifeCycle.getBeanName());
+		System.out.println(advanceBeanLifeCycle.getApplicationContext());
+
+		// 3.6脚本化的bean,可能不支持了,
+		// <lang:groovy id="ghello" script-source=”classpath:groov.groovy”>
+		// </lang:groovy>
+		// myEventListener.execSayHello();
 	}
 
 }
