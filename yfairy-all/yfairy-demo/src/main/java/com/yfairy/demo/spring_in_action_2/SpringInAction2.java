@@ -15,7 +15,8 @@ public class SpringInAction2 {
 		 * 到2.5控制bean创建(64/505)<br>
 		 * 第3章：高级bean装配(69/505)<br>
 		 * 到:3.5.5程序事件的解耦 (88/505)<br>
-		 * 第4章：通知bean，AOP(98/505)
+		 * 第4章：通知bean，AOP(98/505)<br>
+		 * 到 4.2创建spring的典型切面 (102/505)<br>
 		 */
 		String userDir = System.getProperty("user.dir");
 		System.out.println(userDir);

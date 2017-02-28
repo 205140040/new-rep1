@@ -7,4 +7,10 @@ public class GroHelloServiceImpl implements com.yfairy.demo.spring_in_action_2.I
 		System.out.println("GroHelloServiceImpl");
 	}
 
+	@Override
+	public void sayName() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

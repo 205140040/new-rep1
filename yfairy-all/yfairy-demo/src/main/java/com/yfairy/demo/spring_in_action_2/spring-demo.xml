@@ -33,7 +33,7 @@
 	<aop:config>
 		<!--pointcut切点 -->
 		<aop:pointcut
-			expression="execution(* com.yfairy.demo.spring_in_action_2.HelloServiceImpl.*(..))"
+			expression="execution(* com.yfairy.demo.spring_in_action_2.HelloServiceImpl.sayHello(..))"
 			id="pointcut" />
 		<!-- aspect切面 -->
 		<aop:aspect ref="helloAspect">

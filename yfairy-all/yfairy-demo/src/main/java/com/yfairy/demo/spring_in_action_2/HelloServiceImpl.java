@@ -18,6 +18,11 @@ public class HelloServiceImpl implements IHelloService {
 		System.out.println("hello," + name);
 	}
 
+	@Override
+	public void sayName() {
+		System.out.println("name," + name);
+	}
+
 	public String getName() {
 		return name;
 	}
