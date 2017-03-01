@@ -201,4 +201,33 @@
 
 	<!--配置使用groovy脚本 -->
 	<!-- <lang:groovy id="ghello" script-source=”classpath:groov.groovy”> </lang:groovy> -->
+
+	<!-- 第4章：aop -->
+	<!-- 配置advice -->
+	<bean id="guanzongAdvice" class="com.yfairy.demo.spring_in_action_2.GuanzongAdvice"></bean>
+	<!-- 配置advisor -->
+	<bean id="guanzongAdvisor"
+		class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+		<property name="advice" ref="guanzongAdvice"></property>
+		<property name="expression"
+			value="execution(* com.yfairy.demo.spring_in_action_2.Duke.*(..) )"></property>
+	</bean>
+	<bean id="dukeTarget" class="com.yfairy.demo.spring_in_action_2.Duke"></bean>
+	<!-- 配置代理工厂生成代理bean,多个代理bean可通过设置一个抽象的代理工厂，再共享工厂设置多个bean -->
+	<bean id="duke" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="dukeTarget"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>guanzongAdvisor</value>
+			</list>
+		</property>
+		<property name="proxyInterfaces">
+			<list>
+				<value>com.yfairy.demo.spring_in_action_2.IDukeService</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 启动aop注解自动代理 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>

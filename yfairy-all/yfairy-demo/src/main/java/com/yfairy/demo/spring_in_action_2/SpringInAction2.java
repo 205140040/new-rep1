@@ -17,6 +17,7 @@ public class SpringInAction2 {
 		 * 到:3.5.5程序事件的解耦 (88/505)<br>
 		 * 第4章：通知bean，AOP(98/505)<br>
 		 * 到 4.2创建spring的典型切面 (102/505)<br>
+		 * 到 4.3.2自动代理@Aspect切面 (113/505)<br>
 		 */
 		String userDir = System.getProperty("user.dir");
 		System.out.println(userDir);

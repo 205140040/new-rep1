@@ -1,10 +1,7 @@
 package com.yfairy.demo.spring_in_action_2;
 
-import org.aopalliance.intercept.MethodInterceptor;
-import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class Chapter4 {
 
@@ -25,6 +22,7 @@ public class Chapter4 {
 		 * //连接点：连接点是在程序执行过程中插入切面的一个点，切面代码通过连接点插入到程序的执行中<br>
 		 * //切点:切点定义了通知要执行的地点<br>
 		 * 到 4.2创建spring的典型切面 (102/505)<br>
+		 * 到 4.3.2自动代理@Aspect切面 (113/505)<br>
 		 */
 
 		// aop简介
@@ -33,20 +31,35 @@ public class Chapter4 {
 		// 连接点：连接点是在程序执行过程中插入切面的一个点，切面代码通过连接点插入到程序的执行中
 		// 切点:切点定义了通知要执行的地点
 		//
-		
-		//4.1.2spring对aop的支持,spring对aop的支持是基于代理的<br>
-		//spring生成代理类的方式有两种:如果目标对象实现了接口，使用jdk动态代理,
-		//否则使用CGLIB动态的生成目标类的子类，final修饰的方法无法重写，所以无法使用aop
+
+		// 4.1.2spring对aop的支持,spring对aop的支持是基于代理的<br>
+		// spring生成代理类的方式有两种:如果目标对象实现了接口，使用jdk动态代理,
+		// 否则使用CGLIB动态的生成目标类的子类，final修饰的方法无法重写，所以无法使用aop
 		String xmlfileStr = "com\\yfairy\\demo\\spring_in_action_2\\spring-demo.xml";
 
 		ApplicationContext context = new ClassPathXmlApplicationContext(xmlfileStr);
-		IHelloService helloService=(IHelloService)context.getBean("helloService");
+		IHelloService helloService = (IHelloService) context.getBean("helloService");
 		helloService.sayHello();
 		System.out.println();
 		helloService.sayName();
-		//到 4.2创建spring的典型切面 (102/505)<br>
-//		JdkDynamicAopProxy
-//		MethodInterceptor
+		// 到 4.2创建spring的典型切面 (102/505)<br>
+		// JdkDynamicAopProxy
+		// MethodInterceptor
+
+		// 4.2.3spring的ProxyFactoryBean是个工厂bean，用于生成一个代理,把一个或多个拦截者(和通知者)应用到bean
+		// ProxyFactoryBean
+		IDukeService duke = (IDukeService) context.getBean("duke");
+		duke.sayDuke();
+
+		// 4.3自动代理,1实现自动代理的bean方式有两种:基于配置的point-cut,2基于注解的@aspect
+		// DefaultAdvisorAutoProxyCreator 自动创建aop代理
+
+		// AnnotationAwareAspectJAutoProxyCreator自动创建注解aop代理
+		// <!-- 启动aop注解自动代理 -->
+		// <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+		// 到 4.3.2自动代理@Aspect切面 (113/505)<br>
+
 	}
 
 }
