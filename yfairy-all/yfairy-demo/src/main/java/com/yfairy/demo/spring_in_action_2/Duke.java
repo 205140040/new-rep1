@@ -7,4 +7,10 @@ public class Duke implements IDukeService {
 		System.out.println("duke");
 	}
 
+	@Override
+	public String sayName(String name) {
+		System.out.println("hello," + name);
+		return name;
+	}
+
 }

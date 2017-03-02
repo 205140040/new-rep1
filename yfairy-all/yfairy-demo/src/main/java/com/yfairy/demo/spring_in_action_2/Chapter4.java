@@ -49,7 +49,7 @@ public class Chapter4 {
 		// 4.2.3spring的ProxyFactoryBean是个工厂bean，用于生成一个代理,把一个或多个拦截者(和通知者)应用到bean
 		// ProxyFactoryBean
 		IDukeService duke = (IDukeService) context.getBean("duke");
-		duke.sayDuke();
+		duke.sayName("zhangsan");
 
 		// 4.3自动代理,1实现自动代理的bean方式有两种:基于配置的point-cut,2基于注解的@aspect
 		// DefaultAdvisorAutoProxyCreator 自动创建aop代理
@@ -59,6 +59,8 @@ public class Chapter4 {
 		// <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 		// 到 4.3.2自动代理@Aspect切面 (113/505)<br>
+		
+		//4.5注入AspectJ切面
 
 	}
 

@@ -1,7 +1,6 @@
 package com.yfairy.demo.spring_in_action_2;
 
-import java.lang.reflect.Method;
-
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -11,12 +10,12 @@ import org.aspectj.lang.annotation.Before;
 
 @Aspect
 public class GuanzongAspect {
-	@Around(value = "")
+	@Around(value = "execution(* com.yfairy.demo.spring_in_action_2.Duke.*(..) )")
 	public Object invoke(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		Object result = null;
 		try {
 			System.out.println("before");
-			System.out.println("方法环绕通知MethodInterceptor");
+			System.out.println("方法环绕通知@Around");
 			// 调用目标方法
 			result = proceedingJoinPoint.proceed();
 			System.out.println("after");
@@ -28,20 +27,26 @@ public class GuanzongAspect {
 		return result;
 	}
 
-	@AfterReturning("")
-	public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
-		System.out.println("方法返回会通知AfterReturningAdvice");
+	@AfterReturning(value = "execution(* com.yfairy.demo.spring_in_action_2.Duke.*(..) )", returning = "returnVal")
+	public void afterReturning(JoinPoint joinPoint, Object returnVal) throws Throwable {
+		System.out.println("------------------------------");
+		Object[] args = joinPoint.getArgs();
+		for (Object arg : args) {
+			System.out.println("参数:" + arg);
+		}
+		System.out.println("方法返回会通知@AfterReturning\t返回值:" + returnVal);
+		System.out.println("------------------------------");
 	}
 
-	@Before("")
-	public void before(Method method, Object[] args, Object target) throws Throwable {
-		System.out.println("方法前置通知MethodBeforeAdvice");
+	@Before("execution(* com.yfairy.demo.spring_in_action_2.Duke.*(..) )")
+	public void before() throws Throwable {
+		System.out.println("方法前置通知@Before");
 	}
 
-	@AfterThrowing("")
-	public void afterThrowing(Method method, Object[] args, Object target, Throwable throwable) {
-		throwable.printStackTrace();
-		System.out.println("方法异常通知ThrowsAdvice");
+	@AfterThrowing("execution(* com.yfairy.demo.spring_in_action_2.Duke.*(..) )")
+	public void afterThrowing() {
+		// throwable.printStackTrace();
+		System.out.println("方法异常通知@AfterThrowing");
 	}
 
 }

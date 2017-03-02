@@ -212,9 +212,10 @@
 		<property name="expression"
 			value="execution(* com.yfairy.demo.spring_in_action_2.Duke.*(..) )"></property>
 	</bean>
-	<bean id="dukeTarget" class="com.yfairy.demo.spring_in_action_2.Duke"></bean>
+	<!-- <bean id="dukeTarget" class="com.yfairy.demo.spring_in_action_2.Duke"></bean> -->
+
 	<!-- 配置代理工厂生成代理bean,多个代理bean可通过设置一个抽象的代理工厂，再共享工厂设置多个bean -->
-	<bean id="duke" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<!-- <bean id="dukeProxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="dukeTarget"></property>
 		<property name="interceptorNames">
 			<list>
@@ -226,8 +227,11 @@
 				<value>com.yfairy.demo.spring_in_action_2.IDukeService</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- 启动aop注解自动代理 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<bean id="duke" class="com.yfairy.demo.spring_in_action_2.Duke"></bean>
+	<bean id="guanzongAspect" class="com.yfairy.demo.spring_in_action_2.GuanzongAspect"></bean>
+
 </beans>
