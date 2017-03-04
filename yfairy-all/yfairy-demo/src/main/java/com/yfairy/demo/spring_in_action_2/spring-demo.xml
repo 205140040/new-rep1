@@ -215,23 +215,42 @@
 	<!-- <bean id="dukeTarget" class="com.yfairy.demo.spring_in_action_2.Duke"></bean> -->
 
 	<!-- 配置代理工厂生成代理bean,多个代理bean可通过设置一个抽象的代理工厂，再共享工厂设置多个bean -->
-	<!-- <bean id="dukeProxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="dukeTarget"></property>
-		<property name="interceptorNames">
-			<list>
-				<value>guanzongAdvisor</value>
-			</list>
-		</property>
-		<property name="proxyInterfaces">
-			<list>
-				<value>com.yfairy.demo.spring_in_action_2.IDukeService</value>
-			</list>
-		</property>
-	</bean> -->
+	<!-- <bean id="dukeProxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean"> 
+		<property name="target" ref="dukeTarget"></property> <property name="interceptorNames"> 
+		<list> <value>guanzongAdvisor</value> </list> </property> <property name="proxyInterfaces"> 
+		<list> <value>com.yfairy.demo.spring_in_action_2.IDukeService</value> </list> 
+		</property> </bean> -->
 
 	<!-- 启动aop注解自动代理 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<bean id="duke" class="com.yfairy.demo.spring_in_action_2.Duke"></bean>
 	<bean id="guanzongAspect" class="com.yfairy.demo.spring_in_action_2.GuanzongAspect"></bean>
 
+	<!-- 配置数据源连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- 数据库基本信息配置 -->
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<!-- 基本属性 url、user、password -->
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<!-- 配置jdbc模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="studentDao" class="com.yfairy.demo.spring_in_action_2.StudentDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+
+	<!-- 配置mybatis -->
+	<!-- 配置SqlSessionFactoryBean用于创建 SqlSessionFactory 的 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 配置mybatis sqlSessionTemplate 模板 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
 </beans>

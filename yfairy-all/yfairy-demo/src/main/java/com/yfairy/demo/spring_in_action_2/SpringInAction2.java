@@ -20,6 +20,7 @@ public class SpringInAction2 {
 		 * 到 4.3.2自动代理@Aspect切面 (113/505)<br>
 		 * 第5章：使用数据库(125/505)<br>
 		 * 到5.2：配置数据源(130/505)<br>
+		 * 第6章:事务管理(168/505)<br>
 		 */
 		String userDir = System.getProperty("user.dir");
 		System.out.println(userDir);
