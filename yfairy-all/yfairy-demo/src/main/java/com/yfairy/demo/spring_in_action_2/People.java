@@ -32,4 +32,9 @@ public class People {
 		this.sex = sex;
 	}
 
+	@Override
+	public String toString() {
+		return "People [name=" + name + ", age=" + age + ", sex=" + sex + "]";
+	}
+
 }
