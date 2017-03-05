@@ -2,6 +2,8 @@ package com.yfairy.demo.spring_in_action_2;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 
 public class SpringInAction2 {
 
@@ -28,6 +30,8 @@ public class SpringInAction2 {
 		 * 第10章：spring消息(jms)(281/505)<br>
 		 * 第11章：spring和EJB(308/505)<br>
 		 * 第12章:访问企业服务(320/505)<br>
+		 * TODO spring实战(第3版):14章其他spring技巧：<br>
+		 * 14.4调度和后台任务，讲解了@Scheduled,@Async<br>
 		 */
 		String userDir = System.getProperty("user.dir");
 		System.out.println(userDir);
