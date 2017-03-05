@@ -22,6 +22,12 @@ public class SpringInAction2 {
 		 * 到5.2：配置数据源(130/505)<br>
 		 * 第6章:事务管理(168/505)<br>
 		 * 到6.4声明式事务(176/505)<br>
+		 * 第7章：保护spring (186/505)<br>
+		 * 第8章：spring和基于pojo的远程服务(226/505)<br>
+		 * 第9章：在spring中建立契约优先的web服务<br>
+		 * 第10章：spring消息(jms)(281/505)<br>
+		 * 第11章：spring和EJB(308/505)<br>
+		 * 第12章:访问企业服务(320/505)<br>
 		 */
 		String userDir = System.getProperty("user.dir");
 		System.out.println(userDir);
