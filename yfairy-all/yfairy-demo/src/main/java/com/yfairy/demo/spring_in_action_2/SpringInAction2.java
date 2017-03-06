@@ -28,6 +28,7 @@ public class SpringInAction2 {
 		 * 第8章：spring和基于pojo的远程服务(226/505)<br>
 		 * 第9章：在spring中建立契约优先的web服务<br>
 		 * 第10章：spring消息(jms)(281/505)<br>
+		 * 到10.2.3转换消息(293/505)<br>
 		 * 第11章：spring和EJB(308/505)<br>
 		 * 第12章:访问企业服务(320/505)<br>
 		 * TODO spring实战(第3版):14章其他spring技巧：<br>

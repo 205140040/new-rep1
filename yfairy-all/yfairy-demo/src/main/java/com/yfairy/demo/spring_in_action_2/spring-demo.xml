@@ -279,5 +279,24 @@
 		) " advice-ref="txAdvice" /> </aop:config> -->
 	<!-- 开启事务注解 -->
 	<tx:annotation-driven transaction-manager="dataSourceTransactionManager" />
-	
+
+
+	<!--spring-jms -->
+	<!-- 配置jms连接工厂 -->
+	<bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616"></property>
+	</bean>
+
+	<!-- 配置消息目的地,queue -->
+	<bean id="activeMQQueue1" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="activeMQQueue1"></constructor-arg>
+	</bean>
+
+	<!-- 配置jms模板 -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<!-- 配置连接工厂 -->
+		<property name="connectionFactory" ref="activeMQConnectionFactory"></property>
+		<!--配置默认目的地 -->
+		<property name="defaultDestination" ref="activeMQQueue1"></property>
+	</bean>
 </beans>
