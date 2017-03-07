@@ -1,7 +1,8 @@
 package com.yfairy.demo.spring_in_action_2;
 
+import java.util.Map;
+
 import javax.jms.JMSException;
-import javax.jms.TextMessage;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,8 +18,11 @@ public class SpringJmsConsumer {
 
 		JmsTemplate jmsTemplate = (JmsTemplate) context.getBean("jmsTemplate");
 		// 同步接收消息
-		TextMessage textMessage = (TextMessage) jmsTemplate.receive();
-		System.err.println("spring msg:" + textMessage.getText());
+		// TextMessage textMessage = (TextMessage) jmsTemplate.receive();
+		// System.err.println("spring msg:" + textMessage.getText());
+		// 转换和接收
+		Map<String, String> map = (Map<String, String>) jmsTemplate.receiveAndConvert();
+		System.err.println(map);
 		try {
 			Thread.sleep(360 * 1000);
 		} catch (InterruptedException e) {

@@ -3,7 +3,8 @@
 	xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:jms="http://www.springframework.org/schema/jms"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
      http://www.springframework.org/schema/aop
@@ -18,7 +19,10 @@
       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
        http://www.springframework.org/schema/lang
       http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
+      http://www.springframework.org/schema/jms
+	  http://www.springframework.org/schema/jms/spring-jms.xsd
       ">
+
 
 	<bean id="helloService" class="com.yfairy.demo.spring_in_action_2.HelloServiceImpl">
 		<!--通过构造方法注入 -->
@@ -292,11 +296,27 @@
 		<constructor-arg value="activeMQQueue1"></constructor-arg>
 	</bean>
 
+	<!-- 配置消息转换器 -->
+	<bean id="simpleMessageConverter"
+		class="org.springframework.jms.support.converter.SimpleMessageConverter">
+	</bean>
+
 	<!-- 配置jms模板 -->
 	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<!-- 配置连接工厂 -->
 		<property name="connectionFactory" ref="activeMQConnectionFactory"></property>
 		<!--配置默认目的地 -->
 		<property name="defaultDestination" ref="activeMQQueue1"></property>
+		<!-- 配置消息转换器 -->
+		<property name="messageConverter" ref="simpleMessageConverter"></property>
 	</bean>
+	<!--配置消息监听器 -->
+	<bean id="springJmsListener" class="com.yfairy.demo.spring_in_action_2.SpringJmsListener">
+	</bean>
+	<!--配置消息监听器容器 -->
+	<jms:listener-container connection-factory="activeMQConnectionFactory"
+		container-type="default" message-converter="simpleMessageConverter">
+		<!-- 多个监听器，配置多个jms:listener -->
+		<jms:listener destination="activeMQQueue1" ref="springJmsListener" />
+	</jms:listener-container>
 </beans>
