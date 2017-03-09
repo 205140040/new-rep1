@@ -19,22 +19,36 @@
       ">
 	<!-- name属性承担了两个责任：即定义bean的名字，也定义了url，由于url含有id中的非法字符，所有使用name定义url,name="/HomePage" -->
 	<bean id="homePageController" class="com.yfairy.demo.spring_in_action_2.HomePageController"></bean>
+
+	<bean id="XmlViewResolverController"
+		class="com.yfairy.demo.spring_in_action_2.XmlViewResolverController"></bean>
 	<!-- 配置SimpleUrlHandlerMapping 管理url和controller -->
-	<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<bean id="simpleUrlHandlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/HomePage">homePageController</prop>
+				<prop key="/WelcomePage">XmlViewResolverController</prop>
 			</props>
 		</property>
 		<property name="order" value="0"></property>
 	</bean>
-	
+
 	<!-- 配置异常解析器 -->
-	<bean id="simpleMappingExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<bean id="simpleMappingExceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
 				<prop key="java.lang.Exception">exceptionJsp</prop>
 			</props>
 		</property>
+	</bean>
+
+	<!-- 配置多个视图解析器,在spring-mvc中已经配置了InternalResourceViewResolver -->
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="location">
+			<value>classpath:spring-xmlviewresolver.xml</value>
+		</property>
+		<property name="order" value="1"></property>
 	</bean>
 </beans>
