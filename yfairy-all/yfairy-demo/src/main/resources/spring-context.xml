@@ -92,4 +92,5 @@
 
 	<import resource="dubbo-consumer.xml" />
 	<import resource="spring-kaptcha.xml" />
+	<import resource="spring-inaction2.xml"/>
 </beans>
