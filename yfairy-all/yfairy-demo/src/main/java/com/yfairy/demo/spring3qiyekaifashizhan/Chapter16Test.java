@@ -39,6 +39,18 @@ public class Chapter16Test {
 		// assertThat(url, endsWith("om1"));
 
 		// 16.3模拟利器：Mockito(623/725)<br>
+		
+		//16.3.2创建mock对象
+		
+		//16.4测试整合之王Unitls
+		
+		//16.4.2Unitls集成spring
+		//比较老，不用这个测试了
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
 	}
 
 }
