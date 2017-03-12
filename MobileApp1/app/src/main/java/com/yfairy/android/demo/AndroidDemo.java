@@ -1,6 +1,10 @@
 package com.yfairy.android.demo;
 
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.widget.Toast;
 
 /**
  * Created by jiangzi on 2017/3/12.
@@ -45,8 +49,47 @@ public class AndroidDemo {
         //通过AndroidMonitor打开查看日志的窗口LogCat:
         System.err.println("通过AndroidMonitor打开查看日志的窗口:");
         //1.4.2使用日志工具Log，Log.v()(verbose),  Log.d()(debug), Log.i()(info),Log.e()(error)
-        Log.e("etag","error");
+        Log.e("etag", "error");
 
         //第二章：探究活动(28/555)<br>
+        //活动activity，是一种包含用户界面的组件，主要用于和用户进行交互<br>
+
+        //加载布局
+        // setContentView(R.layout.first_layout);
+        //所有的活动都要在manifest中注册
+        //注册活动
+        //  <activity android:name=".FirstActivity" android:label="FirstActivity"  >
+        //        <intent-filter>
+        //              <action android:name="android.intent.action.MAIN" />
+        //             <category android:name="android.intent.category.LAUNCHER" />
+        //      </intent-filter>
+        //    </activity>
+
+        //设置无标题
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        //添加Toast提示 setOnClickListener
+//        button1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(FirstActivity.this,"click button1",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+        //2.2.6在活动中使用菜单
+
+        //Android Studio下创建menu布局文件
+        //http://www.cnblogs.com/ssqqhh/p/5213331.html
+
+        //销毁一个活动，类似退出
+        //finish();
+
+        //2.3使用Intent在活动间穿梭
+        //通过Intent启动活动
+        //Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+       // startActivity(intent);
+        //点击back键就可以销毁活动类似调用finish,返回上级菜单
+
+        //2.3.2使用隐式Intent(45/555)<br>
     }
 }
