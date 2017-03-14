@@ -126,8 +126,67 @@ public class AndroidDemo {
 		// Intent intent=getIntent();
 		// String data=intent.getStringExtra("data");
 		// Log.i("intentdata",data);
+
+		// 2.3.5返回数据给上一个活动(53/555)<br>
+
+		// 启动有返回结果的intent,requestCode请求码，用于区别哪个活动
+		// startActivityForResult(intent, requestCode);
+
+		// 活动结果回调
+		// @Override
+		// protected void onActivityResult(int requestCode, int resultCode,
+		// Intent data) {
+		// //活动结果回调
+		// //requestCode确定是启动哪一个活动,在启动多个活动时区分哪一个活动
+		// switch (requestCode) {
+		// case 1:
+		// if (resultCode == RESULT_OK) {
+		// //活动返回的code
+		// Log.i("intentdata", data.getStringExtra("intentdata"));
+		// }
+		// break;
+		// default:
+		// break;
+		// }
+		// }
+
+		// @Override
+		// public void onBackPressed() {
+		// //系统点击返回事件，像上一个活动返回数据
+		// intentHandle();
+		// }
+		//
+		// private void intentHandle() {
+		// Intent intent = new Intent();
+		// intent.putExtra("intentdata", "result1");
+		// //像上一个活动传递数据
+		// setResult(RESULT_OK, intent);
+		// finish();
+		// }
+
+		// 2.4活动的生命周期
+
+		// onCreate,onStart,onResume,onPause,onStop,onDestroy,onRestart
+
+		// @Override
+		// protected void onSaveInstanceState(Bundle outState) {
+		// //在活动被回收之前保存该活动的数据
+		// super.onSaveInstanceState(outState);
+		// outState.putString("huishouData","data");
+		// }
+
+		//
+
+		// protected void onCreate(Bundle savedInstanceState) {
+		// super.onCreate(savedInstanceState);
+		// Log.i(TAG,"onCreate");
+		// if(null!=savedInstanceState){
+		// //获取活动被回收之前的数据
+		// String huishouData=savedInstanceState.getString("huishouData");
+		// }
+		// }
 		
-		//2.3.5返回数据给上一个活动(53/555)<br>
+		//2.5活动的启动模式(69/555)<br>
 
 	}
 
