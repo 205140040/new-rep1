@@ -185,9 +185,67 @@ public class AndroidDemo {
 		// String huishouData=savedInstanceState.getString("huishouData");
 		// }
 		// }
-		
-		//2.5活动的启动模式(69/555)<br>
 
+		// 2.5活动的启动模式(69/555)<br>
+
+		// android:launchMode配置启动模式
+		// <activity android:name=".StandardActivity"
+		// android:launchMode="standard" ></activity>
+
+		// standard 英[ˈstændəd]
+		// 美[ˈstændərd]
+		// n. 标准，规格; 旗，军旗; 度量衡标准; 直立支柱;
+		// adj. 标准的，合格的; 普遍的，一般的; 公认为优秀的;
+
+		// standard默认的，每次都新建一个活动
+
+		// singleTop检查活动在栈顶时，每次创建都保持单列，不在栈顶每次都新建一个活动
+
+		// singleTask同一个活动栈中保持单列，不同的活动栈新建
+
+		// singleInstance所有的活动栈中都保持单列，只新建一次
+
+		// studio 英[ˈstju:diəʊ]
+		// 美[ˈstu:dioʊ]
+		// n. 工作室，画室; [影] 演播室，电影制片厂;
+
+		// 2.6活动的最佳实践
+		// 所有活动继承一个父类，设置打印活动
+		// 把活动添加到list中，方便全部退出
+		{
+			String aString;
+		}
+
+		// 第3章：UI开发(85/555)<br>
+
+		// widget 英[ˈwɪdʒɪt]
+		// 美[ˈwɪdʒɪt]
+		// n. 小器具，装饰品，窗口小部件;
+
+		// android:layout_width="match_parent"
+		// match_parent当前大小和父容器大小一致
+		// wrap_content 表示让
+		// 当前控件的大小能够刚好包含住里面的内容，也就是由控件内容决定当前控件的大小
+
+		// android:gravity="center" 水平垂直都居中
+
+		// <TextView
+		// android:id="@+id/textView1"
+		// android:layout_width="match_parent"
+		// android:layout_height="wrap_content"
+		// android:gravity="center"
+		// android:text="Hello World!"
+		// android:textColor="?android:attr/textColorLinkInverse"
+		// android:textSize="24sp" />
+		
+		
+//		 <EditText
+//	        android:layout_width="match_parent"
+//	        android:layout_height="wrap_content"
+//
+//	        android:hint="请输入"/>
+		
+		//3.2.4 ImageView(96/555)<br>
 	}
 
 }
