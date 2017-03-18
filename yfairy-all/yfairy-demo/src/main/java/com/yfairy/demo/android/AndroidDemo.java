@@ -237,15 +237,165 @@ public class AndroidDemo {
 		// android:text="Hello World!"
 		// android:textColor="?android:attr/textColorLinkInverse"
 		// android:textSize="24sp" />
+
+		// <EditText
+		// android:layout_width="match_parent"
+		// android:layout_height="wrap_content"
+		//
+		// android:hint="请输入"/>
+
+		// 3.2.4 ImageView(96/555)<br>
+
+		// <ImageView android:id="@+id/img1"
+		// android:layout_width="wrap_content"
+		// android:layout_height="wrap_content"
+		// android:src="@drawable/imgview1"/>
+
+		// 3.2.5 进度条
+
+		// <ProgressBar android:id="@+id/pb1"
+		// android:layout_width="match_parent"
+		// android:layout_height="wrap_content" />
+
+		// switch (pb1.getVisibility()){
+		// case View.VISIBLE:
+		// pb1.setVisibility(View.GONE); //完全隐藏
+		// break;
+		// case View.GONE:
+		// pb1.setVisibility(View.VISIBLE); //显示
+		// break;
+		// }
+
+		// 3.2.6 alertDialog
+
+		// AlertDialog.Builder ad=new AlertDialog.Builder(ThridActivity.this);
+		// ad.setTitle("alert");
+		// ad.setMessage("你好啊,haha");
+		// ad.setCancelable(false);
+		// ad.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+		// @Override
+		// public void onClick(DialogInterface dialog, int which) {
+		//
+		// }
+		// });
+		// ad.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+		// @Override
+		// public void onClick(DialogInterface dialog, int which) {
+		//
+		// }
+		// }
+		// );
+		// ad.show();
+
+		// 3.2.7 ProgressDialog
+
+		// 进度条dialog
+		// ProgressDialog progressDialog=new ProgressDialog(ThridActivity.this);
+		// progressDialog.setTitle("进度dialog");
+		// progressDialog.setMessage("Loading...");
+		// progressDialog.setCancelable(true);
+		// progressDialog.show();
+
+		// progressDialog.dismiss(); //关闭ProgressDialog
+
+		// 3.3详解四种基本布局
+
+		// linear 英[ˈlɪniə(r)]
+		// 美[ˈlɪniər]
+		// adj. 直线的，线形的; 长度的; <数>一次的，线性的; 通过单独的若干阶段来发展;
+
+		// LinearLayout 又称作线性布局，是一种非常常用的布局。正如它名字所描述的一样，这
+		// 个布局会将它所包含的控件在线性方向上依次排列。相信你之前也已经注意到了，我们在上
+		// 一节中学习控件用法时，所有的控件就都是放在 LinearLayout 布局里的，因此上一节中的控
+		// 件也确实是在垂直方向上线性排列的。
+
+		// android:orientation="horizontal"水平
+		// android:orientation="vertical" 竖直
+
+		// android:layout_weight。这个属性
+		// 允许我们使用比例的方式来指定控件的大小，它在手机屏幕的适配性方面可以起到非常重要
+		// 的作用
+
+		/*
+		 * <Button android:id="@+id/tbtn3" android:text="启动alert"
+		 * android:layout_width="0dp" android:layout_height="wrap_content"
+		 * android:layout_weight="1" />
+		 * 
+		 * <Button android:id="@+id/tbtn2" android:text="显/隐pb"
+		 * android:layout_width="0dp" android:layout_height="wrap_content"
+		 * android:layout_weight="1" /> <ProgressBar android:id="@+id/pb1"
+		 * android:layout_width="0dp" android:layout_height="wrap_content"
+		 * android:layout_weight="1" /> <Button android:id="@+id/tbtn4"
+		 * android:text="Btn4" android:layout_width="0dp"
+		 * android:layout_height="wrap_content" android:layout_weight="1" />
+		 */
+
+		// 3.3.2 RelativeLayout 相对布局(113/555)<br>
+		/*
+		 * <RelativeLayout
+		 * xmlns:android="http://schemas.android.com/apk/res/android"
+		 * xmlns:app="http://schemas.android.com/apk/res-auto"
+		 * xmlns:tools="http://schemas.android.com/tools"
+		 * android:layout_width="match_parent"
+		 * android:layout_height="match_parent"
+		 * tools:context="com.yfairy.android.uiwidgettest.FourActivity">
+		 * 
+		 * <Button android:id="@+id/fbtn1" android:text="左上"
+		 * android:layout_width="wrap_content"
+		 * android:layout_height="wrap_content"
+		 * android:layout_alignParentLeft="true"
+		 * android:layout_alignParentTop="true"/>
+		 * 
+		 * <Button android:id="@+id/fbtn2" android:text="右上"
+		 * android:layout_width="wrap_content"
+		 * android:layout_height="wrap_content"
+		 * android:layout_alignParentRight="true"
+		 * android:layout_alignParentTop="true" />
+		 * 
+		 * <Button android:id="@+id/fbtn3" android:text="中间"
+		 * android:layout_width="wrap_content"
+		 * android:layout_height="wrap_content"
+		 * android:layout_centerInParent="true" />
+		 * 
+		 * <Button android:id="@+id/fbtn4" android:text="左下"
+		 * android:layout_width="wrap_content"
+		 * android:layout_height="wrap_content"
+		 * android:layout_alignParentLeft="true"
+		 * android:layout_alignParentBottom="true"/>
+		 * 
+		 * 
+		 * <Button android:id="@+id/fbtn5" android:text="右下"
+		 * android:layout_width="wrap_content"
+		 * android:layout_height="wrap_content"
+		 * android:layout_alignParentRight="true"
+		 * android:layout_alignParentBottom="true" />
+		 * 
+		 * </RelativeLayout>
+		 */
+
+		// 3.3.3 FrameLayout
+
+		// 3.3.4 TableLayout
+
+		// 3.4创建自定义控件
+
+		// 3.5 ListView
+
+		// ArrayAdapter<String> arrayAdapter = new
+		// ArrayAdapter<String>(ListView1Activity.this,
+		// android.R.layout.simple_list_item_1, Arrays.asList("one", "two",
+		// "three"));
+		// ListView listView = (ListView) findViewById(R.id.listView1);
+		// listView.setAdapter(arrayAdapter);
 		
+		//3.5.2 定制listview的界面
 		
-//		 <EditText
-//	        android:layout_width="match_parent"
-//	        android:layout_height="wrap_content"
-//
-//	        android:hint="请输入"/>
+		//3.5.3 提升listView的效率
 		
-		//3.2.4 ImageView(96/555)<br>
+		//3.5.4 listview的点击事件
+		
+		//3.6 单位和尺寸(138/555)<br>
+
 	}
 
 }
