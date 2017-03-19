@@ -387,14 +387,50 @@ public class AndroidDemo {
 		// "three"));
 		// ListView listView = (ListView) findViewById(R.id.listView1);
 		// listView.setAdapter(arrayAdapter);
+
+		// 3.5.2 定制listview的界面
+
+		//
+		// inflate 英[ɪnˈfleɪt]
+		// 美[ɪnˈflet]
+		// vt. 使充气（于轮胎、气球等）; （使） 膨胀; （使） 通货膨胀; 物价上涨;
+
+		// 3.5.3 提升listView的效率
+
+		// 3.5.4 listview的点击事件
+
+		// 3.6 单位和尺寸(138/555)<br>
+
+		// 总结一下，在编写 Android 程序的时候，尽量将控件或布局的大小指定成 match_parent
+		// 或 wrap_content，如果必须要指定一个固定值，则使用 dp 来作为单位，指定文字大小的时候
+		// 使用 sp 作为单位。
+
+		// 3.7 编写界面的最佳实践
+
+		// 第4章：手机平板兼容，探究碎片(153/555)<br>
+
+		// 4.4动态加载布局的技巧
+
+		// Android 中一些常见的限定符可以参考下表。
+		// 屏幕特征 限定符 描述
+		// 大小
+		// small 提供给小屏幕设备的资源
+		// normal 提供给中等屏幕设备的资源
+		// large 提供给大屏幕设备的资源
+		// xlarge 提供给超大屏幕设备的资源
+
+		// 这就意味着，当程序运行在屏幕宽度大于 600dp 的设备上时，会加载 layout-sw600dp/
+		// activity_main 布局，当程序运行在屏幕宽度小于 600dp 的设备上时，则仍然加载默认的
+		// layout/activity_main 布局。
 		
-		//3.5.2 定制listview的界面
+		//第5章：广播机制(189/555)<br>
 		
-		//3.5.3 提升listView的效率
+		//5.2接收系统广播
 		
-		//3.5.4 listview的点击事件
+		//5.2.1
 		
-		//3.6 单位和尺寸(138/555)<br>
+		//5.3 发送自定义广播(198/555)<br>
+		
 
 	}
 
