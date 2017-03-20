@@ -422,15 +422,26 @@ public class AndroidDemo {
 		// 这就意味着，当程序运行在屏幕宽度大于 600dp 的设备上时，会加载 layout-sw600dp/
 		// activity_main 布局，当程序运行在屏幕宽度小于 600dp 的设备上时，则仍然加载默认的
 		// layout/activity_main 布局。
-		
-		//第5章：广播机制(189/555)<br>
-		
-		//5.2接收系统广播
-		
-		//5.2.1
-		
-		//5.3 发送自定义广播(198/555)<br>
-		
+
+		// 第5章：广播机制(189/555)<br>
+
+		// 5.2接收系统广播
+
+		// 5.2.1
+
+		// 5.3 发送自定义广播(198/555)<br>
+		System.out.println("hello");
+
+		// <!-- 退出广播监听器 -->
+		// <receiver android:name=".LogoutBroadcastReceiver">
+		// <intent-filter>
+		// <action android:name="LogoutBroadcastReceiver" />
+		// </intent-filter>
+		// </receiver>
+
+		// 5.4 使用本地广播<br>
+
+		// 第6章：数据存储(数据库)(221/555)<br>
 
 	}
 
