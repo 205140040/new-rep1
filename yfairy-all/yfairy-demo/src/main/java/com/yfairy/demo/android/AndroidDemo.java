@@ -443,6 +443,61 @@ public class AndroidDemo {
 
 		// 第6章：数据存储(数据库)(221/555)<br>
 
+		// 6.2文件存储
+
+		// FileOutputStream out = null;
+		// FileInputStream in=null;
+		// //存储文件
+		// try {
+		// //输出文件
+		// String fileName="file1";
+		// out = openFileOutput(fileName, Context.MODE_PRIVATE);
+		// out.write("见到你很高兴".getBytes("UTF-8"));
+		//
+		//
+		// //读取文件
+		// in=openFileInput(fileName);
+		// byte[] data=new byte[in.available()];
+		// in.read(data);
+		// Log.i("ThreeActivityFileData", new String(data,"UTF-8"));
+		//
+		// Log.i("ThreeActivity", "end");
+		//
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// } finally {
+		// if (null != out) {
+		// try {
+		// out.close();
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
+		// }
+		// if(null!=in){
+		// try {
+		// in.close();
+		// } catch (IOException e) {
+		// e.printStackTrace();
+		// }
+		// }
+		// }
+
+		// 6.3 SharedPreferences 存储
+		
+	       //保存数据
+			//        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferences("sp1", MODE_PRIVATE).edit();
+			//        sharedPreferencesEditor.putString("name", "张三");
+			//        sharedPreferencesEditor.putInt("age", 18);
+			//        sharedPreferencesEditor.commit();
+			//        //读取数据
+			//        SharedPreferences sharedPreferences = getSharedPreferences("sp1", MODE_PRIVATE);
+			//        Log.i("SharedPreferences:name", sharedPreferences.getString("name", null));
+			//        Log.i("SharedPreferences:age", "" + sharedPreferences.getInt("age", 0));
+		
+		//6.4 sqlLite 数据库存储(239/555)<br>
+		
+		
+
 	}
 
 }
