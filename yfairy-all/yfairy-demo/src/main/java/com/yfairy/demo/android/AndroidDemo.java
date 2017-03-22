@@ -496,6 +496,8 @@ public class AndroidDemo {
 		
 		//6.4 sqlLite 数据库存储(239/555)<br>
 		
+		//6.4.2升级数据库(246/555)<br>
+		
 		
 
 	}
