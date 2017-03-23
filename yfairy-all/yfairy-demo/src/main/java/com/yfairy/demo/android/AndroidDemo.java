@@ -483,22 +483,136 @@ public class AndroidDemo {
 		// }
 
 		// 6.3 SharedPreferences 存储
+
+		// 保存数据
+		// SharedPreferences.Editor sharedPreferencesEditor =
+		// getSharedPreferences("sp1", MODE_PRIVATE).edit();
+		// sharedPreferencesEditor.putString("name", "张三");
+		// sharedPreferencesEditor.putInt("age", 18);
+		// sharedPreferencesEditor.commit();
+		// //读取数据
+		// SharedPreferences sharedPreferences = getSharedPreferences("sp1",
+		// MODE_PRIVATE);
+		// Log.i("SharedPreferences:name", sharedPreferences.getString("name",
+		// null));
+		// Log.i("SharedPreferences:age", "" + sharedPreferences.getInt("age",
+		// 0));
+
+		// 6.4 sqlLite 数据库存储(239/555)<br>
+
+		// 6.4.2升级数据库(246/555)<br>
+
+		// 6.4.3添加数据
+
+		// 6.4.7 使用 SQL 操作数据库 这个好用
+
+		// 创建数据库
+		// String dbSql="CREATE TABLE yf_student (" +
+		// " id INTEGER PRIMARY KEY autoincrement," +
+		// " name varchar(50) ,"
+		// + " sex varchar(50) "
+		// + ") ";
+		// SQLiteHelperImpl sqLiteOpenHelper=new
+		// SQLiteHelperImpl(this,"appdb1",null,3);
+		// sqLiteOpenHelper.setCreateDbSql(dbSql);
+		//
+		// String dbSql2="CREATE TABLE yf_table1 (" +
+		// " id INTEGER PRIMARY KEY autoincrement," +
+		// " name varchar(50) ,"
+		// + " sex varchar(50) "
+		// + ") ";
+		// sqLiteOpenHelper.setCreateDbSqlList(Arrays.asList(dbSql,dbSql2));
+		// SQLiteDatabase sqLiteDatabase=sqLiteOpenHelper.getWritableDatabase();
+		//
+		// //选择事件
+		// switch (v.getId()) {
+		//
+		//
+		// case R.id.three_button1:
+		// //发送自定义广播
+		// Intent intent = new Intent("LogoutBroadcastReceiver");
+		// // sendBroadcast(intent);
+		// //有序广播
+		// sendOrderedBroadcast(intent, null);
+		//
+		// Log.i("ThreeActivity", intent.toString());
+		//
+		// break;
+		// case R.id.three_button2:
+		// //保存数据
+		// SharedPreferences.Editor sharedPreferencesEditor =
+		// getSharedPreferences("sp1", MODE_PRIVATE).edit();
+		// sharedPreferencesEditor.putString("name", "张三");
+		// sharedPreferencesEditor.putInt("age", 18);
+		// sharedPreferencesEditor.commit();
+		// //读取数据
+		// SharedPreferences sharedPreferences = getSharedPreferences("sp1",
+		// MODE_PRIVATE);
+		// Log.i("SharedPreferences:name", sharedPreferences.getString("name",
+		// null));
+		// Log.i("SharedPreferences:age", "" + sharedPreferences.getInt("age",
+		// 0));
+		//
+		// break;
+		// case R.id.three_button3:
+		//
+		// //添加数据
+		// ContentValues contentValues=new ContentValues();
+		// contentValues.put("name","张三");
+		// contentValues.put("sex","哈哈");
+		// sqLiteDatabase.insert("yf_student",null,contentValues);
+		// contentValues.clear(); //清除ContentValues中的数据
+		// //添加第二条数据
+		// contentValues.put("name","李思");
+		// contentValues.put("sex","女");
+		// sqLiteDatabase.insert("yf_student",null,contentValues);
+		// contentValues.clear();
+		// Log.i("ThreeActivity","insert success");
+		//
+		//
+		//
+		// Log.i("SQLiteOpenHelper", "SQLiteOpenHelper");
+		//
+		//
+		//
+		// break;
+		//
+		// case R.id.three_button4 : //添加按钮
+		// Random random=new Random();
+		// int rno=random.nextInt(1000);
+		// sqLiteDatabase.execSQL("insert into yf_student (name, sex ) values(?,
+		// ?) ",new Object[]{"孙琦"+rno,"哈哈"+rno});
+		// ProgressDialog progressDialog=new ProgressDialog(this);
+		// progressDialog.setTitle("进度");
+		// progressDialog.setMessage("添加中...");
+		// progressDialog.setCancelable(true);
+		// progressDialog.show();
+		// break;
+		//
+		// case R.id.three_button5 : //查询按钮
+		// List<String> datas=new ArrayList<>();
+		// Cursor cursor=sqLiteDatabase.rawQuery("select * from
+		// yf_student",null);
+		// while (cursor.moveToNext()){
+		// Integer id=cursor.getInt(cursor.getColumnIndex("id"));
+		// String name=cursor.getString(cursor.getColumnIndex("name"));
+		// String sex=cursor.getString(cursor.getColumnIndex("sex"));
+		// datas.add("id:"+id+" name:"+name+" sex:"+sex);
+		// }
+		// ArrayAdapter<String> newArrayAdapter=new
+		// ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,datas);
+		// listView1.setAdapter(newArrayAdapter);
+		// break;
+		// case R.id.three_button6 :
+		// sqLiteDatabase.execSQL("delete from yf_student");
+		// Toast.makeText(this,"删除所有数据成功",Toast.LENGTH_SHORT).show();
+		// break;
+		//
+		// default:
+		// break;
+		// }
 		
-	       //保存数据
-			//        SharedPreferences.Editor sharedPreferencesEditor = getSharedPreferences("sp1", MODE_PRIVATE).edit();
-			//        sharedPreferencesEditor.putString("name", "张三");
-			//        sharedPreferencesEditor.putInt("age", 18);
-			//        sharedPreferencesEditor.commit();
-			//        //读取数据
-			//        SharedPreferences sharedPreferences = getSharedPreferences("sp1", MODE_PRIVATE);
-			//        Log.i("SharedPreferences:name", sharedPreferences.getString("name", null));
-			//        Log.i("SharedPreferences:age", "" + sharedPreferences.getInt("age", 0));
-		
-		//6.4 sqlLite 数据库存储(239/555)<br>
-		
-		//6.4.2升级数据库(246/555)<br>
-		
-		
+		//6.5 sqlLite 数据库实战(261/555)<br>
 
 	}
 
