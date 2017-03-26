@@ -611,8 +611,80 @@ public class AndroidDemo {
 		// default:
 		// break;
 		// }
+
+		// 6.5 sqlLite 数据库实战(261/555)<br>
+
+		// 第7章：类容提供器(269/555)<br>
+		/**
+		 * Created by jiangzi on 2017/3/25. 通过该类，提供其他程序访问本程序数据
+		 */
+
+		// public class ContentProviderImpl extends ContentProvider
+
+		// 第8章：运用手机多媒体(299/555)<br>
+
+		// 8.1使用通知
+
+		// 获得通知管理
+		// NotificationManager notificationManager = (NotificationManager)
+		// getSystemService(NOTIFICATION_SERVICE);
+
+		// 设置通知点击后的PendingIntent
+		// Intent detailIntent=new
+		// Intent(this,NotificationDetailActivity.class);
+		// PendingIntent
+		// pendingIntent=PendingIntent.getActivity(this,1,detailIntent,PendingIntent.FLAG_CANCEL_CURRENT);
+		// 创建通知
+		// Notification notification = new
+		// Notification.Builder(this).setSmallIcon(R.drawable.notic_small_icon)
+		// .setTicker("tickerText").setContentTitle("类容标题")
+		// .setContentText("类容文本")
+		// .setContentIntent(pendingIntent)
+		// .setDefaults( Notification.DEFAULT_ALL).build();
+
+		// 设置铃声
+		/*
+		 * Uri soundUri = Uri.fromFile(new File("/system/media/audio/ringtones/
+		 * Basic_tone.ogg")); notification.sound = soundUri;
+		 */
+
+		// 设置振动
+		/*
+		 * long[] vibrates = {0, 1000, 1000, 1000}; notification.vibrate =
+		 * vibrates;
+		 */
+
+		// 设置通知默认效果
+		// notification.defaults = Notification.DEFAULT_ALL;
+
+		// 发送通知() int id(识别哪个通知,即发送的通知id), Notification notification
+		// notificationManager.notify(1, notification);
+
+		// 取消通知
+		// notificationManager.cancel(1);
+
+		// 8.2接收和发送短信(308/555)
+
+		// 8.2.3 发送短信
+
+		// 发送短信
+		// SmsManager smsManager=SmsManager.getDefault();
+		// String to=sendTo.getText().toString();
+		// String content=sendContent.getText().toString();
+		// 设置发送短信后的回调
+		// Intent intent=new Intent("SEND_SMS");
+		// PendingIntent
+		// pendingIntent=PendingIntent.getBroadcast(this,1,intent,0);
+		// 发送文本短信
+		// smsManager.sendTextMessage(to,null,content.toString(),pendingIntent,null);
+		// Toast.makeText(this,"to:"+to+"
+		// content:"+content,Toast.LENGTH_SHORT).show();
+
+		// 8.3调用摄像头和相册
 		
-		//6.5 sqlLite 数据库实战(261/555)<br>
+		//8.4播放多媒体文件
+		
+		//第9章：探究服务,启动异步任务(343/555)<br>
 
 	}
 
