@@ -689,16 +689,71 @@ public class AndroidDemo {
 		// 服务（Service）是 Android 中实现程序后台运行的解决方案，它非常适合用于去执行那
 		// 些不需要和用户交互而且还要求长期运行的任务。服务的运行不依赖于任何用户界面，即使
 		// 当程序被切换到后台，或者用户打开了另外一个应用程序，服务仍然能够保持正常运行。
+
+		// 9.2.3 解析异步消息处理机制
+
+		// 9.3服务的基本用法
+
+		// TODO 有时间了仔细学习服务和安卓
+
+		// 第10章：使用网络技术(378/555)<br>
+
+		// 安卓application类 ：http://www.jianshu.com/p/3138f9c351e8
+
+		// 10.1 WebView的用法
+
+		// android:textAllCaps="false" 设置英文不全部大小(正常显示)
+
+		// 10.2使用http访问网络
+
+		// new Thread(new Runnable() {
+		// @Override
+		// public void run() {
+		// //HttpURLConnection 要放在线程里，异步请求才有效
+		// HttpURLConnection connection = null;
+		// try {
+		// URL url = new URL("https://www.baidu.com");
+		// connection = (HttpURLConnection) url.openConnection();
+		// connection.setRequestMethod("GET");
+		// connection.setConnectTimeout(8000);
+		// connection.setReadTimeout(8000);
+		// //获取输入流，获得服务器响应的类容
+		// InputStream in = connection.getInputStream();
+		// BufferedReader bufferedReader = new BufferedReader(new
+		// InputStreamReader(in));
+		// ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		// int count = 0;
+		// byte[] bufferBytes = new byte[4096];
+		// while (-1 != (count = in.read(bufferBytes))) {
+		// bos.write(bufferBytes);
+		// }
+		// String res = new String(bos.toByteArray(), "UTF-8");
+		// Message message = new Message();
+		// message.obj = res;
+		// handler.sendMessage(message);
+		// Log.i("UrlConnectionActivity", "handler.sendMessage");
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// } finally {
+		// if (null != connection) {
+		// connection.disconnect(); //关闭连接
+		// }
+		// }
+		// }
+		// }).start();
+
+		// <!--ScrollView 滚动视图，文本太多时可以滚动查看-->
+		// <ScrollView
 		
-		//9.2.3 解析异步消息处理机制
+		//10.2.2 使用HttpClient
 		
-		//9.3服务的基本用法
+		//10.4解析json格式数据
 		
-		//TODO 有时间了仔细学习服务和安卓
+		//10.5 TODO 看看OkHttp
 		
-		//第10章：使用网络技术(378/555)<br>
+		//OkHttp使用完全教程 :http://www.jianshu.com/p/ca8a982a116b#
 		
-		//安卓application类 ：http://www.jianshu.com/p/3138f9c351e8
+		//第13章：高级技巧(457/555)<br>
 
 	}
 
