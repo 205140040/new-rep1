@@ -744,16 +744,36 @@ public class AndroidDemo {
 
 		// <!--ScrollView 滚动视图，文本太多时可以滚动查看-->
 		// <ScrollView
+
+		// 10.2.2 使用HttpClient
+
+		// 10.4解析json格式数据
+
+		// 10.5 TODO 看看OkHttp
+
+		// OkHttp使用完全教程 :http://www.jianshu.com/p/ca8a982a116b#
+
+		// 第13章：高级技巧(457/555)<br>
+
+		// 在Module:app 配置文件，
+		// dependencies {
+		// compile fileTree(dir: 'libs', include: ['*.jar'])
+		// androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2',
+		// {
+		// exclude group: 'com.android.support', module: 'support-annotations'
+		// })
+		// compile 'com.android.support:appcompat-v7:25.2.0'
+		// compile 'com.android.support.constraint:constraint-layout:1.0.2'
+		// compile 'com.android.support:design:25.2.0'
+		// testCompile 'junit:junit:4.12'
+		//
+		// //okhttp
+		// compile 'com.squareup.okhttp3:okhttp:3.6.0'
+		// }
 		
-		//10.2.2 使用HttpClient
 		
-		//10.4解析json格式数据
-		
-		//10.5 TODO 看看OkHttp
-		
-		//OkHttp使用完全教程 :http://www.jianshu.com/p/ca8a982a116b#
-		
-		//第13章：高级技巧(457/555)<br>
+		// Android
+		// Studio导入第三方jar包或依赖工程的方法:blog.csdn.net/u012816314/article/details/50208299
 
 	}
 
