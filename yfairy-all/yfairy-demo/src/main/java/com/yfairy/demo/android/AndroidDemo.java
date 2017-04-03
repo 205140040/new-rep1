@@ -770,10 +770,33 @@ public class AndroidDemo {
 		// //okhttp
 		// compile 'com.squareup.okhttp3:okhttp:3.6.0'
 		// }
-		
-		
+
 		// Android
 		// Studio导入第三方jar包或依赖工程的方法:blog.csdn.net/u012816314/article/details/50208299
+
+		// 13.1 全局获取 Context 的技巧
+		// Android 提供了一个 Application 类，每当应用程序启动的时候，系统就会自动将这个类
+		// 进行初始化。而我们可以定制一个自己的 Application 类，以便于管理程序内一些全局的状态
+		// 信息，比如说全局 Context。
+
+		// 13.2 使用 Intent 传递对象(461/555)
+
+		// bar 英[bɑ:(r)]
+		// 美[bɑ:r]
+		// n. 条，棒; （门、窗等的） 闩; 障碍; 酒吧间;
+		// vt. 闩（门等）; 阻碍，封锁; 排除，去除;
+		
+		//13.3定制自己的日志工具
+		
+		//看完了
+		
+		//TODO (TitleBar)Android项目中自定义顶部标题栏:http://blog.csdn.net/gao_chun/article/details/45255929 
+		
+		//TODO UI-BottomNavigationBar-底部导航栏：http://www.jianshu.com/p/134d7847a01e#
+		
+		//TODO 3.4.2 创建自定义控件
+		
+		//TODO 3.5 最常用和最难用的控件——ListView
 
 	}
 
