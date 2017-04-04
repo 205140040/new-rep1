@@ -27,7 +27,7 @@ public class MobileHelloController {
 		List<User> users = new ArrayList<>();
 		Calendar c=Calendar.getInstance();
 		Date date=c.getTime();
-		for (int i = 0; i < 150; i++) {
+		for (int i = 0; i < 300; i++) {
 			users.add(UserFactory.newInstance("张三" + (i + 1), "123", 18, date));
 			c.add(Calendar.MINUTE, 2);
 			date=c.getTime();

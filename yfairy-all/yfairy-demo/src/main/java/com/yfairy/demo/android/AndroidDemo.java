@@ -1,5 +1,8 @@
 package com.yfairy.demo.android;
 
+import java.util.Date;
+import java.util.logging.Logger;
+
 public class AndroidDemo {
 
 	public static void main(String[] args) {
@@ -785,18 +788,24 @@ public class AndroidDemo {
 		// 美[bɑ:r]
 		// n. 条，棒; （门、窗等的） 闩; 障碍; 酒吧间;
 		// vt. 闩（门等）; 阻碍，封锁; 排除，去除;
-		
-		//13.3定制自己的日志工具
-		
-		//看完了
-		
-		//TODO (TitleBar)Android项目中自定义顶部标题栏:http://blog.csdn.net/gao_chun/article/details/45255929 
-		
-		//TODO UI-BottomNavigationBar-底部导航栏：http://www.jianshu.com/p/134d7847a01e#
-		
-		//TODO 3.4.2 创建自定义控件
-		
-		//TODO 3.5 最常用和最难用的控件——ListView
+
+		// 13.3定制自己的日志工具
+
+		// 看完了
+
+		// TODO
+		// (TitleBar)Android项目中自定义顶部标题栏:http://blog.csdn.net/gao_chun/article/details/45255929
+
+		// TODO
+		// UI-BottomNavigationBar-底部导航栏：http://www.jianshu.com/p/134d7847a01e#
+
+		// TODO 3.4.2 创建自定义控件
+
+		// TODO 3.5 最常用和最难用的控件——ListView
+
+		System.out.println(new Date());
+		Logger.getGlobal().info("success...");
+		System.out.println("hello");
 
 	}
 

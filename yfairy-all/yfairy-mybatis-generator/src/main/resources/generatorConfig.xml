@@ -20,7 +20,7 @@
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://localhost:3306/test" userId="root"
-			password="hycroot">
+			password="root123">
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -49,9 +49,9 @@
 			enableSelectByExample="false" enableDeleteByExample="false"
 			enableCountByExample="false" enableUpdateByExample="false"
 			selectByExampleQueryId="false" />
-		<!-- <table tableName="yf_user" domainObjectName="User"
+		 <table tableName="yf_student" domainObjectName="Student"
 			enableSelectByExample="false" enableDeleteByExample="false"
 			enableCountByExample="false" enableUpdateByExample="false"
-			selectByExampleQueryId="false" /> -->
+			selectByExampleQueryId="false" /> 
 	</context>
 </generatorConfiguration>
