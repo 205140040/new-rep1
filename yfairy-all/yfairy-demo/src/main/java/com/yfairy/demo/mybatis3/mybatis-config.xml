@@ -3,6 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!-- 配置属性文件 -->
+	<properties resource="jdbc.properties">
+		<property name="password" value="root123" />
+	</properties>
+	<!-- 设置 -->
+	<settings>
+		<!-- 该配置影响的所有映射器中配置的缓存的全局开关。 -->
+		<setting name="cacheEnabled" value="true" />
+		<!--指定 MyBatis 增加到日志名称的前缀。 -->
+		<setting name="logPrefix" value="MylogPrefix" />
+	</settings>
+	<!-- 无论是 MyBatis 在预处理语句（PreparedStatement）中设置一个参数时， -->
+	<!-- 还是从结果集中取出一个值时， 都会用类型处理器将获取的值以合适的方式转换成 -->
+	<!-- Java 类型。下表描述了一些默认的类型处理器。 -->
+	<typeHandlers>
+		<typeHandler handler="com.yfairy.demo.mybatis3.MyStringTypeHandler"
+			javaType="java.lang.String" jdbcType="VARCHAR" />
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"
+			javaType="java.math.RoundingMode" />
+	</typeHandlers>
+	<!-- 对象工厂，在获得返回对象时调用 -->
+	<objectFactory type="com.yfairy.demo.mybatis3.MyObjectFactory">
+		<property name="p1" value="p1val"/>
+	</objectFactory>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
@@ -10,12 +34,12 @@
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url"
 					value="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8" />
-				<property name="username" value="root" />
-				<property name="password" value="root123" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
 	</environments>
-	<!-- 配置mappers 12345-->
+	<!-- 配置mappers 12345 -->
 	<mappers>
 		<mapper resource="com/yfairy/demo/mybatis3/StudentMapper.xml" />
 	</mappers>

@@ -3,45 +3,66 @@ package com.yfairy.demo.mybatis3;
 import java.io.Serializable;
 
 public class Student implements Serializable {
-    private Integer id;
+	private Integer id;
 
-    private String name;
+	private IntEnum enumId;
 
-    private String sex;
+	private String name;
 
-    private Integer age;
+	private String sex;
 
-    private static final long serialVersionUID = 1L;
+	private Integer age;
 
-    public Integer getId() {
-        return id;
-    }
+	private String addName;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private static final long serialVersionUID = 1L;
 
-    public String getName() {
-        return name;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getSex() {
-        return sex;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public Integer getAge() {
-        return age;
-    }
+	public String getSex() {
+		return sex;
+	}
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+	public void setSex(String sex) {
+		this.sex = sex == null ? null : sex.trim();
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
+	public IntEnum getEnumId() {
+		return enumId;
+	}
+
+	public void setEnumId(IntEnum enumId) {
+		this.enumId = enumId;
+	}
+
+	public String getAddName() {
+		return addName;
+	}
+
+	public void setAddName(String addName) {
+		this.addName = addName;
+	}
+
 }

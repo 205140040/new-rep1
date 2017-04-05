@@ -14,6 +14,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import org.apache.ibatis.type.StringTypeHandler;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -54,6 +55,13 @@ public class MyBatis3Demo {
 		StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
 		Student student = studentMapper.selectByPrimaryKey(3);
 		System.out.println(JSON.toJSONString(student));
+
+		// 使用注解查询
+		Student student2 = studentMapper.selectByPrimaryKeyAnnotation(2);
+		System.out.println(JSON.toJSONString(student2));
+
+		Student student3 = studentMapper.selectByPrimaryKey(5);
+		System.out.println(JSON.toJSONString(student3));
 		sqlSession.close(); // 关闭sqlSession
 
 		// 作用域（Scope）和生命周期
@@ -74,6 +82,36 @@ public class MyBatis3Demo {
 		//
 		// 映射器是创建用来绑定映射语句的接口。映射器接口的实例是从 SqlSession 中获得的。因此从技术层面讲，映射器实例的最大作用域是和
 		// SqlSession 相同的，因为它们都是从 SqlSession 里被请求的。
+
+		// 第2章：XML配置
+
+		// <!-- 配置属性文件 -->
+		// resource指定文件目录
+		// <property name="password" value="root123" />直接在配置文件中设置property
+		// <properties resource="jdbc.properties">
+		// <property name="password" value="root123" />
+		// </properties>
+
+		// settings
+		// 这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为。
+		// 下表描述了设置中各项的意图、默认值等。
+
+		// <!-- 无论是 MyBatis 在预处理语句（PreparedStatement）中设置一个参数时， --> <br>
+		// <!-- 还是从结果集中取出一个值时， 都会用类型处理器将获取的值以合适的方式转换成 --><br>
+		// <!-- Java 类型。下表描述了一些默认的类型处理器。 --><br>
+		// <typeHandlers><br>
+		// <typeHandler handler="com.yfairy.demo.mybatis3.MyStringTypeHandler"
+		// <br>
+		// javaType="java.lang.String" jdbcType="VARCHAR" /> <br>
+		// </typeHandlers> <br>
+		// StringTypeHandler
+
+		// 对象工厂（objectFactory）
+		// MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。
+		// 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。
+		// 如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现。比如：
+		
+		//到插件  插件（plugins）
 
 	}
 
