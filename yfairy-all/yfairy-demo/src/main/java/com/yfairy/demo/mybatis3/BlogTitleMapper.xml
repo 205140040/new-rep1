@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfairy.demo.mybatis3.BlogTitleMapper">
+
+	<!-- select -->
+	<select id="selectBlogTitleMap" parameterType="int" resultType="hashmap">
+		select
+		<include refid="base_column" />
+		from blog_title where id=#{id}
+	</select>
+
+	<insert id="insert" parameterType="com.yfairy.demo.mybatis3.BlogTitle"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		blog_title(title,create_time)
+		values(#{title},#{createTime})
+	</insert>
+
+	<update id="updateById" parameterType="com.yfairy.demo.mybatis3.BlogTitle">
+		update blog_title set
+		title=#{title},create_time=#{createTime}
+		where id=#{id}
+	</update>
+
+	<!-- sql 可被其他地方include 复用 -->
+	<sql id="base_column">
+		id,title,create_time
+	</sql>
+
+	<select id="listBlogTitle" resultType="com.yfairy.demo.mybatis3.BlogTitle"
+		parameterType="string">
+		select
+		<include refid="base_column" />
+		from blog_title order by ${_parameter}
+	</select>
+</mapper>

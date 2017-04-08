@@ -14,7 +14,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
-import org.apache.ibatis.type.StringTypeHandler;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -110,8 +109,46 @@ public class MyBatis3Demo {
 		// MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。
 		// 默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。
 		// 如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现。比如：
-		
-		//到插件  插件（plugins）
+
+		// 到插件 插件（plugins）
+
+		// 插件（plugins）
+		// MyBatis 允许你在已映射语句执行过程中的某一点进行拦截调用。默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：
+		//
+		// Executor (update, query, flushStatements, commit, rollback,
+		// getTransaction, close, isClosed)
+		// ParameterHandler (getParameterObject, setParameters)
+		// ResultSetHandler (handleResultSets, handleOutputParameters)
+		// StatementHandler (prepare, parameterize, batch, update, query)
+
+		// 映射器（mappers）
+		// 既然 MyBatis 的行为已经由上述元素配置完了，我们现在就要定义 SQL 映射语句了。但是首先我们需要告诉 MyBatis
+		// 到哪里去找到这些语句。 Java 在自动查找这方面没有提供一个很好的方法，所以最佳的方式是告诉 MyBatis
+		// 到哪里去找映射文件。你可以使用相对于类路径的资源引用， 或完全限定资源定位符（包括 file:/// 的 URL），或类名和包名等。例如：
+
+		// <!-- Using classpath relative resources -->
+		// <mappers>
+		// <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
+		// <mapper resource="org/mybatis/builder/BlogMapper.xml"/>
+		// <mapper resource="org/mybatis/builder/PostMapper.xml"/>
+		// </mappers>
+		// <!-- Using url fully qualified paths -->
+		// <mappers>
+		// <mapper url="file:///var/mappers/AuthorMapper.xml"/>
+		// <mapper url="file:///var/mappers/BlogMapper.xml"/>
+		// <mapper url="file:///var/mappers/PostMapper.xml"/>
+		// </mappers>
+		// <!-- Using mapper interface classes -->
+		// <mappers>
+		// <mapper class="org.mybatis.builder.AuthorMapper"/>
+		// <mapper class="org.mybatis.builder.BlogMapper"/>
+		// <mapper class="org.mybatis.builder.PostMapper"/>
+		// </mappers>
+		// <!-- Register all interfaces in a package as mappers -->
+		// <mappers>
+		// <package name="org.mybatis.builder"/>
+		// </mappers>
+		// 这些配置会告诉了 MyBatis 去哪里找映射文件，剩下的细节就应该是每个 SQL 映射文件了，也就是接下来我们要讨论的。
 
 	}
 

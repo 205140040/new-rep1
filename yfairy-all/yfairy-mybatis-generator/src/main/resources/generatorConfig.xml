@@ -49,9 +49,19 @@
 			enableSelectByExample="false" enableDeleteByExample="false"
 			enableCountByExample="false" enableUpdateByExample="false"
 			selectByExampleQueryId="false" />
-		 <table tableName="yf_student" domainObjectName="Student"
+		<table tableName="yf_student" domainObjectName="Student"
 			enableSelectByExample="false" enableDeleteByExample="false"
 			enableCountByExample="false" enableUpdateByExample="false"
-			selectByExampleQueryId="false" /> 
+			selectByExampleQueryId="false" />
+
+		<!-- -->
+		<table tableName="blog_title" domainObjectName="BlogTitle"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableCountByExample="false" enableUpdateByExample="false"
+			selectByExampleQueryId="false" />
+		<table tableName="blog_content" domainObjectName="BlogContent"
+			enableSelectByExample="false" enableDeleteByExample="false"
+			enableCountByExample="false" enableUpdateByExample="false"
+			selectByExampleQueryId="false" />
 	</context>
 </generatorConfiguration>

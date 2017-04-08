@@ -19,12 +19,14 @@ public class MyStringTypeHandler extends BaseTypeHandler<String> {
 	@Override
 	public String getNullableResult(ResultSet rs, String columnName) throws SQLException {
 		System.err.println(this.getClass().getName() + "\t" + columnName + "\t getNullableResult");
+		System.err.println(this.getClass());
 		return rs.getString(columnName);
 	}
 
 	@Override
 	public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
 		System.err.println(this.getClass().getName() + "\t" + columnIndex + "\t getNullableResult");
+		System.err.println(this.getClass());
 		return rs.getString(columnIndex);
 	}
 
