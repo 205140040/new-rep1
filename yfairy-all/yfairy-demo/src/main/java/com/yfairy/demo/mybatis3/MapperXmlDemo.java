@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,8 +42,10 @@ public class MapperXmlDemo {
 		// SELECT * FROM PERSON WHERE ID = #{id}
 		// </select>
 
-		Map<String, Object> resultMap = blogTitleMapper.selectBlogTitleMap(1);
-		System.out.println(resultMap);
+		Object resultMap = blogTitleMapper.selectBlogTitleMap(1);
+		// Object resultMap = blogTitleMapper.selectBlogTitleMap(1);
+
+		System.err.println(resultMap);
 
 		// 添加
 		// useGeneratedKeys="true" keyProperty="id" 配置返回主键
@@ -56,7 +57,7 @@ public class MapperXmlDemo {
 		BlogTitle insertBlogTitle = new BlogTitle();
 		insertBlogTitle.setTitle("酱酱的博客" + new Date().toLocaleString());
 		insertBlogTitle.setCreateTime(new Date());
-		int result = blogTitleMapper.insert(insertBlogTitle);
+		// int result = blogTitleMapper.insert(insertBlogTitle);
 		System.out.println("主键:" + insertBlogTitle.getId());
 
 		// 修改
@@ -81,8 +82,12 @@ public class MapperXmlDemo {
 
 		List<BlogTitle> blogTitles = blogTitleMapper.listBlogTitle(" create_time desc ");
 		for (BlogTitle blogTitle : blogTitles) {
-			System.out.println(JSON.toJSONString(blogTitle));
+			// System.out.println("author:"+JSON.toJSONString(blogTitle.getAuthor()));
+			System.err.println(JSON.toJSONString(blogTitle));
 		}
+
+		List<BlogTitle> blogTitles2 = blogTitleMapper.listBlogTitle(" create_time desc ");
+		System.out.println(blogTitles2);
 
 		// 自动映射
 		// 正如你在前面一节看到的，在简单的场景下，MyBatis可以替你自动映射查询结果。 如果遇到复杂的场景，你需要构建一个result map。
@@ -96,9 +101,50 @@ public class MapperXmlDemo {
 
 		// 到 Result Maps
 
+		// Result Maps
+		// resultMap 元素是 MyBatis 中最重要最强大的元素。它就是让你远离 90%的需要从结果 集中取出数据的 JDBC
+		// 代码的那个东西, 而且在一些情形下允许你做一些 JDBC 不支持的事 情。 事实上, 编写相似于对复杂语句联合映射这些等同的代码,
+		// 也许可以跨过上千行的代码。 ResultMap 的设计就是简单语句不需要明确的结果映射,而很多复杂语句确实需要描述它们 的关系。
+		//
+		// 你已经看到简单映射语句的示例了,但没有明确的 resultMap。比如:
+
+		// 关联对象(关联的嵌套结果)
+		// association
+		// <association property="author" resultMap="blogAuthor"></association>
+
+		// 集合的嵌套查询
+		//
+
+		// <collection property="contents"
+		// ofType="com.yfairy.demo.mybatis3.BlogAuthor"
+		// column="title" select="listBlogContent"></collection>
+		// ofType 代表集合类型,column 代表传入的参数,
+
+		// 缓存 , Cache
+
+		// 缓存
+		// MyBatis 包含一个非常强大的查询缓存特性,它可以非常方便地配置和定制。MyBatis 3
+		// 中的缓存实现的很多改进都已经实现了,使得它更加强大而且易于配置。
+		//
+		// 默认情况下是没有开启缓存的,除了局部的 session 缓存,可以增强变现而且处理循环 依赖也是必须的。要开启二级缓存,你需要在你的
+		// SQL 映射文件中添加一行:
+		//
+		// <cache/>
+		// 字面上看就是这样。这个简单语句的效果如下:
+
+		// 映射语句文件中的所有 select 语句将会被缓存。
+		// 映射语句文件中的所有 insert,update 和 delete 语句会刷新缓存。
+		// 缓存会使用 Least Recently Used(LRU,最近最少使用的)算法来收回。
+		// 根据时间表(比如 no Flush Interval,没有刷新间隔), 缓存不会以任何时间顺序 来刷新。
+		// 缓存会存储列表集合或对象(无论查询方法返回什么)的 1024 个引用。
+		// 缓存会被视为是 read/write(可读/可写)的缓存,意味着对象检索不是共享的,而
+		// 且可以安全地被调用者修改,而不干扰其他调用者或线程所做的潜在修改。
+
 		// 提交事务
-		// Cache
 		sqlSession.commit();
+		
+		//关闭sqlsession
+		sqlSession.close();
 
 	}
 

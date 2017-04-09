@@ -10,7 +10,7 @@ public interface BlogTitleMapper {
 	Integer insert(BlogTitle blogTitle);
 
 	Integer updateById(BlogTitle blogTitle);
-	
+
 	List<BlogTitle> listBlogTitle(String orderbyStr);
 
 }

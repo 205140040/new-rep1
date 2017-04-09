@@ -2,37 +2,70 @@ package com.yfairy.demo.mybatis3;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class BlogTitle implements Serializable {
-    private Integer id;
 
-    private String title;
+	private static final long serialVersionUID = 1L;
 
-    private Date createTime;
+	private Integer id;
 
-    private static final long serialVersionUID = 1L;
+	private String title;
 
-    public Integer getId() {
-        return id;
-    }
+	private Date createTime;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private Integer authorId;
 
-    public String getTitle() {
-        return title;
-    }
+	private BlogAuthor author;
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+	private List<BlogContent> contents;
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title == null ? null : title.trim();
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Integer getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(Integer authorId) {
+		this.authorId = authorId;
+	}
+
+	public BlogAuthor getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(BlogAuthor author) {
+		this.author = author;
+	}
+
+	public List<BlogContent> getContents() {
+		return contents;
+	}
+
+	public void setContents(List<BlogContent> contents) {
+		this.contents = contents;
+	}
+
 }

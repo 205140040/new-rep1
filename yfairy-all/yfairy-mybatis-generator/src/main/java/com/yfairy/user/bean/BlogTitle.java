@@ -10,6 +10,8 @@ public class BlogTitle implements Serializable {
 
     private Date createTime;
 
+    private Integer authorId;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -34,5 +36,13 @@ public class BlogTitle implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 }
