@@ -3,8 +3,7 @@
 <mapper namespace="com.yfairy.demo.mybatis3.BlogTitleMapper">
 	<!-- 使用二级缓存 -->
 	<!-- 要开启二级缓存,你需要在你的 SQL 映射文件中添加一行: <cache/> -->
-	<cache >
-	</cache>
+	<cache />
 
 	<!-- select -->
 	<select id="selectBlogTitleMap" parameterType="int" resultType="hashmap">
@@ -15,6 +14,8 @@
 
 	<insert id="insert" parameterType="com.yfairy.demo.mybatis3.BlogTitle"
 		useGeneratedKeys="true" keyProperty="id">
+		<!-- selectKey自定义主键规则 <selectKey keyProperty="id" order="BEFORE" resultType="int"> 
+			select if(max(id) is null,1,max(id)+2) as id from blog_title </selectKey> -->
 		insert into
 		blog_title(title,create_time)
 		values(#{title},#{createTime})
@@ -45,9 +46,9 @@
 		<id property="id" column="id" />
 		<result property="title" column="title" />
 		<result property="createTime" column="create_time" />
-		<association property="author" resultMap="blogAuthor"></association>
-		<collection property="contents" ofType="com.yfairy.demo.mybatis3.BlogAuthor"
-			column="title" select="listBlogContent"></collection>
+		<!-- <association property="author" resultMap="blogAuthor"></association> 
+			<collection property="contents" ofType="com.yfairy.demo.mybatis3.BlogAuthor" 
+			column="title" select="listBlogContent"></collection> -->
 	</resultMap>
 
 	<resultMap type="com.yfairy.demo.mybatis3.BlogAuthor" id="blogAuthor">
