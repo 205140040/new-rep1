@@ -22,8 +22,15 @@
 	</insert>
 
 	<update id="updateById" parameterType="com.yfairy.demo.mybatis3.BlogTitle">
-		update blog_title set
-		title=#{title},create_time=#{createTime}
+		update blog_title
+		<set>
+			<if test="title!=null and title!='' ">
+				title=#{title},
+			</if>
+			<if test="createTime!=null and createTime!='' ">
+				create_time=#{createTime}
+			</if>
+		</set>
 		where id=#{id}
 	</update>
 
@@ -66,4 +73,30 @@
 		<result property="content" column="content" />
 		<result property="createTime" column="create_time" />
 	</resultMap>
+
+	<select id="listBlogTitleWithCon" parameterType="com.yfairy.demo.mybatis3.BlogTitle"
+		resultType="com.yfairy.demo.mybatis3.BlogTitle">
+		select * from blog_title
+		<!-- <where> <if test="id!=null and id!='' "> AND id=#{id} </if> <choose> 
+			<when test="authorId!=null and authorId!=''"> AND author_id=#{authorId} </when> 
+			</choose> </where> -->
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="id!=null and id!='' ">
+				AND id=#{id}
+			</if>
+			<choose>
+				<when test="authorId!=null and authorId!=''">
+					AND author_id=#{authorId}
+				</when>
+			</choose>
+			<if test="idList!=null">
+				AND id in
+				<foreach collection="idList" item="item" index="index" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</if>
+		</trim>
+		<!-- <trim prefix="SET" prefixOverrides=","></trim> -->
+	</select>
 </mapper>

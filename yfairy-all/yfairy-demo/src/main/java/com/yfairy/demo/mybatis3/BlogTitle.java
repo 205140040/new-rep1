@@ -10,6 +10,8 @@ public class BlogTitle implements Serializable {
 
 	private Integer id;
 
+	private List<Integer> idList;
+
 	private String title;
 
 	private Date createTime;
@@ -66,6 +68,14 @@ public class BlogTitle implements Serializable {
 
 	public void setContents(List<BlogContent> contents) {
 		this.contents = contents;
+	}
+
+	public List<Integer> getIdList() {
+		return idList;
+	}
+
+	public void setIdList(List<Integer> idList) {
+		this.idList = idList;
 	}
 
 }

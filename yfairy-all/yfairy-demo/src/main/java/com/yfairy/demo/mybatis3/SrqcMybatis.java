@@ -1,10 +1,9 @@
 package com.yfairy.demo.mybatis3;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -26,6 +25,8 @@ public class SrqcMybatis {
 		 * 第3章：配置(49/272) <br>
 		 * 第4章：映射器(85/272)<br>
 		 * 第5章：动态sql(131/272)<br>
+		 * 第6章：mybatis的解析和运行原理(139/272)<br>
+		 * 第7章：插件(163/272)<br>
 		 */
 		// Configuration
 		// SqlSessionFactory
@@ -83,7 +84,7 @@ public class SrqcMybatis {
 
 			List<BlogTitle> blogTitles = blogTitleMapper.listBlogTitle("");
 			for (BlogTitle blogTitle : blogTitles) {
-				System.err.println(JSON.toJSONString(blogTitle));
+				// System.err.println(JSON.toJSONString(blogTitle));
 			}
 
 			blogTitleMapper.selectBlogTitleMap(1);
@@ -96,6 +97,67 @@ public class SrqcMybatis {
 			// 现在缓存 <cache /> 貌似不起效，看看是否需要添加mybatis-ehcache,使用ehcache
 			SqlSession sqlSession2 = SqlSessionFactoryUtil.openSqlSession();
 			sqlSession2.getMapper(BlogTitleMapper.class).selectBlogTitleMap(1);
+			System.out.println("hello");
+
+			// trim
+			// 英 [trɪm] 美 [trɪm]
+			// vt.
+			// 装饰;修剪;整理
+			// adj.
+			// 整齐的，整洁的;修长的;苗条的
+			// n.
+			// 修剪;整齐;健康状态;装束
+			// vi.
+			// 削减
+
+			/**
+			 * 动态sql
+			 */
+
+			// if
+			// <if test="id!=null and id!='' ">
+			// AND id=#{id}
+			// </if>
+
+			// choose，相当于switch case
+			// <choose>
+			// <when test=""></when>
+			// <otherwise></otherwise>
+			// </choose>
+
+			// 条件可写在<where></where>中
+
+			// 使用trim 加前缀，等同于使用where
+			// <trim prefix="where" prefixOverrides="and | or" >
+			// </trim>
+
+			// <set>
+			// <if test="username != null">username=#{username},</if>
+			// <if test="password != null">password=#{password},</if>
+			// <if test="email != null">email=#{email},</if>
+			// <if test="bio != null">bio=#{bio}</if>
+			// </set>
+			// 等同于
+			// <trim prefix="SET" suffixOverrides=","></trim>
+			BlogTitle updbt = new BlogTitle();
+			updbt.setId(5);
+			updbt.setTitle("萌么哒");
+			blogTitleMapper.updateById(updbt);
+
+			// foreach 结合in 查询
+			// <if test="idList!=null">
+			// AND id in
+			// <foreach collection="idList" item="item" index="index" open="("
+			// separator="," close=")">
+			// #{item}
+			// </foreach>
+			// </if>
+
+			BlogTitle search = new BlogTitle();
+			// search.setId(5);
+			search.setIdList(Arrays.asList(1, 2, 5, 6));
+			List<BlogTitle> sbt = blogTitleMapper.listBlogTitleWithCon(search);
+			System.err.println(JSON.toJSONString(sbt));
 
 			sqlSession.commit(); // 提交事务
 		} catch (Exception e) {
