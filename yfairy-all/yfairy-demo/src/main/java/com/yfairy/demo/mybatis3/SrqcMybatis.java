@@ -27,6 +27,7 @@ public class SrqcMybatis {
 		 * 第5章：动态sql(131/272)<br>
 		 * 第6章：mybatis的解析和运行原理(139/272)<br>
 		 * 第7章：插件(163/272)<br>
+		 * 第8章：mybatis-spring(180/272)<br>
 		 */
 		// Configuration
 		// SqlSessionFactory
