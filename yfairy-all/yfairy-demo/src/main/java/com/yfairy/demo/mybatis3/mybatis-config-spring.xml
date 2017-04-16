@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置属性文件 -->
+	<properties resource="jdbc.properties">
+		<property name="password" value="root123" />
+	</properties>
+	<!-- 设置 -->
+	<settings>
+		<!-- 该配置影响的所有映射器中配置的缓存的全局开关。 -->
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	<!-- 插件 -->
+	<plugins>
+		<plugin interceptor="com.yfairy.demo.mybatis3.StatementHandlerInterceptor">
+			<property name="p1" value="属性1" />
+		</plugin>
+	</plugins>
+</configuration>
