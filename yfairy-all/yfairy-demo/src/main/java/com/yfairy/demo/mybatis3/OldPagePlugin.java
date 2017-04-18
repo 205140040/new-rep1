@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 import com.yfairy.demo.mybatis3.ReflectHelper;
 
 @Intercepts({ @Signature(type = StatementHandler.class, method = "prepare", args = { Connection.class }) })
-public class PagePlugin implements Interceptor {
+public class OldPagePlugin implements Interceptor {
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	private static String dialect = "";
