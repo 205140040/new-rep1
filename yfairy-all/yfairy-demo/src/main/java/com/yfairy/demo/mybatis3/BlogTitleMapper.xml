@@ -99,4 +99,13 @@
 		</trim>
 		<!-- <trim prefix="SET" prefixOverrides=","></trim> -->
 	</select>
+
+	<select id="pageListBlogTitleWithCon" parameterType="com.yfairy.demo.mybatis3.BlogTitle"
+		resultType="com.yfairy.demo.mybatis3.BlogTitle">
+		select * from blog_title
+		<where>
+			<if test="param.id!=null and param.id!='' "> AND id=#{param.id} </if>
+			<if test="param.title!=null and param.title!='' "> AND title=#{param.title} </if>
+		</where>
+	</select>
 </mapper>

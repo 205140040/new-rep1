@@ -5,7 +5,7 @@
 <configuration>
 	<!-- 配置属性文件 -->
 	<properties resource="jdbc.properties">
-		<property name="password" value="root123" />
+		<property name="password1" value="root123" />
 	</properties>
 	<!-- 设置 -->
 	<settings>
@@ -14,7 +14,7 @@
 	</settings>
 	<!-- 插件 -->
 	<plugins>
-		<plugin interceptor="com.yfairy.demo.mybatis3.StatementHandlerInterceptor">
+		<plugin interceptor="com.yfairy.demo.mybatis3.PagePlugin">
 			<property name="p1" value="属性1" />
 		</plugin>
 	</plugins>

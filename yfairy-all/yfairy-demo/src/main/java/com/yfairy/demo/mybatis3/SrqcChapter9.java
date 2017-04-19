@@ -2,7 +2,7 @@ package com.yfairy.demo.mybatis3;
 
 import java.util.Arrays;
 
-import org.apache.ibatis.binding.MapperProxy;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,12 +15,14 @@ public class SrqcChapter9 {
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/yfairy/demo/mybatis3/mybatis-spring.xml");
 		BlogTitleDao blogTitleDao = context.getBean(BlogTitleDao.class);
 		BlogTitle search = new BlogTitle();
-		// search.setId(5);
 		search.setIdList(Arrays.asList(1, 2, 5, 6));
 		System.out.println();
 		System.err.println("使用MapperFactoryBean 生成 mapper 动态代理类");
 		System.out.println();
 		blogTitleDao.listBlogTitleUseMapperFactoryBean(search);
+
+		search.setId(5);
+		blogTitleDao.pageListBlogTitle(new PageParam(), search);
 
 		// MapperProxy<T>
 
@@ -37,6 +39,22 @@ public class SrqcChapter9 {
 		// TODO 9.5.2 插件分页 (241/272) <br>
 
 		// RowBounds
+
+		final String id = null;
+		final String firstName = null;
+		new SQL() {
+			{
+				SELECT("P.ID, P.USERNAME, P.PASSWORD, P.FIRST_NAME, P.LAST_NAME");
+				FROM("PERSON P");
+				if (id != null) {
+					WHERE("P.ID like #{id}");
+				}
+				if (firstName != null) {
+					WHERE("P.FIRST_NAME like #{firstName}");
+				}
+				ORDER_BY("P.LAST_NAME");
+			}
+		}.toString();
 
 	}
 

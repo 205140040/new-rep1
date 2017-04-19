@@ -36,6 +36,15 @@ public class BlogTitleDao {
 		List<BlogTitle> blogTitles = blogTitleMapper.listBlogTitleWithCon(search);
 		System.err.println(JSON.toJSONString(blogTitles));
 		System.err.println("BlogTitleDao use MapperFactoryBean end...");
+
+	}
+
+	public void pageListBlogTitle(PageParam pageParam, BlogTitle search) {
+		System.err.println("分页插件...");
+		pageParam.setParam(search);
+		List<BlogTitle> blogTitles = blogTitleMapper.pageListBlogTitleWithCon(pageParam);
+		System.err.println(JSON.toJSONString(blogTitles));
+		System.err.println("分页插件...");
 	}
 
 	public SqlSessionTemplate getSqlSessionTemplate() {

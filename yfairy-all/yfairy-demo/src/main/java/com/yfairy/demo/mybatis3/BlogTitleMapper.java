@@ -14,4 +14,7 @@ public interface BlogTitleMapper {
 	List<BlogTitle> listBlogTitle(String orderbyStr);
 
 	List<BlogTitle> listBlogTitleWithCon(BlogTitle search);
+
+	List<BlogTitle> pageListBlogTitleWithCon(PageParam pageParam);
+
 }
