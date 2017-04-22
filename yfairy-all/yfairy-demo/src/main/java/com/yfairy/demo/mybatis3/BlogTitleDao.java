@@ -44,6 +44,8 @@ public class BlogTitleDao {
 		pageParam.setParam(search);
 		List<BlogTitle> blogTitles = blogTitleMapper.pageListBlogTitleWithCon(pageParam);
 		System.err.println(JSON.toJSONString(blogTitles));
+		System.out.println();
+		System.err.println("PageParam：" + JSON.toJSONString(pageParam));
 		System.err.println("分页插件...");
 	}
 

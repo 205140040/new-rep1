@@ -106,6 +106,7 @@
 		<where>
 			<if test="param.id!=null and param.id!='' "> AND id=#{param.id} </if>
 			<if test="param.title!=null and param.title!='' "> AND title=#{param.title} </if>
+			<if test="param.authorId!=null and param.authorId!='' "> AND author_id=#{param.authorId} </if>
 		</where>
 	</select>
 </mapper>

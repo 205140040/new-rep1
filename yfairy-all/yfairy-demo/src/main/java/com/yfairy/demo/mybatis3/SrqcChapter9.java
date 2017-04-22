@@ -21,8 +21,12 @@ public class SrqcChapter9 {
 		System.out.println();
 		blogTitleDao.listBlogTitleUseMapperFactoryBean(search);
 
-		search.setId(5);
-		blogTitleDao.pageListBlogTitle(new PageParam(), search);
+		// search.setId(6);
+		search.setAuthorId(3);
+		PageParam pageParam = new PageParam();
+		pageParam.setPage(1);
+		pageParam.setPageSize(15);
+		blogTitleDao.pageListBlogTitle(pageParam, search);
 
 		// MapperProxy<T>
 
