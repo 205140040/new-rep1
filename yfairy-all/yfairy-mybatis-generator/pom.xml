@@ -7,12 +7,20 @@
 		<groupId>com.yfairy</groupId>
 		<artifactId>yfairy-all</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+
 	</parent>
 	<artifactId>yfairy-mybatis-generator</artifactId>
 	<name>yfairy-mybatis-generator</name>
 	<url>http://maven.apache.org</url>
 	<properties>
+		<!-- 设置使用UTF-8编码 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- 版本管理 -->
+		<junit.version>4.11</junit.version>
+		<spring.version>4.2.5.RELEASE</spring.version>
+		<mysql.version>5.1.26</mysql.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -24,6 +32,24 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.2.8</version>
+		</dependency>
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+		</dependency>
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
