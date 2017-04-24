@@ -106,6 +106,8 @@ public class GeneratorRun {
 		 * 使用XML配置文件从Java运行MBG
 		 */
 		// runGenerator();
+		
+		System.out.println("keng");
 
 		Logger.getGlobal().info("success...");
 
