@@ -150,6 +150,7 @@ public class MyBatis3Demo {
 		// </mappers>
 		// 这些配置会告诉了 MyBatis 去哪里找映射文件，剩下的细节就应该是每个 SQL 映射文件了，也就是接下来我们要讨论的。
 
+		System.out.println("bb hub");
 	}
 
 	// 从 XML 中构建 SqlSessionFactory
